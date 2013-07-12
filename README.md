@@ -1,4 +1,0 @@
-bakerycms
-=========
-
-Bakery CMS
