@@ -1,0 +1,33 @@
+<?php
+
+class DATABASE_CONFIG {
+
+    var $default = array(
+        'datasource' => 'Database/MySql',
+        'persistent' => false,
+        'host' => '{dbHost}',
+        'login' => '{dbUser}',
+        'password' => '{dbPass}',
+        'database' => '{dbName}',
+        'prefix' => '',
+    );
+
+
+    var $test = array(
+        'datasource' => 'Database/MySql',
+        'persistent' => false,
+        'host' => '{dbHost}',
+        'login' => '{dbUser}',
+        'password' => '{dbPass}',
+        'database' => '{dbName}_test',
+        'prefix' => '',
+    );
+
+    function __construct()
+    {
+        if( defined('USE_TEST_DATABASE_CONFIG') && USE_TEST_DATABASE_CONFIG )
+        {
+            $this->default = $this->test;
+        }
+    }
+}

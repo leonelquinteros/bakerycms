@@ -1,0 +1,333 @@
+# Spanish version for Bakery CMS
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2010-05-17 11:20-0300\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "Edit content"
+msgstr "Editar contenido"
+
+msgid "You need to install some modules yet..."
+msgstr "Todavía necesita instalar algunos modulos..."
+
+msgid "Login incorrect"
+msgstr "Inicio de sesión incorrecto"
+
+msgid "Welcome"
+msgstr "Bienvenido"
+
+msgid "Administrators"
+msgstr "Administradores"
+
+msgid "CMS Administrators"
+msgstr "Administradores del sistema"
+
+msgid "New Administrator"
+msgstr "Nuevo administrador"
+
+msgid "Edit "
+msgstr "Editar "
+
+msgid "Actions"
+msgstr "Acciones"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Username"
+msgstr "Usuario"
+
+msgid "This username is invalid or has already been taken, pick another one using alphabets and numbers only"
+msgstr "El nombre de usuario es inválido o está siendo utilizado por otra persona. Escoja otro usando sólo letras y números"
+
+msgid "Password (use only to change)"
+msgstr "Contraseña"
+
+msgid "Invalid password"
+msgstr "Contraseña inválida"
+
+msgid "Full name"
+msgstr "Nombre completo"
+
+msgid "Mandatory"
+msgstr "Obligatorio"
+
+msgid "E-Mail"
+msgstr "E-Mail"
+
+msgid "Invalid E-Mail"
+msgstr "E-Mail inválido"
+
+msgid "Comments"
+msgstr "Observaciones"
+
+msgid "Create"
+msgstr "Crear"
+
+msgid "New administrator"
+msgstr "Nuevo administrador"
+
+msgid "Login"
+msgstr "Iniciar sesión"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "E-mail"
+msgstr "E-Mail"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Are you sure you want to delete "
+msgstr "Está seguro que desea eliminar "
+
+msgid "Media gallery"
+msgstr "Galería multimedia"
+
+msgid "There was an error saving your file"
+msgstr "Hubo un herror guardando su archivo"
+
+msgid "Edit file"
+msgstr "Editar archivo"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Add"
+msgstr "Agregar"
+
+msgid "Upload file"
+msgstr "Subir archivo"
+
+msgid "File"
+msgstr "Archivo"
+
+msgid "Width"
+msgstr "Ancho"
+
+msgid "Height"
+msgstr "Alto"
+
+msgid "Insert media"
+msgstr "Agregar archivo"
+
+msgid "Menus"
+msgstr "Menúes"
+
+msgid "menu"
+msgstr "menú"
+
+msgid "Sub-menu"
+msgstr "Submenú"
+
+msgid "Add sub-menu link"
+msgstr "Agregar submenú"
+
+msgid "Add sub-menu page link"
+msgstr "Agregar página como submenú"
+
+msgid "Menu title"
+msgstr "Título del menu"
+
+msgid "Menu link"
+msgstr "Enlace del menú"
+
+msgid "Add this page"
+msgstr "Agregar esta página"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Menu"
+msgstr "Menú"
+
+msgid "Add link"
+msgstr "Agregar enlace"
+
+msgid "Add page link"
+msgstr "Agregar página como enlace"
+
+msgid "Pages"
+msgstr "Páginas"
+
+msgid "CMS Pages"
+msgstr "Páginas CMS"
+
+msgid "New Page"
+msgstr "Nueva página"
+
+msgid "Edit Page "
+msgstr "Editar página "
+
+msgid "Page Title"
+msgstr "Título de la página"
+
+msgid "This field cannot be empty"
+msgstr "Este campo no puede quedar vacío"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Another page is using this URL, please choose another one"
+msgstr "Otra página ya está utilizando esta URL, elija otra por favor."
+
+msgid "Page layout"
+msgstr "Esquema de página"
+
+msgid "Publish information"
+msgstr "Información de publicación"
+
+msgid "SEO Information"
+msgstr "Información de SEO"
+
+msgid "SEO Title"
+msgstr "Título para SEO"
+
+msgid "SEO Keywords"
+msgstr "Palabras claves para SEO"
+
+msgid "SEO Description"
+msgstr "Descripción para SEO"
+
+msgid "New page"
+msgstr "Nueva página"
+
+msgid "Add media"
+msgstr "Insertar multimedia"
+
+msgid "Save content"
+msgstr "Guardar contenido"
+
+msgid "Publish"
+msgstr "Publicada"
+
+msgid "English"
+msgstr "Inglés"
+
+msgid "Dutch"
+msgstr "Holandés"
+
+msgid "Spanish"
+msgstr "Español"
+
+msgid "French"
+msgstr "Francés"
+
+msgid "Italian"
+msgstr "Italiano"
+
+msgid "German"
+msgstr "Alemán"
+
+msgid "No name"
+msgstr "Sin nombre"
+
+msgid "Please enter your username and password to login"
+msgstr "Ingrese su usuario y contraseña para ingresar"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Log out"
+msgstr "Cerrar sesión"
+
+msgid "There is not home page created"
+msgstr "No hay página de inicio creada"
+
+msgid "News"
+msgstr "Noticias"
+
+msgid "New new"
+msgstr "Nueva noticia"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Back to news"
+msgstr "Volver a noticias"
+
+msgid "Resume"
+msgstr "Resumen"
+
+msgid "Content"
+msgstr "Contenido"
+
+msgid "Save page"
+msgstr "Guardar página"
+
+msgid "Back to pages"
+msgstr "Volver a páginas"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "January"
+msgstr "Enero"
+
+msgid "February"
+msgstr "Febrero"
+
+msgid "March"
+msgstr "Marzo"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "May"
+msgstr "Mayo"
+
+msgid "June"
+msgstr "Junio"
+
+msgid "July"
+msgstr "Julio"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "September"
+msgstr "Septiembre"
+
+msgid "October"
+msgstr "Octubre"
+
+msgid "November"
+msgstr "Noviembre"
+
+msgid "December"
+msgstr "Diciembre"
+
+msgid "Publish"
+msgstr "Publicar"
+
+msgid "Non publish"
+msgstr "No publicar"
+
+msgid "Pages in"
+msgstr "Páginas en"
