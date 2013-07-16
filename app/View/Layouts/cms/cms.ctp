@@ -142,7 +142,7 @@
         </div>
 
         <div id="bakery-bottom">
-            &copy; Copyright 2013 <?php if(date('Y') > 2013) echo '- ' . date('Y'); ?> <a href="http://leonelquinteros.github.io/">Leonel Quinteros</a>
+            &copy; Copyright 2013 <?php if(date('Y') > 2013) echo '- ' . date('Y'); ?> <a href="http://leonelquinteros.github.io/bakerycms">Bakery CMS</a>
         </div>
 
         <?php
