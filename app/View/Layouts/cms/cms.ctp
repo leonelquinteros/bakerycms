@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php echo $this->Html->docType('html5'); ?>
 
 <html>
     <head>
@@ -10,15 +10,7 @@
         echo $this->Html->css('cms/cms');
         echo $this->Html->css('flick/jquery-ui-1.10.3.custom.min');
 
-        /**
-         * Dynamically includes CSSs
-         */
-        foreach($includeCss as $css)
-        {
-            ?>
-            <link rel="stylesheet" type="text/css" href="<?php echo $this->Html->url($css['plugin'].'/css/'.$css['file']); ?>" />
-            <?php
-        }
+        echo $this->fetch('css');
 
         echo $this->Html->script('jquery-1.9.1');
         echo $this->Html->script('jquery.tools.min');
@@ -33,15 +25,7 @@
             echo $this->Html->script('MediaGallery.cms.media.gallery.js');
         }
 
-        /**
-         * Dynamically includes JSs
-         */
-        foreach($includeJs as $js)
-        {
-            ?>
-            <script type="text/javascript" src="<?php echo $this->Html->url($js['plugin'].'/js/'.$js['file']); ?>"></script>
-            <?php
-        }
+        echo $this->fetch('script');
         ?>
 
         <script type="text/javascript">
@@ -147,7 +131,7 @@
 
                 echo "<h1>" . $pageTitle . "</h1>";
 
-                echo $content_for_layout;
+                echo $this->fetch('content');
                 ?>
 
                 <div style="clear:both;"></div>

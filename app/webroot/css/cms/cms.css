@@ -11,7 +11,7 @@
         border: none;
     }
 
-    body {
+    body{
         font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
         font-size: 12px;
         text-align: center;
@@ -150,11 +150,11 @@
         box-shadow: 0px 1px 15px #373737;
     }
 
-    #homeMenuContainer {
+    #bakery-home {
         clear: both;
     }
 
-        .homeBox {
+        .bakery-home-box {
             margin: 20px 20px 0px 20px;
             overflow: hidden;
             position: relative;
@@ -163,7 +163,7 @@
             text-align: left;
         }
 
-            .homeBoxTop {
+            .bakery-home-box-top {
                 position: relative;
                 height: 16px;
                 padding: 7px 10px;
@@ -185,7 +185,7 @@
                 background: linear-gradient(top, #444444, #212121);
             }
 
-            .homeBoxContent {
+            .bakery-home-box-content {
                 position: relative;
                 background: #ffffff;
                 background: -moz-linear-gradient(top, #ffffff, #dddddd);
@@ -204,15 +204,15 @@
                 padding: 10px;
             }
 
-            .homeBoxContent a {
+            .bakery-home-box-content a {
                 line-height: 3em;
             }
 
-            .homeBoxContent img {
+            .bakery-home-box-content img {
                 vertical-align: -20%;
             }
 
-            .homeBoxContent hr {
+            .bakery-home-box-content hr {
                 margin: 15px 0px;
             }
 

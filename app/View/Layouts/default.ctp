@@ -1,18 +1,27 @@
-<!DOCTYPE html>
+<?php echo $this->Html->docType('html5'); ?>
+
 <html>
     <head>
         <title>Bakery CMS</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Bootstrap -->
-        <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="/css/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <?php
+        echo $this->fetch('meta');
 
-        <link href="/css/default.css" rel="stylesheet" media="screen">
+        echo $this->Html->css('bootstrap/css/bootstrap.min');
+        echo $this->Html->css('bootstrap/css/bootstrap-responsive.min');
+        echo $this->Html->css('default');
+
+        echo $this->fetch('css');
+
+        echo $this->Html->script('jquery-1.9.1');
+
+        echo $this->fetch('script');
+        ?>
     </head>
 
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse">
           <div class="navbar-inner">
             <div class="container">
               <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -54,10 +63,6 @@
             </footer>
         </div> <!-- /container -->
 
-        <!-- Le javascript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="/js/jquery-1.9.1.js"></script>
         <script src="/css/bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>

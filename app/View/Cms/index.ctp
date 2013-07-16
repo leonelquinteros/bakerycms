@@ -1,9 +1,9 @@
-<div id="homeMenuContainer">
-    <div class="homeBox">
-        <div class="homeBoxTop">
+<div id="bakery-home">
+    <div class="bakery-home-box">
+        <div class="bakery-home-box-top">
             Latest Pages
         </div>
-        <div class="homeBoxContent">
+        <div class="bakery-home-box-content">
             <?php
             foreach($pages as $p)
             {

@@ -35,69 +35,6 @@ class AppController extends Controller
     public $components = array('Session', 'I18n', 'Cookie');
     public $helpers = array('Session', 'Language', 'Html');
 
-    /**
-     * Helper variables and functions to send alternate CSS and JS includes to the view.
-     */
-    public $includeJs = array();
-    public $includeCss = array();
-
-    public function includeJs($js, $plugin = '')
-    {
-        $include = array();
-        $include['file'] = $js;
-        if(!empty($plugin))
-        {
-            $plugin = '/' . $plugin;
-        }
-        $include['plugin'] = $plugin;
-
-        if($this->checkInclusion('includeJs', $include)) {
-            $this->includeJs[] = $include;
-        }
-    }
-
-    public function includeCss($css, $plugin = '')
-    {
-        $include = array();
-        $include['file'] = $css;
-        if(!empty($plugin))
-        {
-            $plugin = '/' . $plugin;
-        }
-        $include['plugin'] = $plugin;
-
-        if($this->checkInclusion('includeCss', $include)) {
-            $this->includeCss[] = $include;
-        }
-    }
-
-    /**
-     * Checks if the included CSS o JS are already in the inclusion array.
-     *
-     * @param (string) $localVar
-     * @param (array) $data
-     * @return (boolean)
-     */
-    private function checkInclusion($localVar, $data)
-    {
-        foreach($this->$localVar as $var)
-        {
-            // Array comparision checks for each pair key/value ('file','plugin')
-            if($var == $data)
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public function beforeRender()
-    {
-        $this->set('includeJs', $this->includeJs);
-        $this->set('includeCss', $this->includeCss);
-    }
-
     public function robots_txt()
     {
         $this->layout = 'empty';
