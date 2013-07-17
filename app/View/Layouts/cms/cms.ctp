@@ -9,6 +9,7 @@
 
         echo $this->Html->css('cms/cms');
         echo $this->Html->css('flick/jquery-ui-1.10.3.custom.min');
+        echo $this->Html->css('MediaGallery.jquery.Jcrop.min.css');
 
         echo $this->fetch('css');
 
@@ -23,6 +24,8 @@
         if(!empty($this->request->params['plugin']))
         {
             echo $this->Html->script('MediaGallery.cms.media.gallery.js');
+            echo $this->Html->script('fileuploader');
+            echo $this->Html->script('MediaGallery.jquery.Jcrop.min.js');
         }
 
         echo $this->fetch('script');
