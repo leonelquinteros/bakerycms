@@ -8,4 +8,3 @@ app/tmp/tests/*
 app/webroot/media/*
 app/[Cc]onfig/core.php
 app/[Cc]onfig/database.php
-app/Plugin/*

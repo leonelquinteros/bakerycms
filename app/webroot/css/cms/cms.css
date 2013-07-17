@@ -866,7 +866,7 @@
                 background: #ffffff;
             }
 
-            #bakery-form .datetime #PagesPagePublishDateMonth, #cmsForm .datetime #NewsNewPublishDateMonth {
+            #bakery-form .datetime #PagesPagePublishDateMonth, #bakery-form .datetime #NewsNewPublishDateMonth {
                 min-width: 120px;
             }
 
