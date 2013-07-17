@@ -51,4 +51,4 @@ Router::connect('/lang/*', array('controller' => 'lang', 'action' => 'change'));
 CakePlugin::routes();
 
 // Pages 'magic' routes. Only at last.
-Router::connect('/*', array('plugin' => 'Pages', 'controller' => 'pages_page', 'action' => 'page'));
+Router::connect('/*', array('plugin' => 'Pages', 'controller' => 'PagesPage', 'action' => 'page'));
