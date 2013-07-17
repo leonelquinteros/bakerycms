@@ -18,8 +18,8 @@
         echo $this->Html->script('jquery-ui-1.10.3.custom.min');
 
         echo $this->Html->script('fileuploader.js');
-        echo $this->Html->script('tiny_mce/tiny_mce.js');
-        echo $this->Html->script('tiny_mce/jquery.tinymce.js');
+        echo $this->Html->script('tinymce/tinymce.min.js');
+        echo $this->Html->script('tinymce/jquery.tinymce.min.js');
 
         if(!empty($this->request->params['plugin']))
         {
