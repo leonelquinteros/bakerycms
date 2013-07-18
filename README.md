@@ -7,7 +7,7 @@ Contribute
 - Use and test the CMS and/or libraries included.
 - Implement new web applications based on Bakery CMS.
 - Report issues/bugs/comments/suggestions on Github
-- Send me your pull requests with descriptions of modifications/new features
+- Fork and send me your pull requests with descriptions of modifications/new features
 
 
 
