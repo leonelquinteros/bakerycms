@@ -33,7 +33,15 @@ $this->Html->script('MediaGallery.jquery.Jcrop.min', array('inline' => false));
     #bakery-cms-edit-toolbar #bakery-editor-toolbar {
         float: left;
         width: 630px;
+        z-index: 100;
+    }
 
+    #bakery-cms-edit-toolbar #toolbar-placeholder {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        color: #ffffff;
+        font-weight: bold;
     }
 
     #bakery-cms-edit-toolbar a.button-large {
@@ -67,6 +75,8 @@ $this->Html->script('MediaGallery.jquery.Jcrop.min', array('inline' => false));
 </style>
 
 <div id="bakery-cms-edit-toolbar">
+    <span id="toolbar-placeholder"><?php echo __d('cms', 'Click on any editable content space to start editing.'); ?></span>
+
     <div id="bakery-editor-toolbar"></div>
 
     <a href="#" class="button-large" onclick="saveContent(); return false;">
@@ -123,8 +133,12 @@ echo $this->requestAction('/' . $page['PagesPage']['url'], array('return'));
 
         // Convert all div.bakery-cms-edit to TinyMCE.
         $('div.bakery-cms-edit').each( function(i, el) {
+            $el = $(el);
+
+            $el.css('outline', '1px dotted rgb(153, 153, 153)');
+
             // Converts DIVs to TinyMCE
-            var tinyEl = $(el).tinymce({
+            var tinyEl = $el.tinymce({
                 // Location of TinyMCE script
                 script_url : '<?php echo $this->Html->url('/js'); ?>/tinymce/tinymce.js',
 
@@ -141,10 +155,10 @@ echo $this->requestAction('/' . $page['PagesPage']['url'], array('return'));
 
                 // Styles
                 content_css : "/css/bootstrap/css/bootstrap.min.css",
-                body_class: $(el).parent().attr('class'),
+                body_class: $el.parent().attr('class'),
 
-                width: $(el).parent().css('width'),
-                height: $(el).parent().css('height')
+                width: $el.parent().css('width'),
+                height: $el.parent().css('height')
             });
         });
     });
