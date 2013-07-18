@@ -36,7 +36,7 @@ abstract class PluginObject {
     /**
      * @var (string) Show in CMS menu.
      */
-    protected $_showInCmsMenu = true;
+    protected $_showInBakeryMenu = true;
 
     /**
      * @var (boolean) Is a submenu.
@@ -67,15 +67,15 @@ abstract class PluginObject {
         return ($this->_hasCmsModule && $this->_showInCmsHome);
     }
 
-    public function showInCmsMenu() {
-        return ($this->_hasCmsModule && $this->_showInCmsMenu);
+    public function showInBakeryMenu() {
+        return ($this->_hasCmsModule && $this->_showInBakeryMenu);
     }
 
     public function isCmsSubMenu() {
         return ($this->_hasCmsModule && $this->_isCmsSubMenu);
     }
 
-    public function getCmsMenuFather()
+    public function getBakeryMenuFather()
     {
         return $this->_cmsMenuFather;
     }

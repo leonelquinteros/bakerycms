@@ -26,7 +26,7 @@ class AdminsCmsController extends AdminsAppController
 {
     public $uses = array('Admins.AdminsAdmin', 'Admins.AdminsAdminsRestriction', 'Pages.PagesPage');
 
-    public $components = array('CmsLogin', 'Breadcrumb', 'CmsMenu');
+    public $components = array('BakeryLogin', 'Breadcrumb', 'BakeryMenu');
 
     public $helpers = array('CmsBreadcrumb', 'CmsWelcome', 'Form');
 
@@ -40,7 +40,7 @@ class AdminsCmsController extends AdminsAppController
         $this->layout = "cms/cms";
 
         // Checks login
-        $this->CmsLogin->checkAdminLogin();
+        $this->BakeryLogin->checkAdminLogin();
 
         $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '/cms');
 
@@ -53,7 +53,7 @@ class AdminsCmsController extends AdminsAppController
             $this->Breadcrumb->addCrumb(__d('cms', 'Administrators'), '/cms/admins');
         }
 
-        $cmsMenu = $this->CmsMenu->getMenu();
+        $cmsMenu = $this->BakeryMenu->getMenu();
         $this->set('cmsMenu', $cmsMenu);
 
         $this->set('pageTitle', 'Administrators');
@@ -73,7 +73,7 @@ class AdminsCmsController extends AdminsAppController
         $admins = $this->AdminsAdmin->find( 'all', array('order' => 'AdminsAdmin.login') );
         $this->set('admins', $admins);
         $this->set('pageTitle', __d('cms', 'CMS Administrators') );
-        $this->set('isSuperAdmin', $this->CmsLogin->isSuperAdmin());
+        $this->set('isSuperAdmin', $this->BakeryLogin->isSuperAdmin());
     }
 
 
@@ -115,7 +115,7 @@ class AdminsCmsController extends AdminsAppController
 
     public function rights($id)
     {
-        $this->CmsLogin->checkAdminRestriction('edit');
+        $this->BakeryLogin->checkAdminRestriction('edit');
 
         $this->data = $this->AdminsAdmin->findById($id);
 
@@ -153,7 +153,7 @@ class AdminsCmsController extends AdminsAppController
 
     public function add_restriction($adminId, $plugin, $operation)
     {
-        $this->CmsLogin->checkAdminRestriction('edit');
+        $this->BakeryLogin->checkAdminRestriction('edit');
 
         App::import('Model', 'Admins.AdminsAdminsRestriction');
 
@@ -172,7 +172,7 @@ class AdminsCmsController extends AdminsAppController
 
     public function remove_restriction($restrictionId)
     {
-        $this->CmsLogin->checkAdminRestriction('edit');
+        $this->BakeryLogin->checkAdminRestriction('edit');
 
         App::import('Model', 'Admins.AdminsAdminsRestriction');
         $restriction = new AdminsAdminsRestriction();
@@ -186,7 +186,7 @@ class AdminsCmsController extends AdminsAppController
 
     public function remove_access($accessId)
     {
-        $this->CmsLogin->checkAdminRestriction('edit');
+        $this->BakeryLogin->checkAdminRestriction('edit');
 
         $data = $this->AdminsAdminsPage->findById($accessId);
 
@@ -197,7 +197,7 @@ class AdminsCmsController extends AdminsAppController
 
     public function add_access($adminId, $pageId, $galleryId)
     {
-        $this->CmsLogin->checkAdminRestriction('edit');
+        $this->BakeryLogin->checkAdminRestriction('edit');
 
         $data = $this->AdminsAdminsPage->create();
         $data['AdminsAdminsPage']['id_admins_admins'] = $adminId;

@@ -24,7 +24,7 @@
  */
 
 /**
- * CmsMenu
+ * BakeryMenu
  * CMS menu generator.
  * It searches into the plugins for the ones that have a [PluginName]CmsController.
  * Generates the menu using a "Plugin CMS Controller Class" convention that is:
@@ -39,7 +39,7 @@
 
 App::import('Lib', 'Plugin');
 
-class CmsMenuComponent extends Component
+class BakeryMenuComponent extends Component
 {
     public $components = array('I18n');
 
@@ -64,36 +64,14 @@ class CmsMenuComponent extends Component
     {
         $lang = $this->I18n->getLanguage();
 
-        $cmsModules = Cache::read('components-CmsMenu-getMenu-' . $lang, 'default');
+        $menu = Cache::read('components-BakeryMenu-getMenu-' . $lang, 'default');
 
-        if($cmsModules === false)
+        if($menu === false)
         {
-            $cmsModules = Plugin::getCmsModulesMenu();
-            $result = Cache::write('components-CmsMenu-getMenu-' . $lang, $cmsModules, 'default');
+            $menu = Plugin::getCmsModulesMenu();
+            Cache::write('components-BakeryMenu-getMenu-' . $lang, $menu, 'default');
         }
 
-        return $cmsModules;
-    }
-
-    /**
-     * getHomeMenu()
-     * Obtains the home menu from Plugin library.
-     * Handles cache.
-     *
-     * @return (array)
-     */
-    public function getHomeMenu()
-    {
-        $lang = $this->I18n->getLanguage();
-
-        $cmsHomeMenu = Cache::read('components-CmsMenu-getHomeMenu-' . $lang, 'default');
-
-        if($cmsHomeMenu === false)
-        {
-            $cmsHomeMenu = Plugin::getCmsHomeMenu();
-            $result = Cache::write('components-CmsMenu-getHomeMenu-' . $lang, $cmsHomeMenu, 'default');
-        }
-
-        return $cmsHomeMenu;
+        return $menu;
     }
 }

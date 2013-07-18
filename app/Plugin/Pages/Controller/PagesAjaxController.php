@@ -26,7 +26,7 @@ class PagesAjaxController extends PagesAppController
 {
     public $name = 'PagesAjax';
     public $uses = array();
-    public $components = array('CmsLogin');
+    public $components = array('BakeryLogin');
     public $helpers = array();
 
 
@@ -36,7 +36,7 @@ class PagesAjaxController extends PagesAppController
         $this->disableCache();
 
         // Checks login
-        $this->CmsLogin->checkAdminLogin();
+        $this->BakeryLogin->checkAdminLogin();
 
         // Disable layout
         $this->layout = false;

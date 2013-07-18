@@ -26,7 +26,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
 {
     public $uses = array('MediaGallery.MediaGalleryFile');
 
-    public $components = array('CmsLogin', 'Breadcrumb', 'CmsMenu');
+    public $components = array('BakeryLogin', 'Breadcrumb', 'BakeryMenu');
 
     public $helpers = array('CmsBreadcrumb', 'CmsWelcome', 'Form');
 
@@ -48,7 +48,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
         $this->layout = "cms/cms";
 
         // Checks login
-        $this->CmsLogin->checkAdminLogin();
+        $this->BakeryLogin->checkAdminLogin();
 
         $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '/cms');
 
@@ -62,7 +62,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
         }
 
 
-        $cmsMenu = $this->CmsMenu->getMenu();
+        $cmsMenu = $this->BakeryMenu->getMenu();
         $this->set('cmsMenu', $cmsMenu);
 
         $this->set('pageTitle', __d('cms', 'Media'));
@@ -93,7 +93,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
 
     public function search()
     {
-        $this->CmsLogin->checkAdminRestriction('index');
+        $this->BakeryLogin->checkAdminRestriction('index');
 
         App::import('Core', 'Sanitize');
 
@@ -150,7 +150,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
 
     public function crop($id)
     {
-        $this->CmsLogin->checkAdminRestriction('edit');
+        $this->BakeryLogin->checkAdminRestriction('edit');
 
         // Crop image
         if(!empty($id) && isset($_POST['x']) && isset($_POST['y']) && !empty($_POST['w']) && !empty($_POST['h']))

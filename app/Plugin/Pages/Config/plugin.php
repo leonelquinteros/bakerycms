@@ -34,7 +34,7 @@ class PagesPlugin extends PluginObject
     /**
      * @var (string) Show in CMS menu.
      */
-    protected $_showInCmsMenu = true;
+    protected $_showInBakeryMenu = true;
 
 
     public function getCmsModuleName()

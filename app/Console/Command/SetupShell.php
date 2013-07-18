@@ -96,14 +96,11 @@ class SetupShell extends AppShell
         $this->out("This is the Bakery CMS setup shell");
         $this->hr();
         $this->out("Usage: \n> Console/cake setup all\nWill run all setup tasks.\n");
-        $this->out("\n> Console/cake setup removeGitignoreLines\nWill remove the .gitignore lines needed.\n");
         $this->out("\n> Console/cake setup checkCacheDirs\nWill check and create all cache directories needed.\n");
-        $this->out("\n> Console/cake setup checkPluginTmpDir\nWill check and create the temp plugin installation directory.\n");
         $this->out("\n> Console/cake setup checkMediaPublicDir\nWill check and create the public media upload directory.\n");
         $this->out("\n> Console/cake setup setWritePermissions\nWill set all needed permissions on dirs.\n");
         $this->out("\n> Console/cake setup setupDatabase\nWill set database configuration and creates the database if not exists.\n");
         $this->out("\n> Console/cake setup createSchema\nWill run the schema shell to create the schemas for each plugin installed.\n");
-        $this->out("\n> Console/cake setup insertData\nWill create DB data needed for some plugins.\n");
         $this->hr(true);
     }
 
@@ -247,7 +244,7 @@ class SetupShell extends AppShell
         {
             if(is_file(CakePlugin::path($pluginName) . '/Config/Schema/schema.php'))
             {
-                system('Console/cake schema create ' . $pluginName);
+                system('Console/cake schema create ' . $pluginName . '.' . $pluginName);
             }
         }
     }

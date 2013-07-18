@@ -34,7 +34,7 @@ class MenusPlugin extends PluginObject
     /**
      * @var (string) Show in CMS menu.
      */
-    protected $_showInCmsMenu = true;
+    protected $_showInBakeryMenu = true;
 
     /**
      * @var (boolean) Is a submenu.

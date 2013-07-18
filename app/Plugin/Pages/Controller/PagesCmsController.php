@@ -25,7 +25,7 @@
 class PagesCmsController extends PagesAppController
 {
     public $uses = array('Pages.PagesPage', 'Pages.PagesPageContent', 'Menus.MenusMenu');
-    public $components = array('CmsLogin', 'Breadcrumb', 'CmsMenu');
+    public $components = array('BakeryLogin', 'Breadcrumb', 'BakeryMenu');
     public $helpers = array('CmsBreadcrumb', 'CmsWelcome', 'Form');
 
     public $paginate = array(
@@ -46,7 +46,7 @@ class PagesCmsController extends PagesAppController
         $this->layout = "cms/cms";
 
         // Checks login
-        $this->CmsLogin->checkAdminLogin();
+        $this->BakeryLogin->checkAdminLogin();
 
         // Breadcrumb
         $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '/cms');
@@ -60,7 +60,7 @@ class PagesCmsController extends PagesAppController
         }
 
         // Menu
-        $cmsMenu = $this->CmsMenu->getMenu();
+        $cmsMenu = $this->BakeryMenu->getMenu();
         $this->set('cmsMenu', $cmsMenu);
 
         // Default title. To override.
@@ -86,7 +86,7 @@ class PagesCmsController extends PagesAppController
 
     public function search()
     {
-        $this->CmsLogin->checkAdminRestriction('index');
+        $this->BakeryLogin->checkAdminRestriction('index');
 
         App::import('Core', 'Sanitize');
 
@@ -196,7 +196,7 @@ class PagesCmsController extends PagesAppController
 
     public function edit_content($id)
     {
-        $this->CmsLogin->checkAdminRestriction('edit');
+        $this->BakeryLogin->checkAdminRestriction('edit');
 
         $this->layout = 'default';
 

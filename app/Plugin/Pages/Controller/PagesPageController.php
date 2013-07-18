@@ -26,7 +26,7 @@ class PagesPageController extends PagesAppController
 {
     public $name = 'PagesPage'; // Jimmy Page
     public $uses = array('Pages.PagesPage', 'Pages.PagesPageContent', 'Menus.MenusMenu');
-    public $components = array('CmsLogin');
+    public $components = array('BakeryLogin');
     public $helpers = array('Text', 'Menus.Submenu');
 
     public function beforeFilter()
@@ -49,7 +49,7 @@ class PagesPageController extends PagesAppController
         // Used for CMS's "Live Edit"
         if(!empty($url))
         {
-            if( $this->CmsLogin->isLoggedIn() )
+            if( $this->BakeryLogin->isLoggedIn() )
             {
                 $pageData = $this->PagesPage->getPage($url);
             }

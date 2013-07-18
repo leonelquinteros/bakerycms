@@ -26,13 +26,13 @@ class MenusAjaxController extends MenusAppController
 {
     public $name = 'MenusAjax';
     public $uses = array('Menus.MenusMenu');
-    public $components = array('CmsLogin');
+    public $components = array('BakeryLogin');
 
 
     public function beforeFilter()
     {
         // Checks login
-        $this->CmsLogin->checkAdminLogin();
+        $this->BakeryLogin->checkAdminLogin();
 
         $this->layout = false;
         $this->autoRender = false;

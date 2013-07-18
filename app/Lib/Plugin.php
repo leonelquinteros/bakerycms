@@ -110,7 +110,7 @@ class Plugin
         {
             $pluginObject = self::loadPluginObject($pluginName);
 
-            if($pluginObject && $pluginObject->showInCmsMenu() && !$pluginObject->isCmsSubMenu())
+            if($pluginObject && $pluginObject->showInBakeryMenu() && !$pluginObject->isCmsSubMenu())
             {
                 $modulesMenu[] = array( 'plugin' => $pluginName,
                                         'name' => $pluginObject->getCmsModuleName(),
@@ -125,11 +125,11 @@ class Plugin
         {
             $pluginObject = self::loadPluginObject($pluginName);
 
-            if($pluginObject && $pluginObject->showInCmsMenu() && $pluginObject->isCmsSubMenu())
+            if($pluginObject && $pluginObject->showInBakeryMenu() && $pluginObject->isCmsSubMenu())
             {
                 for($i = 0; $i < count($modulesMenu); $i++)
                 {
-                    if($modulesMenu[$i]['plugin'] == $pluginObject->getCmsMenuFather())
+                    if($modulesMenu[$i]['plugin'] == $pluginObject->getBakeryMenuFather())
                     {
                         $modulesMenu[$i]['submenu'][] = array(
                                                             'plugin' => $pluginName,

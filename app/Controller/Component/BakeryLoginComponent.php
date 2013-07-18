@@ -22,7 +22,7 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
-class CmsLoginComponent extends Component
+class BakeryLoginComponent extends Component
 {
     public $controller;
     public $components = array('Session', 'Cookie');
@@ -133,7 +133,7 @@ class CmsLoginComponent extends Component
             if( !$this->isLoggedIn() && $this->controller->params['action'] != 'login' )
             {
                 $goBack = Router::url();
-                $this->Session->write('CmsLoginReturnAddress', $goBack);
+                $this->Session->write('BakeryLoginReturnAddress', $goBack);
 
                 $this->controller->redirect('/cms/login');
                 exit;
@@ -218,7 +218,7 @@ class CmsLoginComponent extends Component
                 $this->Session->write('CMSAdministratorLogin', $adminData);
                 $this->Cookie->write('CMSAdministratorLogin',  base64_encode(serialize($adminData)), true, 7200);
 
-                echo $goBack = $this->Session->read('CmsLoginReturnAddress');
+                echo $goBack = $this->Session->read('BakeryLoginReturnAddress');
 
                 if(!empty($goBack))
                 {

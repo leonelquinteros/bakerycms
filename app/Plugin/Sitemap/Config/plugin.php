@@ -34,7 +34,7 @@ class SitemapPlugin extends PluginObject
     /**
      * @var (string) Show in CMS menu.
      */
-    protected $_showInCmsMenu = false;
+    protected $_showInBakeryMenu = false;
 
 
     public function getCmsModuleName()

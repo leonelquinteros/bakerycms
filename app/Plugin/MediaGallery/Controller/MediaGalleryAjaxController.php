@@ -26,13 +26,13 @@ class MediaGalleryAjaxController extends MediaGalleryAppController
 {
     public $name = 'MediaGalleryAjax';
     public $uses = array('MediaGallery.MediaGalleryFile');
-    public $components = array('CmsLogin');
+    public $components = array('BakeryLogin');
 
 
     public function beforeFilter()
     {
         // Checks login
-        $this->CmsLogin->checkAdminLogin();
+        $this->BakeryLogin->checkAdminLogin();
 
         $this->layout = false;
         $this->autoRender = false;

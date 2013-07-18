@@ -26,7 +26,7 @@ class MenusCmsController extends MenusAppController
 {
     public $uses = array('Menus.MenusMenu', 'Pages.PagesPage');
 
-    public $components = array('CmsLogin', 'Breadcrumb', 'CmsMenu');
+    public $components = array('BakeryLogin', 'Breadcrumb', 'BakeryMenu');
 
     public $helpers = array('CmsBreadcrumb', 'CmsWelcome', 'Language', 'Form');
 
@@ -40,7 +40,7 @@ class MenusCmsController extends MenusAppController
         $this->layout = "cms/cms";
 
         // Checks login
-        $this->CmsLogin->checkAdminLogin();
+        $this->BakeryLogin->checkAdminLogin();
 
         $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '/cms');
 
@@ -53,7 +53,7 @@ class MenusCmsController extends MenusAppController
             $this->Breadcrumb->addCrumb(__d('cms', 'Menu structure'), '/cms/menus');
         }
 
-        $cmsMenu = $this->CmsMenu->getMenu();
+        $cmsMenu = $this->BakeryMenu->getMenu();
         $this->set('cmsMenu', $cmsMenu);
 
         $this->set('pageTitle', 'Menu structure');
@@ -80,7 +80,7 @@ class MenusCmsController extends MenusAppController
 
     public function view($lang, $menuName)
     {
-        $this->CmsLogin->checkAdminRestriction('index');
+        $this->BakeryLogin->checkAdminRestriction('index');
 
         App::import('Lib', 'Language');
 

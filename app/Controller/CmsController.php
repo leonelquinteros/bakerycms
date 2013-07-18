@@ -29,7 +29,7 @@ class CmsController extends AppController
 {
     public $name = "Cms";
     public $uses = array('Admins.AdminsAdmin', 'Pages.PagesPage');
-    public $components = array('CmsLogin', 'Breadcrumb', 'CmsMenu');
+    public $components = array('BakeryLogin', 'Breadcrumb', 'BakeryMenu');
     public $helpers = array('CmsBreadcrumb', 'CmsWelcome', 'Text');
 
     public function beforeFilter()
@@ -43,12 +43,12 @@ class CmsController extends AppController
         // Checks login
         if($this->request->params['action'] != 'login' && $this->request->params['action'] != 'logout' && $this->request->params['action'] != 'configure')
         {
-            $this->CmsLogin->checkAdminLogin();
+            $this->BakeryLogin->checkAdminLogin();
         }
 
         $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '');
 
-        $cmsMenu = $this->CmsMenu->getMenu();
+        $cmsMenu = $this->BakeryMenu->getMenu();
         $this->set('cmsMenu', $cmsMenu);
 
         $this->set('pageTitle', __d('cms', 'Empowered CMS') );
@@ -90,7 +90,7 @@ class CmsController extends AppController
         {
             if( !empty($_POST['user']) && !empty($_POST['pass']) )
             {
-                if ( !$this->CmsLogin->doLogin($_POST['user'], $_POST['pass']) )
+                if ( !$this->BakeryLogin->doLogin($_POST['user'], $_POST['pass']) )
                 {
                     $this->Session->setFlash(__d('cms', 'Login incorrect'));
                 }
@@ -109,7 +109,7 @@ class CmsController extends AppController
 
     public function logout()
     {
-        $this->CmsLogin->doLogout();
+        $this->BakeryLogin->doLogout();
         return $this->redirect('/cms');
     }
 
