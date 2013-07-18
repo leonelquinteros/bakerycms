@@ -9,7 +9,7 @@
 
         echo $this->Html->css('cms/cms');
         echo $this->Html->css('flick/jquery-ui-1.10.3.custom.min');
-        echo $this->Html->css('MediaGallery.jquery.Jcrop.min.css');
+        echo $this->Html->css('MediaGallery.jquery.Jcrop.min');
 
         echo $this->fetch('css');
 
@@ -17,15 +17,13 @@
         echo $this->Html->script('jquery.tools.min');
         echo $this->Html->script('jquery-ui-1.10.3.custom.min');
 
-        echo $this->Html->script('fileuploader.js');
-        echo $this->Html->script('tinymce/tinymce.min.js');
-        echo $this->Html->script('tinymce/jquery.tinymce.min.js');
-
         if(!empty($this->request->params['plugin']))
         {
-            echo $this->Html->script('MediaGallery.cms.media.gallery.js');
             echo $this->Html->script('fileuploader');
-            echo $this->Html->script('MediaGallery.jquery.Jcrop.min.js');
+            echo $this->Html->script('tinymce/tinymce.min');
+            echo $this->Html->script('tinymce/jquery.tinymce.min');
+            echo $this->Html->script('MediaGallery.cms.media.gallery');
+            echo $this->Html->script('MediaGallery.jquery.Jcrop.min');
         }
 
         echo $this->fetch('script');
