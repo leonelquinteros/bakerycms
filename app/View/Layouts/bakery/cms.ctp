@@ -2,10 +2,15 @@
 
 <html>
     <head>
+        <?php
+        echo $this->Html->charset();
+
+        echo $this->fetch('meta');
+        ?>
+
         <title><?php echo $pageTitle; ?> | Bakery CMS</title>
 
         <?php
-        echo $this->Html->charset();
 
         $this->Html->css('bakery/bakery', null, array('inline' => false));
         $this->Html->css('flick/jquery-ui-1.10.3.custom.min', null, array('inline' => false));
@@ -22,7 +27,7 @@
             $this->Html->script('fileuploader', array('inline' => false));
             $this->Html->script('tinymce/tinymce.min', array('inline' => false));
             $this->Html->script('tinymce/jquery.tinymce.min', array('inline' => false));
-            $this->Html->script('MediaGallery.cms.media.gallery', array('inline' => false));
+            $this->Html->script('MediaGallery.bakery.media.gallery', array('inline' => false));
             $this->Html->script('MediaGallery.jquery.Jcrop.min', array('inline' => false));
         }
 
