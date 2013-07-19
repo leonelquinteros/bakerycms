@@ -43,20 +43,20 @@ class PagesCmsController extends PagesAppController
         $this->disableCache();
 
         // Sets layout
-        $this->layout = "cms/cms";
+        $this->layout = "bakery/cms";
 
         // Checks login
         $this->BakeryLogin->checkAdminLogin();
 
         // Breadcrumb
-        $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '/cms');
+        $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '/bakery');
         if( $this->action == 'index' )
         {
             $this->Breadcrumb->addCrumb(__d('cms', 'Pages'));
         }
         else
         {
-            $this->Breadcrumb->addCrumb(__d('cms', 'Pages'), '/cms/pages');
+            $this->Breadcrumb->addCrumb(__d('cms', 'Pages'), '/bakery/pages');
         }
 
         // Menu
@@ -113,7 +113,7 @@ class PagesCmsController extends PagesAppController
         }
         else
         {
-            return $this->redirect('/cms/pages');
+            return $this->redirect('/bakery/pages');
         }
     }
 
@@ -137,7 +137,7 @@ class PagesCmsController extends PagesAppController
                 else
                 {
                     $this->Session->setFlash(__d('cms', 'The page has been saved'), 'default', array('class' => 'information'));
-                    return $this->redirect('/cms/pages');
+                    return $this->redirect('/bakery/pages');
                 }
             }
         }
@@ -226,7 +226,7 @@ class PagesCmsController extends PagesAppController
         $this->PagesPage->id = $id;
         $this->PagesPage->delete();
 
-        return $this->redirect('/cms/pages');
+        return $this->redirect('/bakery/pages');
     }
 
 }

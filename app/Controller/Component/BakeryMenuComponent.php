@@ -29,11 +29,11 @@
  * It searches into the plugins for the ones that have a [PluginName]CmsController.
  * Generates the menu using a "Plugin CMS Controller Class" convention that is:
  *      - Every Plugin's CMS module will have a method called "getCmsModuleName" and will map the standard route:
- *          /cms/[PluginName]/
+ *          /bakery/[PluginName]/
  *          Where the "index" Action will be the one that shows the "Module's Home" in the CMS.
  *      - Every Plugin's CMS module will use the "cms" layout.
  *      - Every Plugin's CMS module MUST implement the route:
- *          /cms/[PluginName]/
+ *          /bakery/[PluginName]/
  *
  */
 

@@ -4,7 +4,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Administrator rights
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			In this section you can allow or deny certain types of access to modules. 
@@ -31,7 +31,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Administrator rights actions
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			<strong>Edit administrator</strong> will bring you back to the edit page of this administrator.

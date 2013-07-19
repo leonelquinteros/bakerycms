@@ -7,7 +7,7 @@
             <h3>
                 <?php echo __d('cms', 'Add');?>
                 <a href="#" class="help" rel="#MediaGalleryAddHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                    <img src="<?php echo $this->Html->url('/img/cms/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
+                    <img src="<?php echo $this->Html->url('/img/bakery/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
                 </a>
             </h3>
         </div>
@@ -16,7 +16,7 @@
                 <a href="#" class="action-button-large" id="uploadFile"><?php echo __d('cms', 'Upload file');?></a>
             </p>
             <p class="bakery-action-text" style="text-align:center;">
-                <img src="<?php echo $this->Html->url('/img/cms/loader.gif'); ?>" alt="Loading" id="imgLoading" style="display:none;" />
+                <img src="<?php echo $this->Html->url('/img/bakery/loader.gif'); ?>" alt="Loading" id="imgLoading" style="display:none;" />
             </p>
             <p id="uploadResult" class="bakery-action-text"></p>
         </div>
@@ -28,21 +28,21 @@
             <h3>
                 <?php echo __d('cms', 'File type');?>
                 <a href="" class="help" rel="#MediaGalleryFilterHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                    <img src="<?php echo $this->Html->url('/img/cms/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
+                    <img src="<?php echo $this->Html->url('/img/bakery/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
                 </a>
             </h3>
         </div>
         <div class="bakery-action-box-content">
             <p class="bakery-action-boxButtons">
-                <a href="<?php echo $this->Html->url('/cms/media_gallery/'); ?>" class="<?php echo ($type == '') ? 'action-' : ''; ?>button-large"><?php echo __d('cms', 'All');?></a>
+                <a href="<?php echo $this->Html->url('/bakery/media_gallery/'); ?>" class="<?php echo ($type == '') ? 'action-' : ''; ?>button-large"><?php echo __d('cms', 'All');?></a>
                 <br />
-                <a href="<?php echo $this->Html->url('/cms/media_gallery/index/image'); ?>" class="<?php echo ($type == 'image') ? 'action-' : ''; ?>button-large"><?php echo __d('cms', 'Images');?></a>
+                <a href="<?php echo $this->Html->url('/bakery/media_gallery/index/image'); ?>" class="<?php echo ($type == 'image') ? 'action-' : ''; ?>button-large"><?php echo __d('cms', 'Images');?></a>
                 <br />
-                <a href="<?php echo $this->Html->url('/cms/media_gallery/index/video'); ?>" class="<?php echo ($type == 'video') ? 'action-' : ''; ?>button-large"><?php echo __d('cms', 'Videos');?></a>
+                <a href="<?php echo $this->Html->url('/bakery/media_gallery/index/video'); ?>" class="<?php echo ($type == 'video') ? 'action-' : ''; ?>button-large"><?php echo __d('cms', 'Videos');?></a>
                 <br />
-                <a href="<?php echo $this->Html->url('/cms/media_gallery/index/audio'); ?>" class="<?php echo ($type == 'audio') ? 'action-' : ''; ?>button-large"><?php echo __d('cms', 'Audio');?></a>
+                <a href="<?php echo $this->Html->url('/bakery/media_gallery/index/audio'); ?>" class="<?php echo ($type == 'audio') ? 'action-' : ''; ?>button-large"><?php echo __d('cms', 'Audio');?></a>
                 <br />
-                <a href="<?php echo $this->Html->url('/cms/media_gallery/index/application'); ?>" class="<?php echo ($type == 'application') ? 'action-' : ''; ?>button-large"><?php echo __d('cms', 'Others');?></a>
+                <a href="<?php echo $this->Html->url('/bakery/media_gallery/index/application'); ?>" class="<?php echo ($type == 'application') ? 'action-' : ''; ?>button-large"><?php echo __d('cms', 'Others');?></a>
                 <br />
             </p>
         </div>
@@ -54,7 +54,7 @@
             <h3>
                 <?php echo __d('cms', 'Search'); ?>
                 <a href="#" class="help" rel="#MediaGallerySearchHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                    <img src="<?php echo $this->Html->url('/img/cms/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
+                    <img src="<?php echo $this->Html->url('/img/bakery/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
                 </a>
             </h3>
         </div>
@@ -62,7 +62,7 @@
             <div class="bakery-action-form">
                 <div class="bakery-action-form-top"></div>
 
-                <form id="frmSearchFiles" action="<?php echo $this->Html->url('/cms/media_gallery/search'); ?>" method="post">
+                <form id="frmSearchFiles" action="<?php echo $this->Html->url('/bakery/media_gallery/search'); ?>" method="post">
                     <p class="bakery-action-form-content">
                         <span><?php echo __d('cms', 'Keyword'); ?></span>
                         <br />
@@ -148,12 +148,12 @@
                     </td>
                     <td><?php echo Sanitize::html($file['MediaGalleryFile']['title']); ?></td>
                     <td>
-                        <a href="<?php echo $this->Html->url('/cms/media_gallery/edit/' . $file['MediaGalleryFile']['id']); ?>" title="<?php echo __d('cms', 'Edit'); ?>">
-                            <img src="<?php echo $this->Html->url('/img/cms/icons/application_edit.png'); ?>" alt="<?php echo __d('cms', 'Edit'); ?>" />
+                        <a href="<?php echo $this->Html->url('/bakery/media_gallery/edit/' . $file['MediaGalleryFile']['id']); ?>" title="<?php echo __d('cms', 'Edit'); ?>">
+                            <img src="<?php echo $this->Html->url('/img/bakery/icons/application_edit.png'); ?>" alt="<?php echo __d('cms', 'Edit'); ?>" />
                         </a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="<?php echo $this->Html->url('/cms/media_gallery/delete/' . $file['MediaGalleryFile']['id']); ?>" title="<?php echo __d('cms', 'Delete'); ?>" onclick="return confirm('<?php echo __d('cms', "Are you sure you want to delete ") . $file['MediaGalleryFile']['title']; ?>');">
-                            <img src="<?php echo $this->Html->url('/img/cms/icons/delete.png'); ?>" alt="<?php echo __d('cms', 'Delete'); ?>" />
+                        <a href="<?php echo $this->Html->url('/bakery/media_gallery/delete/' . $file['MediaGalleryFile']['id']); ?>" title="<?php echo __d('cms', 'Delete'); ?>" onclick="return confirm('<?php echo __d('cms', "Are you sure you want to delete ") . $file['MediaGalleryFile']['title']; ?>');">
+                            <img src="<?php echo $this->Html->url('/img/bakery/icons/delete.png'); ?>" alt="<?php echo __d('cms', 'Delete'); ?>" />
                         </a>
                     </td>
                 </tr>
@@ -169,7 +169,7 @@
 <script type="text/javascript">
     var myUpload = new qq.FileUploader({
         element: jQuery('#uploadFile')[0],
-        action: '<?php echo $this->Html->url('/cms/media_gallery_ajax/upload'); ?>',
+        action: '<?php echo $this->Html->url('/bakery/media_gallery_ajax/upload'); ?>',
         onSubmit: function(id, fileName) {
             jQuery('#imgLoading').show();
             jQuery('#uploadResult').html('Sending file...');

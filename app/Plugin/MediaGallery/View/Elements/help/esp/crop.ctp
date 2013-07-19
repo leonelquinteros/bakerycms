@@ -4,7 +4,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Media gallery image crop
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			Here you can crop your image. Click and drag with your mouse over the image area you want to crop. 

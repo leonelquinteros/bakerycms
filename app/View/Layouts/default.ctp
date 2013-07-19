@@ -10,13 +10,14 @@
 
         if(empty($editMode))
         {
+            // Get inserted by TinyMCE
             echo $this->Html->css('bootstrap/css/bootstrap.min');
             echo $this->Html->css('bootstrap/css/bootstrap-responsive.min');
         }
 
         echo $this->fetch('css');
 
-        echo $this->Html->script('jquery-1.9.1');
+        $this->Html->script('jquery-1.9.1', array('inline' => false));
 
         echo $this->fetch('script');
         ?>

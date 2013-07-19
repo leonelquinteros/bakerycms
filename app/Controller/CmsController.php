@@ -38,7 +38,7 @@ class CmsController extends AppController
         $this->disableCache();
 
         //Set layout
-        $this->layout = 'cms/cms';
+        $this->layout = 'bakery/cms';
 
         // Checks login
         if($this->request->params['action'] != 'login' && $this->request->params['action'] != 'logout' && $this->request->params['action'] != 'configure')
@@ -110,7 +110,7 @@ class CmsController extends AppController
     public function logout()
     {
         $this->BakeryLogin->doLogout();
-        return $this->redirect('/cms');
+        return $this->redirect('/bakery');
     }
 
 }

@@ -8,7 +8,7 @@ $this->Html->script('jquery-ui-1.10.3.custom.min', array('inline' => false));
 $this->Html->script('fileuploader', array('inline' => false));
 $this->Html->script('tinymce/tinymce.min', array('inline' => false));
 $this->Html->script('tinymce/jquery.tinymce.min', array('inline' => false));
-$this->Html->script('MediaGallery.cms.media.gallery', array('inline' => false));
+$this->Html->script('MediaGallery.bakery.media.gallery', array('inline' => false));
 $this->Html->script('MediaGallery.jquery.Jcrop.min', array('inline' => false));
 
 ?>
@@ -107,7 +107,7 @@ echo $this->requestAction('/' . $page['PagesPage']['url'], array('return'));
         });
 
         $.ajax({
-                url: '<?php echo $this->Html->url('/cms'); ?>/pagesajax/save_page_content/<?php echo $page['PagesPage']['id']; ?>',
+                url: '<?php echo $this->Html->url('/bakery'); ?>/pagesajax/save_page_content/<?php echo $page['PagesPage']['id']; ?>',
                 type: 'POST',
                 data: content,
                 success: function(data) {
@@ -126,9 +126,9 @@ echo $this->requestAction('/' . $page['PagesPage']['url'], array('return'));
         $('body').prepend($toolbar);
 
         // Media Gallery
-        $('#mediagallery-container').cmsMediaGallery({
-                handler: '.mediaGalleryOpener',
-                type: 'tiny'
+        $('#mediagallery-container').bakeryMediaGallery({
+            handler: '.mediaGalleryOpener',
+            type: 'tiny'
         });
 
         // Convert all div.bakery-cms-edit to TinyMCE.

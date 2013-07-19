@@ -7,7 +7,7 @@
             <p class="bakery-action-text">
                 <?php echo __d('cms', 'All the current menus are listed (by language) on the right.'); ?>
                 <br /><br />
-                <?php echo __d('cms', 'To edit a menu, click on the corresponding Edit icon'); ?> <img src="<?php echo $this->Html->url('/img/cms/icons/application_edit.png'); ?>" alt="<?php echo __d('cms', 'Edit'); ?>" />
+                <?php echo __d('cms', 'To edit a menu, click on the corresponding Edit icon'); ?> <img src="<?php echo $this->Html->url('/img/bakery/icons/application_edit.png'); ?>" alt="<?php echo __d('cms', 'Edit'); ?>" />
                 <br /><br />
             </p>
         </div>
@@ -35,8 +35,8 @@
                         <td><?php echo $this->Language->name($lang); ?></td>
                         <td><?php echo $menu; ?></td>
                         <td>
-                            <a href="<?php echo $this->Html->url('/cms/menus/view/' . $lang . '/' . $menu); ?>" title="<?php echo __d('cms', 'Edit'); ?>">
-                                <img src="<?php echo $this->Html->url('/img/cms/icons/application_edit.png'); ?>" alt="<?php echo __d('cms', 'Edit'); ?>" />
+                            <a href="<?php echo $this->Html->url('/bakery/menus/view/' . $lang . '/' . $menu); ?>" title="<?php echo __d('cms', 'Edit'); ?>">
+                                <img src="<?php echo $this->Html->url('/img/bakery/icons/application_edit.png'); ?>" alt="<?php echo __d('cms', 'Edit'); ?>" />
                             </a>
                         </td>
                     </tr>

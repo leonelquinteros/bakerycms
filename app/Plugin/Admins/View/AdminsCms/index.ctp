@@ -5,7 +5,7 @@
         </div>
         <div class="bakery-action-box-content">
             <p class="bakery-action-boxButtons">
-                <a href="<?php echo $this->Html->url('/cms/admins/edit'); ?>" class="button-large"><?php echo __d('cms', 'New administrator'); ?></a>
+                <a href="<?php echo $this->Html->url('/bakery/admins/edit'); ?>" class="button-large"><?php echo __d('cms', 'New administrator'); ?></a>
             </p>
         </div>
         <div class="bakery-action-box-bottom"></div>
@@ -34,16 +34,16 @@
                         <td><?php echo $admin['AdminsAdmin']['name']; ?></td>
                         <td><?php echo $admin['AdminsAdmin']['email']; ?></td>
                         <td>
-                            <a href="<?php echo $this->Html->url('/cms/admins/edit/' . $admin['AdminsAdmin']['id']); ?>" title="<?php echo __d('cms', 'Edit'); ?>">
-                                <img src="<?php echo $this->Html->url('/img/cms/icons/application_edit.png'); ?>" alt="<?php echo __d('cms', 'Edit'); ?>" />
+                            <a href="<?php echo $this->Html->url('/bakery/admins/edit/' . $admin['AdminsAdmin']['id']); ?>" title="<?php echo __d('cms', 'Edit'); ?>">
+                                <img src="<?php echo $this->Html->url('/img/bakery/icons/application_edit.png'); ?>" alt="<?php echo __d('cms', 'Edit'); ?>" />
                             </a>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="<?php echo $this->Html->url('/cms/admins/rights/' . $admin['AdminsAdmin']['id']); ?>" title="<?php echo __d('cms', 'Administrator rights'); ?>">
-                                <img src="<?php echo $this->Html->url('/img/cms/icons/group_key.png'); ?>" alt="<?php echo __d('cms', 'Rights'); ?>" />
+                            <a href="<?php echo $this->Html->url('/bakery/admins/rights/' . $admin['AdminsAdmin']['id']); ?>" title="<?php echo __d('cms', 'Administrator rights'); ?>">
+                                <img src="<?php echo $this->Html->url('/img/bakery/icons/group_key.png'); ?>" alt="<?php echo __d('cms', 'Rights'); ?>" />
                             </a>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="<?php echo $this->Html->url('/cms/admins/delete/' . $admin['AdminsAdmin']['id']); ?>" title="<?php echo __d('cms', 'Delete'); ?>" onclick="return confirm('<?php echo __d('cms', "Are you sure you want to delete ") . $admin['AdminsAdmin']['login']; ?>');">
-                                <img src="<?php echo $this->Html->url('/img/cms/icons/delete.png'); ?>" alt="<?php echo __d('cms', 'Delete'); ?>" />
+                            <a href="<?php echo $this->Html->url('/bakery/admins/delete/' . $admin['AdminsAdmin']['id']); ?>" title="<?php echo __d('cms', 'Delete'); ?>" onclick="return confirm('<?php echo __d('cms', "Are you sure you want to delete ") . $admin['AdminsAdmin']['login']; ?>');">
+                                <img src="<?php echo $this->Html->url('/img/bakery/icons/delete.png'); ?>" alt="<?php echo __d('cms', 'Delete'); ?>" />
                             </a>
                         </td>
                     </tr>

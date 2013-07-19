@@ -37,12 +37,12 @@ class MenusCmsController extends MenusAppController
         $this->disableCache();
 
         // Sets layout
-        $this->layout = "cms/cms";
+        $this->layout = "bakery/cms";
 
         // Checks login
         $this->BakeryLogin->checkAdminLogin();
 
-        $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '/cms');
+        $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '/bakery');
 
         if( $this->action == 'index' )
         {
@@ -50,7 +50,7 @@ class MenusCmsController extends MenusAppController
         }
         else
         {
-            $this->Breadcrumb->addCrumb(__d('cms', 'Menu structure'), '/cms/menus');
+            $this->Breadcrumb->addCrumb(__d('cms', 'Menu structure'), '/bakery/menus');
         }
 
         $cmsMenu = $this->BakeryMenu->getMenu();
@@ -89,7 +89,7 @@ class MenusCmsController extends MenusAppController
         {
             if( $this->AdminsAdmin->save($this->data['AdminsAdmin']) )
             {
-                return $this->redirect('/cms/admins');
+                return $this->redirect('/bakery/admins');
             }
         }
         else // Retrieve info
@@ -161,11 +161,11 @@ class MenusCmsController extends MenusAppController
 
                 if(empty($this->data['MenusMenu']['parent_id']))
                 {
-                    return $this->redirect("/cms/menus/view/$lang/$menuName");
+                    return $this->redirect("/bakery/menus/view/$lang/$menuName");
                 }
                 else
                 {
-                    return $this->redirect("/cms/menus/edit/$lang/$menuName/" . $this->data['MenusMenu']['parent_id']);
+                    return $this->redirect("/bakery/menus/edit/$lang/$menuName/" . $this->data['MenusMenu']['parent_id']);
                 }
             }
         }
@@ -249,11 +249,11 @@ class MenusCmsController extends MenusAppController
 
         if(empty($parentId))
         {
-            return $this->redirect('/cms/menus/view/' . $lang . '/' . $menuName);
+            return $this->redirect('/bakery/menus/view/' . $lang . '/' . $menuName);
         }
         else
         {
-            return $this->redirect('/cms/menus/edit/' . $lang . '/' . $menuName . '/' . $parentId);
+            return $this->redirect('/bakery/menus/edit/' . $lang . '/' . $menuName . '/' . $parentId);
         }
     }
 

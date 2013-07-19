@@ -37,12 +37,12 @@ class AdminsCmsController extends AdminsAppController
         $this->disableCache();
 
         // Sets layout
-        $this->layout = "cms/cms";
+        $this->layout = "bakery/cms";
 
         // Checks login
         $this->BakeryLogin->checkAdminLogin();
 
-        $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '/cms');
+        $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '/bakery');
 
         if( $this->action == 'index' )
         {
@@ -50,7 +50,7 @@ class AdminsCmsController extends AdminsAppController
         }
         else
         {
-            $this->Breadcrumb->addCrumb(__d('cms', 'Administrators'), '/cms/admins');
+            $this->Breadcrumb->addCrumb(__d('cms', 'Administrators'), '/bakery/admins');
         }
 
         $cmsMenu = $this->BakeryMenu->getMenu();
@@ -87,7 +87,7 @@ class AdminsCmsController extends AdminsAppController
             if( $this->AdminsAdmin->save($this->request->data['AdminsAdmin']) )
             {
                 $this->Session->setFlash(__d('cms', 'The administrator has been saved'), 'default', array('class' => 'information'));
-                return $this->redirect('/cms/admins');
+                return $this->redirect('/bakery/admins');
             }
         }
         else // Retrieve info
@@ -166,7 +166,7 @@ class AdminsCmsController extends AdminsAppController
 
         $restriction->save($data['AdminsAdminsRestriction']);
 
-        return $this->redirect('/cms/admins/rights/' . $adminId);
+        return $this->redirect('/bakery/admins/rights/' . $adminId);
     }
 
 
@@ -181,7 +181,7 @@ class AdminsCmsController extends AdminsAppController
 
         $restriction->delete($restrictionId);
 
-        return $this->redirect('/cms/admins/rights/' . $data['AdminsAdminsRestriction']['admins_admins_id']);
+        return $this->redirect('/bakery/admins/rights/' . $data['AdminsAdminsRestriction']['admins_admins_id']);
     }
 
     public function remove_access($accessId)
@@ -192,7 +192,7 @@ class AdminsCmsController extends AdminsAppController
 
         $this->AdminsAdminsPage->delete($accessId);
 
-        return $this->redirect('/cms/admins/rights/' . $data['AdminsAdminsPage']['id_admins_admins']);
+        return $this->redirect('/bakery/admins/rights/' . $data['AdminsAdminsPage']['id_admins_admins']);
     }
 
     public function add_access($adminId, $pageId, $galleryId)
@@ -206,7 +206,7 @@ class AdminsCmsController extends AdminsAppController
 
         $this->AdminsAdminsPage->save($data);
 
-        return $this->redirect('/cms/admins/rights/' . $adminId);
+        return $this->redirect('/bakery/admins/rights/' . $adminId);
     }
 
 
@@ -217,7 +217,7 @@ class AdminsCmsController extends AdminsAppController
         $this->AdminsAdmin->id = $id;
         $this->AdminsAdmin->delete();
 
-        return $this->redirect('/cms/admins');
+        return $this->redirect('/bakery/admins');
     }
 
 }

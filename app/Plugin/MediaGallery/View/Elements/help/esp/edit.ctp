@@ -4,7 +4,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Media gallery actions
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			<strong>Save</strong> will save your file information and bring you back to the Media Gallery files list.
@@ -22,7 +22,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Media gallery image crop
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			
@@ -38,7 +38,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Media gallery file info
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			The <strong>Title</strong> field will be used in the <em>ALT</em> attributes of the image when used in pages or other types of content. 
@@ -58,7 +58,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Media gallery image/video preview
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			Here you can see a preview of your image or video. 

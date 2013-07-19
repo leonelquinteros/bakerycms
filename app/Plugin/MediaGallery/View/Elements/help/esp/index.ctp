@@ -4,7 +4,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Media gallery upload
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			Here you can add a new file to your media gallery. 
@@ -30,7 +30,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Media gallery type filter
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			Here you can filter your files list by file type. Choose any file type and click in the corresponding button to filter the list. 
@@ -48,7 +48,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Media gallery search
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			Use the <em>Keyword</em> field to put any word or phrase to search into file names and descriptions. 

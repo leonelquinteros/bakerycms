@@ -10,7 +10,7 @@
 			<p class="bakery-action-boxButtons">
 				<a href="#" class="action-button-large" onclick="this.onclick = function(){ return false; }; jQuery('#frmCrop').submit(); return false;"><?php echo __d('cms', 'Save crop');?></a>
 				<br />
-				<a href="<?php echo $this->Html->url('/cms/media_gallery/edit/' . $this->data['MediaGalleryFile']['id']); ?>" class="button-large"><?php echo __d('cms', 'Back to image');?></a>
+				<a href="<?php echo $this->Html->url('/bakery/media_gallery/edit/' . $this->data['MediaGalleryFile']['id']); ?>" class="button-large"><?php echo __d('cms', 'Back to image');?></a>
 			</p>
 		</div>
 		<div class="bakery-action-box-bottom"></div>
@@ -19,7 +19,7 @@
 
 <div id="bakery-main">
 	<div id="bakery-form">
-		<form name="frmCrop" id="frmCrop" method="post" action="<?php echo $this->Html->url('/cms/media_gallery/crop/' . $this->data['MediaGalleryFile']['id']); ?>">	
+		<form name="frmCrop" id="frmCrop" method="post" action="<?php echo $this->Html->url('/bakery/media_gallery/crop/' . $this->data['MediaGalleryFile']['id']); ?>">	
 			<?php 
 			if(substr($this->data['MediaGalleryFile']['filetype'], 0, 5) == 'image')
 			{
@@ -30,7 +30,7 @@
 				<h2 style="margin-top:0px;">
 					<?php echo __d('cms', 'Crop image'); ?>
 					<a href="#" class="help" rel="#MediaGalleryCropHelp" title="<?php echo __d('cms', 'Help'); ?>">
-						<img src="<?php echo $this->Html->url('/img/cms/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
+						<img src="<?php echo $this->Html->url('/img/bakery/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
 					</a>
 				</h2>
 				

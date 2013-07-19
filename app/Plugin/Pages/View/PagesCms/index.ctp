@@ -8,7 +8,7 @@
         </div>
         <div class="bakery-action-box-content">
             <p class="bakery-action-boxButtons">
-                <a href="<?php echo $this->Html->url('/cms'); ?>/pages/edit" class="button-large"><?php echo __d('cms', 'New page'); ?></a>
+                <a href="<?php echo $this->Html->url('/bakery'); ?>/pages/edit" class="button-large"><?php echo __d('cms', 'New page'); ?></a>
             </p>
         </div>
         <div class="bakery-action-box-bottom"></div>
@@ -19,7 +19,7 @@
             <h3>
                 <?php echo __d('cms', 'Search'); ?>
                 <a href="#" class="help" rel="#PagesFilterHelp"  title="<?php echo __d('cms', 'Help'); ?>">
-                    <img src="<?php echo $this->Html->url('/img'); ?>/cms/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
+                    <img src="<?php echo $this->Html->url('/img'); ?>/bakery/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
                 </a>
             </h3>
         </div>
@@ -27,7 +27,7 @@
             <div class="bakery-action-form">
                 <div class="bakery-action-form-top"></div>
 
-                <form id="frmSearchPages" action="<?php echo $this->Html->url('/cms'); ?>/pages/search" method="post">
+                <form id="frmSearchPages" action="<?php echo $this->Html->url('/bakery'); ?>/pages/search" method="post">
                     <p class="bakery-action-form-content">
                         <span><?php echo __d('cms', 'Keyword'); ?></span>
                         <br />

@@ -7,7 +7,7 @@
             <h3>
                 <?php echo __d('cms', 'Actions'); ?>
                 <a href="#" class="help" rel="#PageActionsHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                    <img src="<?php echo $this->Html->url('/img'); ?>/cms/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
+                    <img src="<?php echo $this->Html->url('/img'); ?>/bakery/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
                 </a>
             </h3>
         </div>
@@ -15,7 +15,7 @@
             <p class="bakery-action-boxButtons">
                 <a href="#" class="action-button-large" onclick="this.onclick = function(){ return false; }; jQuery('#frmPages').submit(); return false;"><?php echo __d('cms', 'Save page'); ?></a>
                 <br />
-                <a href="<?php echo $this->Html->url('/cms'); ?>/pages" class="button-large" onclick="return confirm('<?php echo __d('cms', 'Your changes will not be saved. Are you sure you want to proceed?')?>')"><?php echo __d('cms', 'Back to pages'); ?></a>
+                <a href="<?php echo $this->Html->url('/bakery'); ?>/pages" class="button-large" onclick="return confirm('<?php echo __d('cms', 'Your changes will not be saved. Are you sure you want to proceed?')?>')"><?php echo __d('cms', 'Back to pages'); ?></a>
             </p>
         </div>
         <div class="bakery-action-box-bottom"></div>
@@ -26,13 +26,13 @@
             <h3>
                 <?php echo __d('cms', 'Content'); ?>
                 <a href=""  class="help" rel="#PageEditContentHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                    <img src="<?php echo $this->Html->url('/img'); ?>/cms/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
+                    <img src="<?php echo $this->Html->url('/img'); ?>/bakery/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
                 </a>
             </h3>
         </div>
         <div class="bakery-action-box-content">
             <p class="bakery-action-boxButtons">
-                <a href="<?php echo $this->Html->url('/cms'); ?>/pages/edit_content/<?php echo empty($this->data['PagesPage']['id']) ? '' : $this->data['PagesPage']['id']; ?>" target="_blank" id="editContent" class="action-button-large"><?php echo __d('cms', 'Edit content'); ?></a>
+                <a href="<?php echo $this->Html->url('/bakery'); ?>/pages/edit_content/<?php echo empty($this->data['PagesPage']['id']) ? '' : $this->data['PagesPage']['id']; ?>" target="_blank" id="editContent" class="action-button-large"><?php echo __d('cms', 'Edit content'); ?></a>
             </p>
         </div>
         <div class="bakery-action-box-bottom"></div>
@@ -47,7 +47,7 @@
                 <h3>
                     <?php echo __d('cms', 'Menu links'); ?>
                     <a href="#" class="help" rel="#PageMenuHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                        <img src="<?php echo $this->Html->url('/img'); ?>/cms/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
+                        <img src="<?php echo $this->Html->url('/img'); ?>/bakery/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
                     </a>
                 </h3>
             </div>
@@ -74,7 +74,7 @@
                             {
                                 ?>
                                 <a href="#" class="removeMenuLink" rel="<?php echo $menuItem['MenusMenu']['id']; ?>" data-name="<?php echo $menuName; ?>" data-lang="<?php echo $langName; ?>" style="display:inline-block;margin-bottom:15px;">
-                                    <img src="<?php echo $this->Html->url('/img'); ?>/cms/icons/delete.png" style="margin-bottom:-3px;margin-right:10px;">
+                                    <img src="<?php echo $this->Html->url('/img'); ?>/bakery/icons/delete.png" style="margin-bottom:-3px;margin-right:10px;">
                                     <span style="font-weight:bold;font-size:1.2em;color:#0D5EC7;padding-bottom:5px;">Menu <?php echo $menuName; ?></span>
                                 </a>
                                 <?php
@@ -83,7 +83,7 @@
                             {
                                 ?>
                                 <a href='#' class="addMenuLink" rel="0" data-name="<?php echo $menuName; ?>" data-lang="<?php echo $langName; ?>" style="display:inline-block;margin-bottom:15px;">
-                                    <img src="<?php echo $this->Html->url('/img'); ?>/cms/icons/add.png" style="margin-bottom:-3px;margin-right:10px;">
+                                    <img src="<?php echo $this->Html->url('/img'); ?>/bakery/icons/add.png" style="margin-bottom:-3px;margin-right:10px;">
                                     <span style='color:#333333;'>Menu <?php echo $menuName; ?></span>
                                 </a>
                                 <?php
@@ -110,14 +110,14 @@
 </div>
 
 <div id="bakery-main">
-    <form id="frmPages" action="<?php echo $this->Html->url('/cms'); ?>/pages/edit/<?php echo empty($this->data['PagesPage']['id']) ? '' : $this->data['PagesPage']['id']; ?>" method="post" enctype="multipart/form-data">
+    <form id="frmPages" action="<?php echo $this->Html->url('/bakery'); ?>/pages/edit/<?php echo empty($this->data['PagesPage']['id']) ? '' : $this->data['PagesPage']['id']; ?>" method="post" enctype="multipart/form-data">
         <input type="hidden" name="goEditContent" id="goEditContent" value="0" />
 
         <div id="bakery-form">
             <h2 style="margin-top:0px;">
                 <?php echo __d('cms', 'Page info'); ?>
                 <a href="#" class="help" rel="#PageInfoHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                    <img src="<?php echo $this->Html->url('/img'); ?>/cms/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
+                    <img src="<?php echo $this->Html->url('/img'); ?>/bakery/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
                 </a>
             </h2>
 
@@ -172,7 +172,7 @@
             <h2>
                 <?php echo __d('cms', 'Publish information'); ?>
                 <a href="" class="help" rel="#PagePublishHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                    <img src="<?php echo $this->Html->url('/img'); ?>/cms/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
+                    <img src="<?php echo $this->Html->url('/img'); ?>/bakery/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
                 </a>
             </h2>
 
@@ -223,7 +223,7 @@
             <h2>
                 <?php echo __d('cms', 'SEO Information'); ?>
                 <a href="" class="help" rel="#PageSeoHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                    <img src="<?php echo $this->Html->url('/img'); ?>/cms/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
+                    <img src="<?php echo $this->Html->url('/img'); ?>/bakery/icons/help_icon.png" alt="<?php echo __d('cms', 'Help'); ?>" />
                 </a>
             </h2>
             <?php
@@ -275,13 +275,13 @@
         if(empty($this->data["PagesPage"]["id"]))
         {
             ?>
-            var wContentEditor = window.open('/cms/pages/edit_content', 'editContent', 'menubar=no,toolbar=no,status=no,directories=no,personalbar=no,width=1020,height=700,location=no,scrollbars=yes,resizable=yes');
+            var wContentEditor = window.open('/bakery/pages/edit_content', 'editContent', 'menubar=no,toolbar=no,status=no,directories=no,personalbar=no,width=1020,height=700,location=no,scrollbars=yes,resizable=yes');
             <?php
         }
         else
         {
             ?>
-            var wContentEditor = window.open('/cms/pages/edit_content/<?php echo $this->data["PagesPage"]["id"]; ?>', 'editContent', 'menubar=no,toolbar=no,status=no,directories=no,personalbar=no,width=1020,height=700,location=no,scrollbars=yes,resizable=yes');
+            var wContentEditor = window.open('/bakery/pages/edit_content/<?php echo $this->data["PagesPage"]["id"]; ?>', 'editContent', 'menubar=no,toolbar=no,status=no,directories=no,personalbar=no,width=1020,height=700,location=no,scrollbars=yes,resizable=yes');
             <?php
         }
         ?>
@@ -292,9 +292,9 @@
         var menuLang = jQuery(el).attr('data-lang');
 
         jQuery.ajax({
-            url: '/cms/pagesajax/page_add_menu/<?php echo empty($this->data['PagesPage']['id']) ? '' : $this->data['PagesPage']['id']; ?>/' + menuName + '/' + menuLang,
+            url: '/bakery/pagesajax/page_add_menu/<?php echo empty($this->data['PagesPage']['id']) ? '' : $this->data['PagesPage']['id']; ?>/' + menuName + '/' + menuLang,
             success: function(data) {
-                        jQuery(el).find('img').attr('src', '/img/cms/icons/delete.png');
+                        jQuery(el).find('img').attr('src', '/img/bakery/icons/delete.png');
                         jQuery(el).find('span').attr('style', 'font-weight:bold;font-size:1.2em;color:#0D5EC7;padding-bottom:5px;');
                         jQuery(el).attr('rel', data);
 
@@ -312,9 +312,9 @@
         var menuId = jQuery(el).attr('rel');
 
         jQuery.ajax({
-            url: '/cms/pagesajax/page_remove_menu/' + menuId,
+            url: '/bakery/pagesajax/page_remove_menu/' + menuId,
             success: function() {
-                        jQuery(el).find('img').attr('src', '/img/cms/icons/add.png');
+                        jQuery(el).find('img').attr('src', '/img/bakery/icons/add.png');
                         jQuery(el).find('span').attr('style', 'color:#333333;');
 
                         jQuery(el).unbind('click');
@@ -329,7 +329,7 @@
 
     function getKeywords() {
         jQuery.ajax({
-            url: '/cms/pagesajax/page_keywords/<?php echo empty($this->data['PagesPage']['id']) ? '' : $this->data['PagesPage']['id']; ?>',
+            url: '/bakery/pagesajax/page_keywords/<?php echo empty($this->data['PagesPage']['id']) ? '' : $this->data['PagesPage']['id']; ?>',
             success: function(data) {
                         jQuery('#keywordsRecommendation').html(data);
             }
@@ -368,7 +368,7 @@
                     jQuery.ajax(
                             {
                                 async: false,
-                                url: '/cms/pages/edit/<?php echo empty($this->data['PagesPage']['id']) ? '' : $this->data['PagesPage']['id']; ?>',
+                                url: '/bakery/pages/edit/<?php echo empty($this->data['PagesPage']['id']) ? '' : $this->data['PagesPage']['id']; ?>',
                                 type: 'POST',
                                 data: jQuery('#frmPages').serialize()
                             }

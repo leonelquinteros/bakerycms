@@ -4,7 +4,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Menu item information
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			On the right you can view the title and the web address (Menu link) of the selected menu item. 
@@ -26,7 +26,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Sub-menu
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			You can add a submenu to this menu item. 

@@ -14,7 +14,7 @@
                 if(empty($this->data['MenusMenu']['parent_id']))
                 {
                     ?>
-                    <a href="<?php echo $this->Html->url('/cms/menus/view/' . $lang . '/' . $menuName); ?>" class="button-large">
+                    <a href="<?php echo $this->Html->url('/bakery/menus/view/' . $lang . '/' . $menuName); ?>" class="button-large">
                             <?php echo __d('cms', 'Back to menu overview');?>
                     </a>
                     <?php
@@ -22,7 +22,7 @@
                 else
                 {
                     ?>
-                    <a href="<?php echo $this->Html->url('/cms/menus/edit/' . $lang . '/' . $menuName); ?>/<?php echo $this->data['MenusMenu']['parent_id']; ?>"
+                    <a href="<?php echo $this->Html->url('/bakery/menus/edit/' . $lang . '/' . $menuName); ?>/<?php echo $this->data['MenusMenu']['parent_id']; ?>"
                         class="button-large" onclick="return confirm('<?php echo __d('cms', 'Your changes will not be saved. Are you sure you want to proceed?')?>')">
                             <?php echo __d('cms', 'Back to parent menu');?>
                     </a>
@@ -44,13 +44,13 @@
                 <h3>
                     <?php echo __d('cms', 'Sub-menu');?>
                     <a href="#" class="help" rel="#MenusEditSubMenuHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                        <img src="<?php echo $this->Html->url('/img/cms/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
+                        <img src="<?php echo $this->Html->url('/img/bakery/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
                     </a>
                 </h3>
             </div>
             <div class="bakery-action-box-content">
                 <p class="bakery-action-boxButtons">
-                    <a href="<?php echo $this->Html->url('/cms/menus/edit/' . $lang . '/' . $menuName . '/0/' . $this->data['MenusMenu']['id']); ?>" class="button-large"><?php echo __d('cms', 'Add link to sub-menu');?></a>
+                    <a href="<?php echo $this->Html->url('/bakery/menus/edit/' . $lang . '/' . $menuName . '/0/' . $this->data['MenusMenu']['id']); ?>" class="button-large"><?php echo __d('cms', 'Add link to sub-menu');?></a>
                     <a href="#" onclick="openPagesDialog(); return false;" class="button-large"><?php echo __d('cms', 'Add page link to sub-menu');?></a>
                 </p>
             </div>
@@ -65,11 +65,11 @@
     <h2 style="margin-top:0px;">
         <?php echo __d('cms', 'Menu item information');?>
         <a href="#" class="help" rel="#MenusEditInfoHelp" title="<?php echo __d('cms', 'Help'); ?>">
-            <img src="<?php echo $this->Html->url('/img/cms/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
+            <img src="<?php echo $this->Html->url('/img/bakery/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
         </a>
     </h2>
 
-    <form id="frmMenus" action="<?php echo $this->Html->url('/cms/menus/edit/' . $lang .'/' . $menuName); ?>" method="post" enctype="multipart/form-data">
+    <form id="frmMenus" action="<?php echo $this->Html->url('/bakery/menus/edit/' . $lang .'/' . $menuName); ?>" method="post" enctype="multipart/form-data">
         <div id="bakery-form">
             <?php
             if( !empty($this->data['MenusMenu']['id']) )
@@ -115,11 +115,11 @@
             <li class="sortable-menu-item" id="menu-<?php echo $subMenu['MenusMenu']['id']; ?>">
                 <span><?php echo $subMenu['MenusMenu']['title']; ?></span>
 
-                <a href="<?php echo $this->Html->url('/cms/menus/edit/' . $lang . '/' . $menuName . '/' . $subMenu['MenusMenu']['id']); ?>" style="position:absolute;right:40px;" title="<?php echo __d('cms', 'Edit'); ?>">
-                    <img src="<?php echo $this->Html->url('/img/cms/icons/application_edit.png'); ?>" alt="<?php echo __d('cms', 'Edit'); ?>" />
+                <a href="<?php echo $this->Html->url('/bakery/menus/edit/' . $lang . '/' . $menuName . '/' . $subMenu['MenusMenu']['id']); ?>" style="position:absolute;right:40px;" title="<?php echo __d('cms', 'Edit'); ?>">
+                    <img src="<?php echo $this->Html->url('/img/bakery/icons/application_edit.png'); ?>" alt="<?php echo __d('cms', 'Edit'); ?>" />
                 </a>
-                <a href="<?php echo $this->Html->url('/cms/menus/delete/' . $lang . '/' . $menuName . '/' . $subMenu['MenusMenu']['id'] . '/' . intval($subMenu['MenusMenu']['parent_id'])); ?>" onclick="return confirm('Do you want to delete this menu item?');" style="position:absolute;right:10px;" title="<?php echo __d('cms', 'Delete'); ?>">
-                    <img src="<?php echo $this->Html->url('/img/cms/icons/delete.png'); ?>" alt="<?php echo __d('cms', 'Delete'); ?>" />
+                <a href="<?php echo $this->Html->url('/bakery/menus/delete/' . $lang . '/' . $menuName . '/' . $subMenu['MenusMenu']['id'] . '/' . intval($subMenu['MenusMenu']['parent_id'])); ?>" onclick="return confirm('Do you want to delete this menu item?');" style="position:absolute;right:10px;" title="<?php echo __d('cms', 'Delete'); ?>">
+                    <img src="<?php echo $this->Html->url('/img/bakery/icons/delete.png'); ?>" alt="<?php echo __d('cms', 'Delete'); ?>" />
                 </a>
 
                 <?php

@@ -4,7 +4,7 @@
         <?php echo __d('cms', 'Please enter your username and password to login'); ?>
     </p>
 
-    <form id="frmLogin" method="post" action="<?php echo $this->Html->url('/cms/login'); ?>">
+    <form id="frmLogin" method="post" action="<?php echo $this->Html->url('/bakery/login'); ?>">
         <div id="bakery-login-form">
             <label><?php echo __d('cms', 'Username'); ?></label><input type="text" name="user" />
             <br />

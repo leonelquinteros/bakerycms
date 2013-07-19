@@ -4,7 +4,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Menu structure actions
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			<strong>Add link to menu</strong> allows you to add a menu item that is not a CMS page, for example an external page.

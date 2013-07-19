@@ -29,7 +29,8 @@ class MediaGalleryFile extends MediaGalleryAppModel
 
     public function getExtensionMimeType($fileName)
     {
-        $ext = strtolower(array_pop(explode('.', $fileName)));
+        $aux = explode('.', $fileName);
+        $ext = strtolower(array_pop($aux));
 
         switch($ext)
         {

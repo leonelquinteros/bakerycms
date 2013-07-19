@@ -135,7 +135,7 @@ class BakeryLoginComponent extends Component
                 $goBack = Router::url();
                 $this->Session->write('BakeryLoginReturnAddress', $goBack);
 
-                $this->controller->redirect('/cms/login');
+                $this->controller->redirect('/bakery/login');
                 exit;
             }
 
@@ -143,7 +143,7 @@ class BakeryLoginComponent extends Component
         }
         elseif( $this->controller->params['action'] != 'configure' )
         {
-            $this->controller->redirect('/cms/configure');
+            $this->controller->redirect('/bakery/configure');
             exit;
         }
     }
@@ -193,7 +193,7 @@ class BakeryLoginComponent extends Component
         if(!empty($hasRight))
         {
             $this->Session->setFlash(__d('cms', 'You have no rights to perform this action'));
-            $this->controller->redirect('/cms');
+            $this->controller->redirect('/bakery');
             exit;
         }
     }
@@ -226,7 +226,7 @@ class BakeryLoginComponent extends Component
                 }
                 else
                 {
-                    $this->controller->redirect('/cms');
+                    $this->controller->redirect('/bakery');
                 }
 
                 return true;

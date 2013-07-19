@@ -45,12 +45,12 @@ class MediaGalleryCmsController extends MediaGalleryAppController
         $this->disableCache();
 
         // Sets layout
-        $this->layout = "cms/cms";
+        $this->layout = "bakery/cms";
 
         // Checks login
         $this->BakeryLogin->checkAdminLogin();
 
-        $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '/cms');
+        $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '/bakery');
 
         if( $this->action == 'index' )
         {
@@ -58,7 +58,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
         }
         else
         {
-            $this->Breadcrumb->addCrumb(__d('cms', 'Media'), '/cms/media_gallery');
+            $this->Breadcrumb->addCrumb(__d('cms', 'Media'), '/bakery/media_gallery');
         }
 
 
@@ -121,7 +121,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
         }
         else
         {
-            return $this->redirect('/cms/pages');
+            return $this->redirect('/bakery/pages');
         }
     }
 
@@ -135,7 +135,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
         {
             $this->MediaGalleryFile->save($this->data['MediaGalleryFile']);
             $this->Session->setFlash(__d('cms', 'The file has been saved'), 'default', array('class' => 'information'));
-            return $this->redirect('/cms/media_gallery');
+            return $this->redirect('/bakery/media_gallery');
         }
         else // Retrieve info
         {
@@ -184,7 +184,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
             // Save
             $thumb->save(ROOT . DS . APP_DIR . DS . WEBROOT_DIR . '/media/' . $imageData['MediaGalleryFile']['filename'], $type);
 
-            return $this->redirect('/cms/media_gallery/edit/' . $id);
+            return $this->redirect('/bakery/media_gallery/edit/' . $id);
         }
         else // Retrieve info
         {
@@ -192,7 +192,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
         }
 
         // Breadcrumb
-        $this->Breadcrumb->addCrumb(__d('cms', 'Edit image'), '/cms/media_gallery/edit/' . $id);
+        $this->Breadcrumb->addCrumb(__d('cms', 'Edit image'), '/bakery/media_gallery/edit/' . $id);
         $this->Breadcrumb->addCrumb(__d('cms', 'Crop image'));
 
         // Page title
@@ -212,7 +212,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
         // Delete file
         unlink(ROOT . DS . APP_DIR . DS . WEBROOT_DIR . '/media/' . $file['MediaGalleryFile']['filename']);
 
-        return $this->redirect('/cms/media_gallery');
+        return $this->redirect('/bakery/media_gallery');
     }
 
     public function media_gallery()

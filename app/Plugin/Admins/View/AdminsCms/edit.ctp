@@ -10,7 +10,7 @@ echo $this->element('help/' . $this->Language->getLanguage() . '/edit');
             <h3>
                 <?php echo __d('cms', 'Actions');?>
                 <a href="#" class="help" rel="#AdministratorActionsHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                    <img src="<?php echo $this->Html->url('/img/cms/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
+                    <img src="<?php echo $this->Html->url('/img/bakery/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
                 </a>
             </h3>
         </div>
@@ -18,7 +18,7 @@ echo $this->element('help/' . $this->Language->getLanguage() . '/edit');
             <p class="bakery-action-boxButtons">
                 <a href="#" class="action-button-large" onclick="this.onclick = function(){ return false; }; jQuery('#frmAdmins').submit(); return false;"><?php echo __d('cms', 'Save');?></a>
                 <br />
-                <a href="<?php echo $this->Html->url('/cms/admins'); ?>" class="button-large"><?php echo __d('cms', 'Back to administrators');?></a>
+                <a href="<?php echo $this->Html->url('/bakery/admins'); ?>" class="button-large"><?php echo __d('cms', 'Back to administrators');?></a>
             </p>
         </div>
         <div class="bakery-action-box-bottom"></div>
@@ -33,13 +33,13 @@ echo $this->element('help/' . $this->Language->getLanguage() . '/edit');
                 <h3>
                     <?php echo __d('cms', 'Permissions');?>
                     <a href="#" class="help" rel="#AdministratorPermissionsHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                        <img src="<?php echo $this->Html->url('/img/cms/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
+                        <img src="<?php echo $this->Html->url('/img/bakery/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
                     </a>
                 </h3>
             </div>
             <div class="bakery-action-box-content">
                 <p class="bakery-action-boxButtons">
-                    <a href="<?php echo $this->Html->url('/cms/admins/rights/' . $this->data['AdminsAdmin']['id']); ?>" class="action-button-large"><?php echo __d('cms', 'Administrator rights');?></a>
+                    <a href="<?php echo $this->Html->url('/bakery/admins/rights/' . $this->data['AdminsAdmin']['id']); ?>" class="action-button-large"><?php echo __d('cms', 'Administrator rights');?></a>
                 </p>
             </div>
             <div class="bakery-action-box-bottom"></div>
@@ -53,10 +53,10 @@ echo $this->element('help/' . $this->Language->getLanguage() . '/edit');
     <h2 style="margin-top:0px;">
         <?php echo __d('cms', 'Login information'); ?>
         <a href="#" class="help" rel="#AdministratorInformationHelp" title="<?php echo __d('cms', 'Help'); ?>">
-            <img src="<?php echo $this->Html->url('/img/cms/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
+            <img src="<?php echo $this->Html->url('/img/bakery/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
         </a>
     </h2>
-    <form id="frmAdmins" action="<?php echo $this->Html->url('/cms/admins/edit'); ?>" method="post" enctype="multipart/form-data">
+    <form id="frmAdmins" action="<?php echo $this->Html->url('/bakery/admins/edit'); ?>" method="post" enctype="multipart/form-data">
         <div id="bakery-form">
             <?php
             if( !empty($this->data['AdminsAdmin']['id']) )

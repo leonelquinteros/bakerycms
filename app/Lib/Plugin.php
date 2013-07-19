@@ -114,7 +114,7 @@ class Plugin
             {
                 $modulesMenu[] = array( 'plugin' => $pluginName,
                                         'name' => $pluginObject->getCmsModuleName(),
-                                        'link' => '/cms/' . Inflector::underscore($pluginName),
+                                        'link' => '/bakery/' . Inflector::underscore($pluginName),
                                         'submenu' => array()
                 );
             }
@@ -134,7 +134,7 @@ class Plugin
                         $modulesMenu[$i]['submenu'][] = array(
                                                             'plugin' => $pluginName,
                                                             'name' => $pluginObject->getCmsModuleName(),
-                                                            'link' => '/cms/' . Inflector::underscore($pluginName),
+                                                            'link' => '/bakery/' . Inflector::underscore($pluginName),
                         );
                     }
                 }

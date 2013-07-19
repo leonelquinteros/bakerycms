@@ -1,8 +1,8 @@
 /**
- * CMS Media Gallery plugin
+ * Bakery CMS Media Gallery plugin
  *
  * Usage:
- * jQuery('selector').cmsMediaGallery({options});
+ * jQuery('selector').bakeryMediaGallery({options});
  *
  * Optinos reference:
  *
@@ -16,7 +16,7 @@
  */
 
 ( function( $ ) {
-    $.fn.cmsMediaGallery = function( options ) {
+    $.fn.bakeryMediaGallery = function( options ) {
         // Plugin code
         return this.each(function() {
             var $gallery = $(this),
@@ -24,15 +24,16 @@
             $uiDialogGallery = $gallery.attr("id"),
             $uiUploaderId = $gallery.attr("id") + "Uploader",
             $uiUploaderName = 'galleryUpload';
+
             // If options exist, lets merge them
             // with our default settings
             var settings = { // default settings
-                galleryURL: '<?php echo $this->Html->url('/cms'); ?>/media_gallery_ajax/media_gallery',
+                galleryURL: '<?php echo $this->Html->url('/bakery'); ?>/media_gallery_ajax/media_gallery',
                 handler: '',
                 handlerObject: false,
                 type: 'media',
                 ajaxUpload: false,
-                onClick: function(el) { alert('Click on' + $(el).attr('data-title')); }
+                onClick: function(el) { alert('Click on' + $(el).data('title')); }
             };
 
             if ( options ) {
@@ -41,38 +42,50 @@
 
             // Show tiny insert form.
             var tinyShowForm = function(el) {
+                var $dialog = $("." + $uiDialogClass);
 
                 if( $(el).attr('data-type') != 'image' ) {
-                    $($uiDialogClass).find('.tiny-imageProperties').hide();
+                    $dialog.find('.tiny-image-properties').hide();
                 } else {
-                    $($uiDialogClass).find('.tiny-imageProperties').show();
+                    $dialog.find('.tiny-image-properties').show();
                 }
 
-                $("." + $uiDialogClass).find('.tiny-filename').val( $(el).attr('data-src') );
-                $("." + $uiDialogClass).find('.tiny-filetype').val( $(el).attr('data-type') );
-                $("." + $uiDialogClass).find('.tiny-title').val( $(el).attr('data-title') );
-                $("." + $uiDialogClass).find('.tiny-width').val('320');
-                $("." + $uiDialogClass).find('.tiny-height').val('0');
+                $dialog.find('.tiny-filename').val( $(el).data('src') );
+                $dialog.find('.tiny-filetype').val( $(el).data('type') );
+                $dialog.find('.tiny-title').val( $(el).data('title') );
+                $dialog.find('.tiny-width').val('320');
+                $dialog.find('.tiny-height').val('0');
 
-                $("." + $uiDialogClass).find('.tinyMediaGalleryInsert').dialog('open');
+                $dialog.find('.tinymce-media-insert').dialog('open');
             };
 
 
             // Tiny insert media function
             var tinyInsertMedia = function(button) {
-                if( $($(button).parents('.tinyMediaGalleryInsert').find('.tiny-filetype')[0]).attr('value') == 'image') {
-                    content = '<img src="<?php echo $this->Html->url('/media_gallery'); ?>/thumb/' +
-                                                $($(button).parents('.tinyMediaGalleryInsert').find('.tiny-width')[0]).attr('value') + '/' +
-                                                $($(button).parents('.tinyMediaGalleryInsert').find('.tiny-height')[0]).attr('value') + '/' +
-                                                $($(button).parents('.tinyMediaGalleryInsert').find('.tiny-filename')[0]).attr('value') +
-                                                '" alt="' + $($(button).parents('.tinyMediaGalleryInsert').find('.tiny-title')[0]).attr('value') + '" />';
+                var $insertData = $( $(button).parents('.tinymce-media-insert') );
+
+                var filetype    = $insertData.find('.tiny-filetype').val();
+                var filename    = $insertData.find('.tiny-filename').val();
+                var title       = $insertData.find('.tiny-title').val();
+                var width       = parseInt( $insertData.find('.tiny-width').val() );
+                var height      = parseInt( $insertData.find('.tiny-height').val() );
+
+                if( filetype == 'image' ) {
+                    if(width > 0 && height > 0) {
+                        var thumb = 'resizecrop';
+                    } else {
+                        var thumb = 'thumb';
+                    }
+                    content = '<img src="<?php echo $this->Html->url('/media_gallery'); ?>/' + thumb + '/' +
+                                                width + '/' + height + '/' + filename +
+                                                '" alt="' + title + '" />';
                 } else {
-                    content = '<a href="<?php echo $this->Html->url('/media'); ?>/' + $($(button).parents('.tinyMediaGalleryInsert').find('.tiny-filename')[0]).attr('value') + '">' + $($(button).parents('.tinyMediaGalleryInsert').find('.tiny-title')[0]).attr('value') + '</a>';
+                    content = '<a href="<?php echo $this->Html->url('/media'); ?>/' + filename + '">' + title + '</a>';
                 }
 
                 tinyMCE.activeEditor.execCommand('mceInsertContent', false, content);
 
-                $("." + $uiDialogClass).find('.tinyMediaGalleryInsert').dialog('close');
+                $("." + $uiDialogClass).find('.tinymce-media-insert').dialog('close');
                 $gallery.dialog('close');
             };
 
@@ -80,13 +93,13 @@
             // Load files
             this.loadFiles = function() {
                     if(settings.type == 'image') {
-                        var url = '<?php echo $this->Html->url('/cms'); ?>/media_gallery_ajax/images';
+                        var url = '<?php echo $this->Html->url('/bakery'); ?>/media_gallery_ajax/images';
                     } else {
-                        var url = '<?php echo $this->Html->url('/cms'); ?>/media_gallery_ajax/files';
+                        var url = '<?php echo $this->Html->url('/bakery'); ?>/media_gallery_ajax/files';
                     }
-                    $("." + $uiDialogGallery).find('.cmsMediaGalleryFiles').load(url, function() {
+                    $("." + $uiDialogGallery).find('.bakery-media-files').load(url, function() {
                         // Click event handler for media files.
-                        $("." + $uiDialogGallery).find('.cmsMediaGalleryFiles').find('.cmsMediaGalleryFile').click( function() {
+                        $("." + $uiDialogGallery).find('.bakery-media-files').find('.cmsMediaGalleryFile').click( function() {
                                 return settings.onClick(this, settings);
                         });
                     });
@@ -102,28 +115,28 @@
             }
 
             /**
-             * Set default options if type is 'tiny'
+             * Set default handler for 'tiny' mode
              */
             if(settings.type == 'tiny') {
                 settings.onClick = tinyShowForm;
             }
 
             /**
-             * Load interface
+             * Load UI
              */
             $gallery.load(settings.galleryURL, function() {
                 // Load files
                 this.loadFiles();
 
-                // Tiny insert media click handler.
+                // Tiny insert media handler.
                 $gallery.find('.tinyInsertMedia').click( function() {
                     tinyInsertMedia(this);
                 });
 
-                // Dialog
-                $gallery.find('.tinyMediaGalleryInsert').dialog({
+                // Media Gallery Dialog
+                $gallery.find('.tinymce-media-insert').dialog({
                             autoOpen: false,
-                            width: 250,
+                            width: 450,
                             modal: true,
                             dialogClass: $uiDialogClass,
                             resizable: false,
@@ -135,14 +148,16 @@
                 $gallery.find(".mediaGalleryUploader").attr("id", $uiUploaderId);
                 var myUpload = new qq.FileUploader({
                     element: $('#' + $uiUploaderId)[0],
-                    action: '<?php echo $this->Html->url('/cms'); ?>/media_gallery_ajax/upload',
+                    action: '<?php echo $this->Html->url('/bakery'); ?>/media_gallery_ajax/upload',
                     onSubmit: function(fileName) {
-                        $("." + $uiDialogGallery).find('.imgLoading').show();
-                        $("." + $uiDialogGallery).find('.uploadResult').html('Sending file...');
+                        $("." + $uiDialogGallery).find('.upload-context').hide();
+                        $("." + $uiDialogGallery).find('.loading').show();
                     },
-                    onComplete: function(fileName, data) {
-                        $("." + $uiDialogGallery).find('.imgLoading').hide();
-                        $("." + $uiDialogGallery).find('.uploadResult').html('File sent: ' + fileName);
+                    onComplete: function(success, fileName) {
+                        $("." + $uiDialogGallery).find('.upload-context').hide();
+                        $("." + $uiDialogGallery).find('.tip p').html('File sent: ' + fileName);
+                        $("." + $uiDialogGallery).find('.tip').show();
+
                         $gallery.find(".cmsMediaGalleryUpdater").val("1");
                         obj.loadFiles();
                     }
@@ -151,10 +166,10 @@
 
                 // Filters
                 if(settings.type == 'image') {
-                    $("." + $uiDialogGallery).find('.cmsMediaGalleryFilter .button-medium').hide();
+                    $("." + $uiDialogGallery).find('.bakery-media-filter .button-medium').hide();
                 }
 
-                $gallery.find('.filterKeyword').keyup(function() {
+                $gallery.find('.filter-keyword').keyup(function() {
                     var q = $(this).val();
 
                     $("." + $uiDialogGallery).find('.cmsMediaGalleryFile:not([data-src*=' + q + '])').parent('div').hide();
@@ -165,27 +180,42 @@
                 });
 
                 $(this).find('.allFilter').click(function() {
+                    $('.button-filter').removeClass('active');
                     filter('');
+                    $(this).addClass('active');
+
                     return false;
                 });
 
                 $(this).find('.imagesFilter').click(function() {
+                    $('.button-filter').removeClass('active');
                     filter('image');
+                    $(this).addClass('active');
+
                     return false;
                 });
 
                 $(this).find('.videosFilter').click(function() {
+                    $('.button-filter').removeClass('active');
                     filter('video');
+                    $(this).addClass('active');
+
                     return false;
                 });
 
                 $(this).find('.audioFilter').click(function() {
+                    $('.button-filter').removeClass('active');
                     filter('audio');
+                    $(this).addClass('active');
+
                     return false;
                 });
 
                 $(this).find('.othersFilter').click(function() {
+                    $('.button-filter').removeClass('active');
                     filter('application');
+                    $(this).addClass('active');
+
                     return false;
                 });
             } );

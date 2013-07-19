@@ -1,4 +1,4 @@
 <?php
-Router::connect('/cms/menus', array('plugin' => 'menus', 'controller' => 'menus_cms', 'action' => 'index'));
-Router::connect('/cms/menus/:action/*', array('plugin' => 'menus', 'controller' => 'menus_cms'));
-Router::connect('/cms/menusajax/:action', array('plugin' => 'menus', 'controller' => 'menus_ajax'));
+Router::connect('/bakery/menus', array('plugin' => 'menus', 'controller' => 'menus_cms', 'action' => 'index'));
+Router::connect('/bakery/menus/:action/*', array('plugin' => 'menus', 'controller' => 'menus_cms'));
+Router::connect('/bakery/menusajax/:action', array('plugin' => 'menus', 'controller' => 'menus_ajax'));

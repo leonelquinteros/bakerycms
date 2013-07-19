@@ -4,7 +4,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Edit administrator actions
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			<strong>Save</strong> will save your changes on the administrator information and bring you back to the administrators list.
@@ -23,7 +23,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Administrator permissions
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			In this section you can allow or deny certain types of access to modules.
@@ -48,7 +48,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Administrator information
-			<img src="<?php echo $this->Html->url('/img/cms/close_help.png'); ?>" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img/bakery/close_help.png'); ?>" class="helpClose" />
 		</h1>
 		<p>
 			Here you can edit all the information of the CMS administrators.

@@ -31,10 +31,10 @@
 Router::connect('/robots.txt', array('controller' => 'app', 'action' => 'robots_txt'));
 
 // CMS basic routes.
-Router::connect('/cms', array('controller' => 'cms', 'action' => 'index'));
-Router::connect('/cms/configure', array('controller' => 'cms', 'action' => 'configure'));
-Router::connect('/cms/login', array('controller' => 'cms', 'action' => 'login'));
-Router::connect('/cms/logout', array('controller' => 'cms', 'action' => 'logout'));
+Router::connect('/bakery', array('controller' => 'cms', 'action' => 'index'));
+Router::connect('/bakery/configure', array('controller' => 'cms', 'action' => 'configure'));
+Router::connect('/bakery/login', array('controller' => 'cms', 'action' => 'login'));
+Router::connect('/bakery/logout', array('controller' => 'cms', 'action' => 'logout'));
 
 // Language route.
 Router::connect('/lang/*', array('controller' => 'lang', 'action' => 'change'));
@@ -44,7 +44,7 @@ Router::connect('/lang/*', array('controller' => 'lang', 'action' => 'change'));
  * how to customize the loading of plugin routes.
  *
  * When you creates a app/plugin/config/routes.php file and define routes in there, please follow this conventions:
- * - All CMS routes should start with /cms/[pluginName]/
+ * - All CMS routes should start with /bakery/[pluginName]/
  * - All other plugin routes should start with /[pluginName]/, so we can avoid routes collisions.
  * - Magic routes should be defined at the end of this section for each application.
  */

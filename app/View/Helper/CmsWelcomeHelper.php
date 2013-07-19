@@ -31,7 +31,7 @@ class CmsWelcomeHelper extends AppHelper {
         if(!empty($_SESSION['CMSAdministratorLogin']))
         {
             $admin = $_SESSION['CMSAdministratorLogin'];
-            $html = '' . __d('cms', 'Logged in as ') . ' ' . $admin['AdminsAdmin']['name'] . '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="' . $this->Html->url('/cms/logout/') . '">' . __d('cms', 'Log out') . '</a>';
+            $html = '' . __d('cms', 'Logged in as ') . ' ' . $admin['AdminsAdmin']['name'] . '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="' . $this->Html->url('/bakery/logout/') . '">' . __d('cms', 'Log out') . '</a>';
 
             return $this->output($html);
         }

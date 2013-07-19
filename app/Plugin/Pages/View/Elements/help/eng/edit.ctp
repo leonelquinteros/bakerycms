@@ -4,7 +4,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Edit page actions
-			<img src="<?php echo $this->Html->url('/img'); ?>/cms/close_help.png" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img'); ?>/bakery/close_help.png" class="helpClose" />
 		</h1>
 		<p>
 			Click here to save this page or to go back to the Pages overview.
@@ -28,7 +28,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Edit content
-			<img src="<?php echo $this->Html->url('/img'); ?>/cms/close_help.png" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img'); ?>/bakery/close_help.png" class="helpClose" />
 		</h1>
 		<p>
 			The <strong>Edit content</strong> button will open a new browser window, showing a view of your website where all editables area are transformed into a <em>Rich Text Editor</em>.
@@ -52,13 +52,13 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Menu links
-			<img src="<?php echo $this->Html->url('/img'); ?>/cms/close_help.png" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img'); ?>/bakery/close_help.png" class="helpClose" />
 		</h1>
 		<p>
 			From this box, you can add or remove links to this page in your <strong>Menu Structure</strong>.
 		</p>
 		<p>
-			Just click on <img src="<?php echo $this->Html->url('/img'); ?>/cms/icons/add.png" /> or <img src="<?php echo $this->Html->url('/img'); ?>/cms/icons/delete.png" /> buttons on the desired menu to automatically add or remove links to this page there.  
+			Just click on <img src="<?php echo $this->Html->url('/img'); ?>/bakery/icons/add.png" /> or <img src="<?php echo $this->Html->url('/img'); ?>/bakery/icons/delete.png" /> buttons on the desired menu to automatically add or remove links to this page there.  
 		</p>
 	</div>
 	
@@ -71,7 +71,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Page URL
-			<img src="<?php echo $this->Html->url('/img'); ?>/cms/close_help.png" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img'); ?>/bakery/close_help.png" class="helpClose" />
 		</h1>
 		<p>
 			<strong>Title: </strong>
@@ -109,7 +109,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Page Publish Info
-			<img src="<?php echo $this->Html->url('/img'); ?>/cms/close_help.png" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img'); ?>/bakery/close_help.png" class="helpClose" />
 		</h1>
 		<p>
 			Put here your publish status. If the publish status is <em>Publish</em>, you can set a init date for this status. 
@@ -126,7 +126,7 @@
 	<div class="helpTextContent">
 		<h1>
 			Help: Page SEO Information
-			<img src="<?php echo $this->Html->url('/img'); ?>/cms/close_help.png" class="helpClose" />
+			<img src="<?php echo $this->Html->url('/img'); ?>/bakery/close_help.png" class="helpClose" />
 		</h1>
 		<p>
 			<strong>SEO Title:</strong> 
