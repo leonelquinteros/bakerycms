@@ -27,13 +27,13 @@ $this->Html->script('MediaGallery.jquery.Jcrop.min', array('inline' => false));
         background: -o-linear-gradient(top, #444444, #212121);
         background: linear-gradient(top, #444444, #212121);
         box-shadow: 0px 1px 15px #212121;
-        z-index: 5000;
+        z-index: 100;
     }
 
     #bakery-cms-edit-toolbar #bakery-editor-toolbar {
         float: left;
         width: 630px;
-        z-index: 100;
+        z-index: 110;
     }
 
     #bakery-cms-edit-toolbar #toolbar-placeholder {
@@ -149,12 +149,13 @@ echo $this->requestAction('/' . $page['PagesPage']['url'], array('return'));
                 theme : "modern",
                 schema : "html5",
                 plugins : "anchor,link,image,textcolor,media,searchreplace,print,paste,directionality,table",
-                satusbar: false,
+                statusbar: false,
                 inline: true,
                 fixed_toolbar_container: "#bakery-editor-toolbar",
 
                 // Styles
-                content_css : "/css/bootstrap/css/bootstrap.min.css",
+                preview_styles: false,
+                content_css : "/css/bootstrap/css/bootstrap.min.css,/css/bootstrap/css/bootstrap-responsive.min.css",
                 body_class: $el.parent().attr('class'),
 
                 width: $el.parent().css('width'),

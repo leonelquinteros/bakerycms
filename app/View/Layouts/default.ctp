@@ -8,9 +8,11 @@
         <?php
         echo $this->fetch('meta');
 
-        echo $this->Html->css('bootstrap/css/bootstrap.min');
-        echo $this->Html->css('bootstrap/css/bootstrap-responsive.min');
-        echo $this->Html->css('default');
+        if(empty($editMode))
+        {
+            echo $this->Html->css('bootstrap/css/bootstrap.min');
+            echo $this->Html->css('bootstrap/css/bootstrap-responsive.min');
+        }
 
         echo $this->fetch('css');
 
