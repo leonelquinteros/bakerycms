@@ -180,13 +180,6 @@ define('SUPPORTED_LANGUAGES', 'eng');
 // Supported menus
 define('SITE_MENUS', 'Main,Bottom');
 
-// Zend Framework autoloader
-$ip = ini_get('include_path');
-ini_set('include_path', $ip . PATH_SEPARATOR . ROOT);
-
-require_once 'Zend/Loader/Autoloader.php';
-Zend_Loader_Autoloader::getInstance();
-
 // Load some useful classes
 App::import('Utility', 'Sanitize');
 App::import('Lib', 'Language');

@@ -160,10 +160,10 @@ class SetupShell extends AppShell
             mkdir(ROOT . '/app/tmp/cache/cake');
         }
 
-        if( !is_dir(ROOT . '/app/tmp/cache/media_gallery') )
+        if( !is_dir(ROOT . '/app/tmp/cache/persistent') )
         {
-            $this->out('Creating cache/media_gallery dir ...');
-            mkdir(ROOT . '/app/tmp/cache/media_gallery');
+            $this->out('Creating cache/persistent dir ...');
+            mkdir(ROOT . '/app/tmp/cache/persistent');
         }
 
         if( !is_dir(ROOT . '/app/tmp/cache/models') )
@@ -172,16 +172,16 @@ class SetupShell extends AppShell
             mkdir(ROOT . '/app/tmp/cache/models');
         }
 
-        if( !is_dir(ROOT . '/app/tmp/cache/persistent') )
-        {
-            $this->out('Creating cache/persistent dir ...');
-            mkdir(ROOT . '/app/tmp/cache/persistent');
-        }
-
         if( !is_dir(ROOT . '/app/tmp/cache/views') )
         {
             $this->out('Creating cache/views dir ...');
             mkdir(ROOT . '/app/tmp/cache/views');
+        }
+
+        if( !is_dir(ROOT . '/app/tmp/cache/media_gallery') )
+        {
+            $this->out('Creating cache/media_gallery dir ...');
+            mkdir(ROOT . '/app/tmp/cache/media_gallery');
         }
     }
 
@@ -221,7 +221,7 @@ class SetupShell extends AppShell
 
         $this->out('Setting DB options in app/config/database.php');
 
-        $tpl = file_get_contents(ROOT . '/app/Config/database.php.template');
+        $tpl = file_get_contents(ROOT . '/app/Config/database.php.default');
         $tpl = str_replace('{dbHost}', $dbHost, $tpl);
         $tpl = str_replace('{dbName}', $dbName, $tpl);
         $tpl = str_replace('{dbUser}', $dbUser, $tpl);
