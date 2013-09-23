@@ -23,6 +23,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+
 /**
  * Cache Engine Configuration
  * Default settings provided below
@@ -111,7 +112,7 @@ if(Configure::read('debug') > 0)
 /**
  * Cache configuration
  */
-define('CACHE_ENGINE', 'File');
+define('CACHE_ENGINE', 'Memcache');
 
 Cache::config('default', array(
                             'engine' => CACHE_ENGINE,

@@ -21,6 +21,12 @@
  */
 
 /**
+ * Google App Engine support configuration
+ */
+date_default_timezone_set('America/Argentina/Buenos_Aires');
+
+
+/**
  * Use the DS to separate the directories in other defines
  */
 if (!defined('DS')) {

@@ -10,8 +10,33 @@
 
         <title><?php echo $pageTitle; ?> | Bakery CMS</title>
 
-        <?php
+        <link rel="stylesheet" type="text/css" href="/css/bakery/bakery.css" />
+        <link rel="stylesheet" type="text/css" href="/css/flick/jquery-ui-1.10.3.custom.min.css" />
+        <link rel="stylesheet" type="text/css" href="/media_gallery/css/jquery.Jcrop.min.css" />
+        <?php echo $this->fetch('css'); ?>
 
+        <script type="text/javascript" src="/js/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="/js/jquery.tools.min.js"></script>
+        <script type="text/javascript" src="/js/jquery-ui-1.10.3.custom.min.js"></script>
+        <?php
+        if(!empty($this->request->params['plugin']))
+        {
+            ?>
+            <script type="text/javascript" src="/js/fileuploader.js"></script>
+            <script type="text/javascript" src="/js/tinymce/tinymce.min.js"></script>
+            <script type="text/javascript" src="/js/tinymce/jquery.tinymce.min.js"></script>
+            <script type="text/javascript" src="/media_gallery/js/bakery.media.gallery.js"></script>
+            <script type="text/javascript" src="/media_gallery/js/jquery.Jcrop.min.js"></script>
+            <?php
+        }
+
+        echo $this->fetch('script');
+        ?>
+
+        <?php
+        /**
+         * Code below replaced by code above to work on Google App Engine
+         *
         $this->Html->css('bakery/bakery', null, array('inline' => false));
         $this->Html->css('flick/jquery-ui-1.10.3.custom.min', null, array('inline' => false));
         $this->Html->css('MediaGallery.jquery.Jcrop.min', null, array('inline' => false));
@@ -32,6 +57,7 @@
         }
 
         echo $this->fetch('script');
+        */
         ?>
 
         <script type="text/javascript">
