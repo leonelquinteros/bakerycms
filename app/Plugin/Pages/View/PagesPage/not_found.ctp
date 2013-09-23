@@ -1,11 +1,11 @@
 <h1><?php echo $pageTitle; ?></h1>
 
-<div id="big-page" class="big-page">
-    <div id="mainContent" class="bakery-cms-edit">
+<div class="hero-unit">
+    <div id="main-content" class="bakery-cms-edit">
         <?php
-        if( !empty($pageContent['mainContent']) )
+        if( !empty($pageContent['main-content']) )
         {
-            echo $pageContent['mainContent'];
+            echo $pageContent['main-content'];
         }
         ?>
     </div>
