@@ -13,9 +13,9 @@
         </div>
         <div class="bakery-action-box-content">
             <p class="bakery-action-boxButtons">
-                <a href="<?php echo $this->Html->url('/bakery/menus/edit/' . $lang . '/' . $menuName); ?>" class="button-large"><?php echo __d('cms', 'Add link to menu');?></a>
+                <a href="<?php echo $this->Html->url('/bakery/menus/edit/' . $lang . '/' . $menuName); ?>" class="button-large"><?php echo __d('cms', 'Add item by URL');?></a>
                 <br />
-                <a href="#" onclick="openPagesDialog(); return false;" class="button-large"><?php echo __d('cms', 'Add page link to menu');?></a>
+                <a href="#" onclick="openPagesDialog(); return false;" class="button-large"><?php echo __d('cms', 'Select page to link');?></a>
                 <br />
                 <a href="<?php echo $this->Html->url('/bakery/menus'); ?>" class="button-large"><?php echo __d('cms', 'Back to menu overview');?></a>
             </p>

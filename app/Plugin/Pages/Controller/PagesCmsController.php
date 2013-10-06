@@ -132,6 +132,7 @@ class PagesCmsController extends PagesAppController
                 {
                     $this->data = $this->PagesPage->read();
                     $id = $this->PagesPage->id;
+
                     $this->set('goEditContent', true);
                 }
                 else

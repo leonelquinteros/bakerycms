@@ -131,8 +131,8 @@ echo $this->requestAction('/' . $page['PagesPage']['url'], array('return'));
             type: 'tiny'
         });
 
-        // Convert all div.bakery-cms-edit to TinyMCE.
-        $('div.bakery-cms-edit').each( function(i, el) {
+        // Convert all ".bakery-cms-edit" to TinyMCE.
+        $('.bakery-cms-edit').each( function(i, el) {
             $el = $(el);
 
             $el.css('outline', '1px dotted rgb(153, 153, 153)');
@@ -159,7 +159,7 @@ echo $this->requestAction('/' . $page['PagesPage']['url'], array('return'));
                 body_class: $el.parent().attr('class'),
 
                 width: $el.parent().css('width'),
-                height: $el.parent().css('height')
+                height: $el.parent().css('height'),
             });
         });
     });

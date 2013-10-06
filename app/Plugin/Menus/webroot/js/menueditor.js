@@ -1,7 +1,7 @@
 function addMenuItem(menuTitle, menuLink, parentId) {
 	jQuery.ajax(
 			{
-				url: '/cms/menusajax/addMenuItem',
+				url: '/bakery/menusajax/addMenuItem',
 				data: {
 						name: '<?php echo $menuName; ?>',
 						lang: '<?php echo $lang; ?>',
@@ -45,7 +45,7 @@ jQuery( function() {
 
 								jQuery.ajax(
 										{
-											url: '/cms/menusajax/order',
+											url: '/bakery/menusajax/order',
 											data: {items: order},
 											type: 'POST'
 										}

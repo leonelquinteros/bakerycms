@@ -22,8 +22,7 @@
                 else
                 {
                     ?>
-                    <a href="<?php echo $this->Html->url('/bakery/menus/edit/' . $lang . '/' . $menuName); ?>/<?php echo $this->data['MenusMenu']['parent_id']; ?>"
-                        class="button-large" onclick="return confirm('<?php echo __d('cms', 'Your changes will not be saved. Are you sure you want to proceed?')?>')">
+                    <a href="<?php echo $this->Html->url('/bakery/menus/edit/' . $lang . '/' . $menuName); ?>/<?php echo $this->data['MenusMenu']['parent_id']; ?>" class="button-large">
                             <?php echo __d('cms', 'Back to parent menu');?>
                     </a>
                     <?php
@@ -50,8 +49,8 @@
             </div>
             <div class="bakery-action-box-content">
                 <p class="bakery-action-boxButtons">
-                    <a href="<?php echo $this->Html->url('/bakery/menus/edit/' . $lang . '/' . $menuName . '/0/' . $this->data['MenusMenu']['id']); ?>" class="button-large"><?php echo __d('cms', 'Add link to sub-menu');?></a>
-                    <a href="#" onclick="openPagesDialog(); return false;" class="button-large"><?php echo __d('cms', 'Add page link to sub-menu');?></a>
+                    <a href="<?php echo $this->Html->url('/bakery/menus/edit/' . $lang . '/' . $menuName . '/0/' . $this->data['MenusMenu']['id']); ?>" class="button-large"><?php echo __d('cms', 'Add item by URL');?></a>
+                    <a href="#" onclick="openPagesDialog(); return false;" class="button-large"><?php echo __d('cms', 'Select page to link');?></a>
                 </p>
             </div>
             <div class="bakery-action-box-bottom"></div>

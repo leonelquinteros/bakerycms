@@ -15,7 +15,7 @@
             <p class="bakery-action-boxButtons">
                 <a href="#" class="action-button-large" onclick="this.onclick = function(){ return false; }; jQuery('#frmPages').submit(); return false;"><?php echo __d('cms', 'Save page'); ?></a>
                 <br />
-                <a href="<?php echo $this->Html->url('/bakery'); ?>/pages" class="button-large" onclick="return confirm('<?php echo __d('cms', 'Your changes will not be saved. Are you sure you want to proceed?')?>')"><?php echo __d('cms', 'Back to pages'); ?></a>
+                <a href="<?php echo $this->Html->url('/bakery'); ?>/pages" class="button-large"><?php echo __d('cms', 'Back to pages'); ?></a>
             </p>
         </div>
         <div class="bakery-action-box-bottom"></div>
@@ -346,17 +346,13 @@
     }
 
     //OnDomReady
-    jQuery(document).ready( function() {
+    jQuery( function() {
         // Open content
         <?php
         if( !empty($goEditContent) )
         {
             ?>
-            jQuery(document).ready(
-                function() {
-                    openContentEditor();
-                }
-            );
+            openContentEditor();
             <?php
         }
         ?>
