@@ -119,7 +119,18 @@
             <hr>
 
             <footer>
-                <p>&copy; Bakery CMS 2013</p>
+                <p>
+                    &copy; Bakery CMS 2013
+
+                    <?php
+                    foreach($menuData['Bottom'] as $menuItem)
+                    {
+                        ?>
+                        | <a href="<?php echo $menuItem['MenusMenu']['link']; ?>"><?php echo $menuItem['MenusMenu']['title']; ?></a>
+                        <?php
+                    }
+                    ?>
+                </p>
             </footer>
         </div> <!-- /container -->
 
