@@ -89,7 +89,7 @@
             </h2>
 
             <div id="cropContainer">
-                <img id="imageCrop" src="<?php echo $this->Html->url('/media_gallery/thumb/730/0/' . $this->data['MediaGalleryFile']['filename'] . '?nocache=' . time()); ?>" alt="Image" />
+                <img id="imageCrop" src="<?php echo $this->Html->url('/media_gallery/thumb/720/0/' . $this->data['MediaGalleryFile']['filename'] . '?nocache=' . time()); ?>" alt="Image" />
             </div>
 
             <span><?php echo $this->data['MediaGalleryFile']['filename']; ?></span>

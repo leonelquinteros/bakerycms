@@ -28,7 +28,7 @@ App::import('Lib', 'Plugin');
 class CmsController extends AppController
 {
     public $name = "Cms";
-    public $uses = array('Admins.AdminsAdmin', 'Pages.PagesPage');
+    public $uses = array('Admins.AdminsAdmin', 'Pages.PagesPage', 'Menus.MenusMenu', 'MediaGallery.MediaGalleryFile');
     public $components = array('BakeryLogin', 'Breadcrumb', 'BakeryMenu');
     public $helpers = array('CmsBreadcrumb', 'CmsWelcome', 'Text');
 
@@ -80,8 +80,14 @@ class CmsController extends AppController
     {
         $this->set('pageTitle', __d('cms', 'Home') );
 
-        $pages = $this->PagesPage->find('all', array('order' => 'PagesPage.id DESC', 'limit' => '5'));
+        $pages = $this->PagesPage->find('all', array('order' => 'id DESC', 'limit' => '5'));
         $this->set('pages', $pages);
+
+        $menus = $this->MenusMenu->find('all', array('order' => 'id DESC', 'limit' => '5'));
+        $this->set('menus', $menus);
+
+        $media = $this->MediaGalleryFile->find('all', array('order' => 'id DESC', 'limit' => '5'));
+        $this->set('media', $media);
     }
 
     public function login()

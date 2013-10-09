@@ -14,11 +14,16 @@ $this->Html->script('MediaGallery.jquery.Jcrop.min', array('inline' => false));
 ?>
 
 <style type="text/css">
+    .container {
+        width: 1024px !important;
+    }
+
     #bakery-cms-edit-toolbar {
         position: fixed;
         top: 0px;
         left: 0px;
         width: 100%;
+        min-width: 1024px;
         height: 80px;
         background: #212121;
         background: -moz-linear-gradient(top, #444444, #212121);
@@ -32,7 +37,7 @@ $this->Html->script('MediaGallery.jquery.Jcrop.min', array('inline' => false));
 
     #bakery-cms-edit-toolbar #bakery-editor-toolbar {
         float: left;
-        width: 630px;
+        width: 490px;
         z-index: 110;
     }
 
@@ -47,7 +52,7 @@ $this->Html->script('MediaGallery.jquery.Jcrop.min', array('inline' => false));
     #bakery-cms-edit-toolbar a.button-large {
         display: inline-block;
         float: right;
-        width: 212px;
+        width: 140px;
         height: 25px;
         padding-top: 6px;
         background: #0090FF;
@@ -71,6 +76,10 @@ $this->Html->script('MediaGallery.jquery.Jcrop.min', array('inline' => false));
         background: -ms-linear-gradient(top, #90CCFF, #0090FF);
         background: -o-linear-gradient(top, #90CCFF, #0090FF);
         background: linear-gradient(top, #90CCFF, #0090FF);
+    }
+
+    .bakery-cms-edit {
+        min-height: 150px;
     }
 </style>
 
@@ -148,7 +157,8 @@ echo $this->requestAction('/' . $page['PagesPage']['url'], array('return'));
                 // General options
                 theme : "modern",
                 schema : "html5",
-                plugins : "anchor,link,image,textcolor,media,searchreplace,print,paste,directionality,table",
+                plugins : "anchor,link,image,textcolor,media,searchreplace,print,paste,table",
+                toolbar: "undo redo | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist | link image",
                 statusbar: false,
                 inline: true,
                 fixed_toolbar_container: "#bakery-editor-toolbar",
@@ -157,6 +167,16 @@ echo $this->requestAction('/' . $page['PagesPage']['url'], array('return'));
                 preview_styles: false,
                 content_css : "/css/bootstrap/css/bootstrap.min.css,/css/bootstrap/css/bootstrap-responsive.min.css",
                 body_class: $el.parent().attr('class'),
+
+                style_formats : [
+                    {title : 'Default Button', inline : 'a', classes: 'btn'},
+                    {title : 'Primary Button', inline : 'a', classes: 'btn btn-primary'},
+                    {title : 'Info Button', inline : 'a', classes: 'btn btn-info'},
+                    {title : 'Success Button', inline : 'a', classes: 'btn btn-success'},
+                    {title : 'Warning Button', inline : 'a', classes: 'btn btn-warning'},
+                    {title : 'Danger Button', inline : 'a', classes: 'btn btn-danger'},
+                    {title : 'Inverse Button', inline : 'a', classes: 'btn btn-inverse'},
+                ],
 
                 width: $el.parent().css('width'),
                 height: $el.parent().css('height'),
