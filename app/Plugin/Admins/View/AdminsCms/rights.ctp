@@ -41,71 +41,74 @@
         <?php
         foreach($rights as $plugin => $right)
         {
-            ?>
-            <tr>
-                <td><?php echo Plugin::getPluginName($plugin); ?></td>
-                <td>
-                    <?php
-                    if(!$right['index']) // Allow
-                    {
-                        ?>
-                        <a href="<?php echo $this->Html->url('/bakery/admins/add_restriction/' . $this->data['AdminsAdmin']['id'] . '/' . $plugin . '/index'); ?>" title="<?php echo __d('cms', 'Change'); ?>">
-                            <img src="<?php echo $this->Html->url('/img/bakery/icons/accept.png'); ?>" alt="<?php echo __d('cms', 'Allow'); ?>" />
-                        </a>
+            if(Plugin::hasCmsModule($plugin))
+            {
+                ?>
+                <tr>
+                    <td><?php echo Plugin::getPluginName($plugin); ?></td>
+                    <td>
                         <?php
-                    }
-                    else // Has restriction id
-                    {
+                        if(!$right['index']) // Allow
+                        {
+                            ?>
+                            <a href="<?php echo $this->Html->url('/bakery/admins/add_restriction/' . $this->data['AdminsAdmin']['id'] . '/' . $plugin . '/index'); ?>" title="<?php echo __d('cms', 'Change'); ?>">
+                                <img src="<?php echo $this->Html->url('/img/bakery/icons/accept.png'); ?>" alt="<?php echo __d('cms', 'Allow'); ?>" />
+                            </a>
+                            <?php
+                        }
+                        else // Has restriction id
+                        {
+                            ?>
+                            <a href="<?php echo $this->Html->url('/bakery/admins/remove_restriction/' . $right['index']); ?>" title="<?php echo __d('cms', 'Change'); ?>">
+                                <img src="<?php echo $this->Html->url('/img/bakery/icons/delete.png'); ?>" alt="<?php echo __d('cms', 'Deny'); ?>" />
+                            </a>
+                            <?php
+                        }
                         ?>
-                        <a href="<?php echo $this->Html->url('/bakery/admins/remove_restriction/' . $right['index']); ?>" title="<?php echo __d('cms', 'Change'); ?>">
-                            <img src="<?php echo $this->Html->url('/img/bakery/icons/delete.png'); ?>" alt="<?php echo __d('cms', 'Deny'); ?>" />
-                        </a>
+                    </td>
+                    <td>
                         <?php
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if(!$right['edit']) // Allow
-                    {
+                        if(!$right['edit']) // Allow
+                        {
+                            ?>
+                            <a href="<?php echo $this->Html->url('/bakery/admins/add_restriction/' . $this->data['AdminsAdmin']['id'] . '/' . $plugin . '/edit') ?>" title="<?php echo __d('cms', 'Change'); ?>">
+                                <img src="<?php echo $this->Html->url('/img/bakery/icons/accept.png'); ?>" alt="<?php echo __d('cms', 'Allow'); ?>" />
+                            </a>
+                            <?php
+                        }
+                        else // Has restriction id
+                        {
+                            ?>
+                            <a href="<?php echo $this->Html->url('/bakery/admins/remove_restriction/' . $right['edit']); ?>" title="<?php echo __d('cms', 'Change'); ?>">
+                                <img src="<?php echo $this->Html->url('/img/bakery/icons/delete.png'); ?>" alt="<?php echo __d('cms', 'Deny'); ?>" />
+                            </a>
+                            <?php
+                        }
                         ?>
-                        <a href="<?php echo $this->Html->url('/bakery/admins/add_restriction/' . $this->data['AdminsAdmin']['id'] . '/' . $plugin . '/edit') ?>" title="<?php echo __d('cms', 'Change'); ?>">
-                            <img src="<?php echo $this->Html->url('/img/bakery/icons/accept.png'); ?>" alt="<?php echo __d('cms', 'Allow'); ?>" />
-                        </a>
+                    </td>
+                    <td>
                         <?php
-                    }
-                    else // Has restriction id
-                    {
+                        if(!$right['delete']) // Allow
+                        {
+                            ?>
+                            <a href="<?php echo $this->Html->url('/bakery/admins/add_restriction/' . $this->data['AdminsAdmin']['id'] . '/' . $plugin . '/delete'); ?>" title="<?php echo __d('cms', 'Change'); ?>">
+                                <img src="<?php echo $this->Html->url('/img/bakery/icons/accept.png'); ?>" alt="<?php echo __d('cms', 'Allow'); ?>" />
+                            </a>
+                            <?php
+                        }
+                        else // Has restriction id
+                        {
+                            ?>
+                            <a href="<?php echo $this->Html->url('/bakery/admins/remove_restriction/' . $right['delete']); ?>" title="<?php echo __d('cms', 'Change'); ?>">
+                                <img src="<?php echo $this->Html->url('/img/bakery/icons/delete.png'); ?>" alt="<?php echo __d('cms', 'Deny'); ?>" />
+                            </a>
+                            <?php
+                        }
                         ?>
-                        <a href="<?php echo $this->Html->url('/bakery/admins/remove_restriction/' . $right['edit']); ?>" title="<?php echo __d('cms', 'Change'); ?>">
-                            <img src="<?php echo $this->Html->url('/img/bakery/icons/delete.png'); ?>" alt="<?php echo __d('cms', 'Deny'); ?>" />
-                        </a>
-                        <?php
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if(!$right['delete']) // Allow
-                    {
-                        ?>
-                        <a href="<?php echo $this->Html->url('/bakery/admins/add_restriction/' . $this->data['AdminsAdmin']['id'] . '/' . $plugin . '/delete'); ?>" title="<?php echo __d('cms', 'Change'); ?>">
-                            <img src="<?php echo $this->Html->url('/img/bakery/icons/accept.png'); ?>" alt="<?php echo __d('cms', 'Allow'); ?>" />
-                        </a>
-                        <?php
-                    }
-                    else // Has restriction id
-                    {
-                        ?>
-                        <a href="<?php echo $this->Html->url('/bakery/admins/remove_restriction/' . $right['delete']); ?>" title="<?php echo __d('cms', 'Change'); ?>">
-                            <img src="<?php echo $this->Html->url('/img/bakery/icons/delete.png'); ?>" alt="<?php echo __d('cms', 'Deny'); ?>" />
-                        </a>
-                        <?php
-                    }
-                    ?>
-                </td>
-            </tr>
-            <?php
+                    </td>
+                </tr>
+                <?php
+            }
         }
         ?>
     </table>

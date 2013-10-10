@@ -41,7 +41,7 @@ App::import('Lib', 'Plugin');
 
 class BakeryMenuComponent extends Component
 {
-    public $components = array('I18n');
+    public $components = array('I18n', 'BakeryLogin');
 
     private $_menu;
 
@@ -63,13 +63,11 @@ class BakeryMenuComponent extends Component
     public function getMenu()
     {
         $lang = $this->I18n->getLanguage();
+        $menu = array();
 
-        $menu = Cache::read('components-BakeryMenu-getMenu-' . $lang, 'default');
-
-        if($menu === false)
+        if( $this->BakeryLogin->isLoggedIn() )
         {
-            $menu = Plugin::getCmsModulesMenu();
-            Cache::write('components-BakeryMenu-getMenu-' . $lang, $menu, 'default');
+            $menu = Plugin::getCmsModulesMenu( $this->BakeryLogin->isSuperAdmin() );
         }
 
         return $menu;

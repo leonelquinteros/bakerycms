@@ -36,6 +36,11 @@ class AdminsPlugin extends PluginObject
      */
     protected $_showInBakeryMenu = true;
 
+    /**
+     * @var (boolean) Only Super Admins have access.
+     */
+    protected $_restricted = true;
+
 
     public function getCmsModuleName()
     {

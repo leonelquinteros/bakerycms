@@ -8,3 +8,10 @@ app/tmp/tests/*
 app/webroot/media/*
 app/[Cc]onfig/core.php
 app/[Cc]onfig/database.php
+app/Plugin/*
+!app/Plugin/Admins/
+!app/Plugin/MediaGallery/
+!app/Plugin/Menus/
+!app/Plugin/Pages/
+!app/Plugin/Sitemap/
+

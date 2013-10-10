@@ -97,10 +97,12 @@ class Plugin
     /**
      * getCmsModulesMenu()
      * Creates an array with all the CMS menu items retrieved from the installed plugins.
+     * 
+     * @param (bool) $superAdmin. Indicates if a Super Admin is logged in.
      *
      * @return (array) The CMS menu array.
      */
-    public static function getCmsModulesMenu()
+    public static function getCmsModulesMenu( $superAdmin = false )
     {
         $modulesMenu = array();
         $installedPlugins = CakePlugin::loaded();
@@ -112,11 +114,14 @@ class Plugin
 
             if($pluginObject && $pluginObject->showInBakeryMenu() && !$pluginObject->isCmsSubMenu())
             {
-                $modulesMenu[] = array( 'plugin' => $pluginName,
-                                        'name' => $pluginObject->getCmsModuleName(),
-                                        'link' => '/bakery/' . Inflector::underscore($pluginName),
-                                        'submenu' => array()
-                );
+                if( $superAdmin || !$pluginObject->isRestricted() )
+                {
+                    $modulesMenu[] = array( 'plugin' => $pluginName,
+                                            'name' => $pluginObject->getCmsModuleName(),
+                                            'link' => '/bakery/' . Inflector::underscore($pluginName),
+                                            'submenu' => array()
+                    );
+                }
             }
         }
 
@@ -127,15 +132,18 @@ class Plugin
 
             if($pluginObject && $pluginObject->showInBakeryMenu() && $pluginObject->isCmsSubMenu())
             {
-                for($i = 0; $i < count($modulesMenu); $i++)
+                if( $superAdmin || !$pluginObject->isRestricted() )
                 {
-                    if($modulesMenu[$i]['plugin'] == $pluginObject->getBakeryMenuFather())
+                    for($i = 0; $i < count($modulesMenu); $i++)
                     {
-                        $modulesMenu[$i]['submenu'][] = array(
-                                                            'plugin' => $pluginName,
-                                                            'name' => $pluginObject->getCmsModuleName(),
-                                                            'link' => '/bakery/' . Inflector::underscore($pluginName),
-                        );
+                        if($modulesMenu[$i]['plugin'] == $pluginObject->getBakeryMenuFather())
+                        {
+                            $modulesMenu[$i]['submenu'][] = array(
+                                                                'plugin' => $pluginName,
+                                                                'name' => $pluginObject->getCmsModuleName(),
+                                                                'link' => '/bakery/' . Inflector::underscore($pluginName),
+                            );
+                        }
                     }
                 }
             }

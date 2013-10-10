@@ -48,6 +48,11 @@ abstract class PluginObject {
      */
     protected $_cmsMenuFather = '';
 
+    /**
+     * @var (boolean) Only Super Admins have access.
+     */
+    protected $_restricted = false;
+
 
     /*
      * Getters
@@ -78,5 +83,10 @@ abstract class PluginObject {
     public function getBakeryMenuFather()
     {
         return $this->_cmsMenuFather;
+    }
+
+    public function isRestricted()
+    {
+        return $this->_restricted;
     }
 }

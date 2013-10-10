@@ -166,6 +166,17 @@ class BakeryLoginComponent extends Component
             return true;
         }
 
+        // Check plugin restriction
+        $pluginObject = Plugin::loadPluginObject(ucfirst($plugin));
+
+        if($pluginObject->isRestricted() && $admin['AdminsAdmin']['super_admin'] == 0)
+        {
+            // Not even a message. Just logout, this shouldn't be linked from anywhere. 
+            $this->controller->redirect('/bakery/logout');
+            exit;
+        }
+
+        // Check admin restriction
         if(empty($action) && ($this->controller->params['action'] == 'index' || $this->controller->params['action'] == 'edit' || $this->controller->params['action'] == 'delete') )
         {
             $action = $this->controller->params['action'];
@@ -180,7 +191,7 @@ class BakeryLoginComponent extends Component
         App::import('Model', 'Admins.AdminsAdminsRestriction');
         $restriction = new AdminsAdminsRestriction();
 
-        $hasRight = $restriction->find('all',
+        $hasRestriction = $restriction->find('all',
                             array('conditions' =>
                                     array(
                                         'AdminsAdminsRestriction.admins_admins_id' => $adminId,
@@ -190,7 +201,7 @@ class BakeryLoginComponent extends Component
                             )
         );
 
-        if(!empty($hasRight))
+        if(!empty($hasRestriction))
         {
             $this->Session->setFlash(__d('cms', 'You have no rights to perform this action'));
             $this->controller->redirect('/bakery');
