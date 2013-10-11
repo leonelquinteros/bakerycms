@@ -6,6 +6,7 @@ app/tmp/logs/*
 app/tmp/cache/*
 app/tmp/tests/*
 app/webroot/media/*
+app/[Cc]onfig/bootstrap.php
 app/[Cc]onfig/core.php
 app/[Cc]onfig/database.php
 app/Plugin/*
@@ -14,4 +15,3 @@ app/Plugin/*
 !app/Plugin/Menus/
 !app/Plugin/Pages/
 !app/Plugin/Sitemap/
-
