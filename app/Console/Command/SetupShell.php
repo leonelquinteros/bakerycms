@@ -99,8 +99,10 @@ class SetupShell extends AppShell
         $this->out("\n> Console/cake setup checkCacheDirs\nWill check and create all cache directories needed.\n");
         $this->out("\n> Console/cake setup checkMediaPublicDir\nWill check and create the public media upload directory.\n");
         $this->out("\n> Console/cake setup setWritePermissions\nWill set all needed permissions on dirs.\n");
+        $this->out("\n> Console/cake setup coreConfig\nCreates core.php and bootstrap.php config files with starter configuration ready to work.\n");
         $this->out("\n> Console/cake setup setupDatabase\nWill set database configuration and creates the database if not exists.\n");
         $this->out("\n> Console/cake setup createSchema\nWill run the schema shell to create the schemas for each plugin installed.\n");
+        $this->out("\n> Console/cake setup insertData\nWill create the basic setup data for yhe CMS website.\n");
         $this->hr(true);
     }
 
@@ -111,15 +113,11 @@ class SetupShell extends AppShell
     public function all()
     {
         $this->checkCacheDirs();
-
         $this->checkMediaPublicDir();
-
         $this->setWritePermissions();
-
+        $this->coreConfig();
         $this->setupDatabase();
-
         $this->createSchema();
-
         $this->insertData();
     }
 
@@ -197,7 +195,22 @@ class SetupShell extends AppShell
             mkdir(ROOT . '/app/webroot/media');
         }
     }
+    
+    
+    /**
+     * coreConfig()
+     * Dummy method to create core.php and bootstrap.php config files from template without modifications.
+     */
+    public function coreConfig()
+    {
+        $core = file_get_contents(ROOT . '/app/Config/core.php.default');
+        file_put_contents(ROOT . '/app/Config/core.php', $core);
+        
+        $bootstrap = file_get_contents(ROOT . '/app/Config/bootstrap.php.default');
+        file_put_contents(ROOT . '/app/Config/core.php', $bootstrap);
+    }
 
+    
     /**
      *  setupDatabase()
      *  Attemps to write database connection configuration and to create the database.
@@ -247,5 +260,40 @@ class SetupShell extends AppShell
                 system('Console/cake schema create ' . $pluginName . '.' . $pluginName);
             }
         }
+    }
+    
+    public function insertData()
+    {
+        $this->out('Configure CMS...');
+        
+        CakePlugin::loadAll();
+        
+        $this->out('Creating administrator user account');
+        
+        App::uses('AdminsAdmin', 'Admins.Model');
+        $admin = new AdminsAdmin();
+        $adminData = $admin->create();
+
+        $adminData['AdminsAdmin']['login'] = $this->in('Username: ');
+        $adminData['AdminsAdmin']['pass'] = $this->in('Password: ');
+        $adminData['AdminsAdmin']['name'] = $this->in('Full name: ');
+        $adminData['AdminsAdmin']['email'] = $this->in('E-mail address for notifications: ');
+        $adminData['AdminsAdmin']['super_admin'] = '1';
+
+        $admin->save($adminData);
+
+
+        $this->out('Creating (empty) home page');
+
+        //App::uses('PagesPage', 'Pages.Model');
+        $page = new PagesPage();
+        $pageData = $page->create();
+
+        $pageData['PagesPage']['title'] = 'Home';
+        $pageData['PagesPage']['url'] = 'home';
+        $pageData['PagesPage']['layout'] = 'home';
+        $pageData['PagesPage']['lang'] = DEFAULT_SUPPORTED_LANGUAGE;
+
+        $page->save($pageData);
     }
 }
