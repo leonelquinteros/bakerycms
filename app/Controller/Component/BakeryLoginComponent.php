@@ -167,6 +167,7 @@ class BakeryLoginComponent extends Component
         }
 
         // Check plugin restriction
+        App::import('Lib', 'Plugin');
         $pluginObject = Plugin::loadPluginObject(ucfirst($plugin));
 
         if($pluginObject->isRestricted() && $admin['AdminsAdmin']['super_admin'] == 0)

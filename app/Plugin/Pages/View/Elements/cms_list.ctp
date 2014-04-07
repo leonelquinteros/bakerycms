@@ -22,7 +22,7 @@ foreach($pages as $page)
         <td><?php echo Language::name($page['PagesPage']['lang']); ?></td>
         <td><?php echo Inflector::humanize($page['PagesPage']['layout']); ?></td>
         <td>
-            <a href="/pages/<?php echo $page['PagesPage']['url']; ?>" title="<?php echo __d('cms', 'Preview'); ?>" onclick="window.open('/pages/<?php echo $page['PagesPage']['url']; ?>'); return false;">
+            <a href="/pages/<?php echo $page['PagesPage']['url']; ?>" title="<?php echo __d('cms', 'Preview'); ?>" onclick="window.open('/<?php echo $page['PagesPage']['url']; ?>'); return false;">
                 <img src="<?php echo $this->Html->url('/img'); ?>/bakery/icons/page_white_magnify.png" alt="<?php echo __d('cms', 'Preview'); ?>" />
             </a>
             &nbsp;&nbsp;&nbsp;

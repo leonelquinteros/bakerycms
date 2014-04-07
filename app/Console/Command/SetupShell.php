@@ -270,6 +270,7 @@ class SetupShell extends AppShell
         
         $this->out('Creating administrator user account');
         
+        App::uses('AdminsAppModel', 'Admins.Model');
         App::uses('AdminsAdmin', 'Admins.Model');
         $admin = new AdminsAdmin();
         $adminData = $admin->create();
@@ -284,8 +285,9 @@ class SetupShell extends AppShell
 
 
         $this->out('Creating (empty) home page');
-
-        //App::uses('PagesPage', 'Pages.Model');
+        
+        App::uses('PagesAppModel', 'Pages.Model');
+        App::uses('PagesPage', 'Pages.Model');
         $page = new PagesPage();
         $pageData = $page->create();
 

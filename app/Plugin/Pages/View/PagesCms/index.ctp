@@ -53,7 +53,7 @@
                 <th><?php echo $this->paginator->sort('PagesPage.url', __d('cms', 'URL')); ?></th>
                 <th><?php echo $this->paginator->sort('PagesPage.lang', __d('cms', 'Language')); ?></th>
                 <th style="width:150px;"><?php echo $this->paginator->sort('PagesPage.layout', __d('cms', 'Layout')); ?></th>
-                <th style="width:150px;"><?php echo __d('cms', 'Actions'); ?></th>
+                <th style="width:170px;"><?php echo __d('cms', 'Actions'); ?></th>
             </tr>
         </thead>
         <tbody>

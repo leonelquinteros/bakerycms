@@ -14,9 +14,11 @@ $this->Html->script('MediaGallery.jquery.Jcrop.min', array('inline' => false));
 ?>
 
 <style type="text/css">
+    /*
     .container {
         width: 1024px !important;
     }
+    */
 
     #bakery-cms-edit-toolbar {
         position: fixed;
@@ -179,9 +181,8 @@ echo $this->requestAction('/' . $page['PagesPage']['url'], array('return'));
                 ],
 
                 width: $el.parent().css('width'),
-                height: $el.parent().css('height'),
+                height: $el.parent().css('height')
             });
         });
     });
-
 </script>
