@@ -81,7 +81,7 @@ class PagesCmsController extends PagesAppController
         $pages = $this->paginate('PagesPage');
 
         $this->set('pages', $pages);
-        $this->set('pageTitle', __d('cms', 'CMS Pages') );
+        $this->set('pageTitle', __d('cms', 'Pages') );
     }
 
     public function search()
@@ -109,7 +109,7 @@ class PagesCmsController extends PagesAppController
             );
 
             $this->set('pages', $pages);
-            $this->set('pageTitle', __d('cms', 'CMS Pages search') );
+            $this->set('pageTitle', __d('cms', 'Page search') );
         }
         else
         {

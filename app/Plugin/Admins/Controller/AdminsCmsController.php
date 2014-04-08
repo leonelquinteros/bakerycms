@@ -72,7 +72,7 @@ class AdminsCmsController extends AdminsAppController
     {
         $admins = $this->AdminsAdmin->find( 'all', array('order' => 'AdminsAdmin.login') );
         $this->set('admins', $admins);
-        $this->set('pageTitle', __d('cms', 'CMS Administrators') );
+        $this->set('pageTitle', __d('cms', 'Administrators') );
         $this->set('isSuperAdmin', $this->BakeryLogin->isSuperAdmin());
     }
 
