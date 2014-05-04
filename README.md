@@ -5,7 +5,7 @@ Setup
 -----
 
 - Clone or download into your web server's document root.
-- Copy app/Config/*.php.default to app/Config/*.php
+- Inside app/Config, copy *.php.default to *.php
 - Step on 'app' dir:
 ```
 $ cd path/to/bakerycms/app
