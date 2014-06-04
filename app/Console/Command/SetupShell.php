@@ -195,8 +195,8 @@ class SetupShell extends AppShell
             mkdir(ROOT . '/app/webroot/media');
         }
     }
-    
-    
+
+
     /**
      * coreConfig()
      * Dummy method to create core.php and bootstrap.php config files from template without modifications.
@@ -205,12 +205,12 @@ class SetupShell extends AppShell
     {
         $core = file_get_contents(ROOT . '/app/Config/core.php.default');
         file_put_contents(ROOT . '/app/Config/core.php', $core);
-        
+
         $bootstrap = file_get_contents(ROOT . '/app/Config/bootstrap.php.default');
-        file_put_contents(ROOT . '/app/Config/core.php', $bootstrap);
+        file_put_contents(ROOT . '/app/Config/bootstrap.php', $bootstrap);
     }
 
-    
+
     /**
      *  setupDatabase()
      *  Attemps to write database connection configuration and to create the database.
@@ -261,15 +261,15 @@ class SetupShell extends AppShell
             }
         }
     }
-    
+
     public function insertData()
     {
         $this->out('Configure CMS...');
-        
+
         CakePlugin::loadAll();
-        
+
         $this->out('Creating administrator user account');
-        
+
         App::uses('AdminsAppModel', 'Admins.Model');
         App::uses('AdminsAdmin', 'Admins.Model');
         $admin = new AdminsAdmin();
@@ -285,7 +285,7 @@ class SetupShell extends AppShell
 
 
         $this->out('Creating (empty) home page');
-        
+
         App::uses('PagesAppModel', 'Pages.Model');
         App::uses('PagesPage', 'Pages.Model');
         $page = new PagesPage();
