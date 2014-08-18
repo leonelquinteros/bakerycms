@@ -27,7 +27,7 @@
 		</div>
 		<div class="bakery-action-box-bottom"></div>
 	</div>
-	
+
 	<div class="bakery-action-box">
 		<div class="bakery-action-box-top">
 			<h3>
@@ -40,17 +40,17 @@
 		<div class="bakery-action-box-content">
 			<div class="bakery-action-form">
 				<div class="bakery-action-form-top"></div>
-				
+
 				<form id="frmSearchFiles" action="<?php echo $this->Html->url('/bakery/media_gallery/search'); ?>" method="post">
 					<p class="bakery-action-form-content">
 						<span><?php echo __d('cms', 'Keyword'); ?></span>
 						<br />
 						<input type="text" name="q" class="textBox" value="<?php echo $keyword; ?>" />
 						<br />
-						<a href="#" class="action-button-small" onclick="jQuery('#frmSearchFiles').submit(); return false;"><?php echo __d('cms', 'Search'); ?></a>
+						<a href="#" class="button-small" onclick="jQuery('#frmSearchFiles').submit(); return false;"><?php echo __d('cms', 'Search'); ?></a>
 					</p>
 				</form>
-				
+
 				<div class="bakery-action-form-bottom"></div>
 			</div>
 		</div>
@@ -80,7 +80,7 @@
 						{
 							?>
 							<img src="<?php echo $this->Html->url('/media_gallery/thumb/0/32/' . $file['MediaGalleryFile']['filename']); ?>" alt="Image" title="Image" />
-							<?php 
+							<?php
 						}
 						elseif(substr($file['MediaGalleryFile']['filetype'], 0, 5) == 'video')
 						{
@@ -98,7 +98,7 @@
 					</td>
 					<td><?php echo $file['MediaGalleryFile']['title']; ?></td>
 					<td>
-						<a href="<?php echo $this->Html->url('/bakery/media_gallery/edit/' . $file['MediaGalleryFile']['id']); ?>" title="<?php echo __d('cms', 'Edit'); ?>">	
+						<a href="<?php echo $this->Html->url('/bakery/media_gallery/edit/' . $file['MediaGalleryFile']['id']); ?>" title="<?php echo __d('cms', 'Edit'); ?>">
 							<img src="<?php echo $this->Html->url('/img/bakery/icons/application_edit.png'); ?>" alt="<?php echo __d('cms', 'Edit'); ?>" />
 						</a>
 						&nbsp;&nbsp;&nbsp;&nbsp;
@@ -112,5 +112,5 @@
 			?>
 		</tbody>
 	</table>
-	
+
 </div>

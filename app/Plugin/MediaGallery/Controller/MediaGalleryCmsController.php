@@ -113,15 +113,13 @@ class MediaGalleryCmsController extends MediaGalleryAppController
                         )
             );
 
-            $this->includeJs('fileuploader.js');
-
             $this->set('files', $files);
             $this->set('pageTitle', __d('cms', 'Search media gallery') );
             $this->Breadcrumb->addCrumb(__d('cms', 'Search'));
         }
         else
         {
-            return $this->redirect('/bakery/pages');
+            return $this->redirect('/bakery/media_gallery');
         }
     }
 
