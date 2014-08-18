@@ -15,3 +15,4 @@ app/Plugin/*
 !app/Plugin/Menus/
 !app/Plugin/Pages/
 !app/Plugin/Sitemap/
+.DS_Store

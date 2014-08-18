@@ -4,8 +4,6 @@
  *
  * Long description for file
  *
- * PHP 5
- *
  * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -30,16 +28,9 @@
 class TranslateWithPrefixFixture extends CakeTestFixture {
 
 /**
- * name property
- *
- * @var string 'Translate'
- */
-	public $name = 'TranslateWithPrefix';
-
-/**
  * table property
  *
- * @var string 'i18n'
+ * @var string
  */
 	public $table = 'i18n_translate_with_prefixes';
 
