@@ -87,7 +87,7 @@ class PagesPage extends PagesAppModel
      * afterSave()
      * Clear page cache
      */
-    public function afterSave($created)
+    public function afterSave($created, $options = array())
     {
         $this->clearPageCache($this->data['PagesPage']['url'], $this->id);
 
