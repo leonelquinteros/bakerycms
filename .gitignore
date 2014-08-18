@@ -14,5 +14,6 @@ app/Plugin/*
 !app/Plugin/MediaGallery/
 !app/Plugin/Menus/
 !app/Plugin/Pages/
+!app/Plugin/Products/
 !app/Plugin/Sitemap/
 .DS_Store
