@@ -66,7 +66,7 @@ class MenusMenu extends MenusAppModel
      * afterSave()
      * Clear menu cache
      */
-    public function afterSave($created)
+    public function afterSave($created, $options = array())
     {
         $this->clearMenuCache();
         return true;
