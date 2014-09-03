@@ -830,6 +830,7 @@
             #bakery-form .text input,
             #bakery-form .password input,
             #bakery-form .email input,
+            #bakery-form .number input,
             #bakery-form .textarea textarea,
             #bakery-form .select select {
                 width: 706px;

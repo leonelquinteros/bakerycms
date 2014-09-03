@@ -86,7 +86,7 @@ class PagesPageContent extends PagesAppModel
      * afterSave()
      * Clear menu cache
      */
-    public function afterSave($created)
+    public function afterSave($created, $options = array())
     {
         $pageId = $this->data['PagesPageContent']['pages_pages_id'];
 

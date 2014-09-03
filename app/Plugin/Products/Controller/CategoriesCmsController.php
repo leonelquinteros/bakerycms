@@ -22,22 +22,21 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
-class ProductsCmsController extends ProductsAppController
+class CategoriesCmsController extends ProductsAppController
 {
-    public $uses = array('Products.ProductsProduct', 'Products.ProductsCategory', 'Products.ProductsImage');
+    public $uses = array('ProductsProduct', 'ProductsCategory', 'ProductsImage');
 
     public $components = array('BakeryLogin', 'Breadcrumb', 'BakeryMenu');
 
     public $helpers = array('CmsBreadcrumb', 'CmsWelcome', 'Form');
 
     public $paginate = array(
-                            'ProductsProduct' => array(
+                            'ProductsCategory' => array(
                                             'limit' => 20,
                                             'order' => array(
-                                                'ProductsProduct.name' => 'ASC'
-                                            ),
-                                            'contain' => array('Products.ProductsCategory'),
-                            ),
+                                                'ProductsCategory.name' => 'ASC'
+                                            )
+                            )
     );
 
 
@@ -53,20 +52,21 @@ class ProductsCmsController extends ProductsAppController
         $this->BakeryLogin->checkAdminLogin();
 
         $this->Breadcrumb->addCrumb(__d('cms', 'Home'), '/bakery');
+        $this->Breadcrumb->addCrumb(__d('cms', 'Products'), '/bakery/products');
 
         if( $this->action == 'index' )
         {
-            $this->Breadcrumb->addCrumb(__d('cms', 'Products'));
+            $this->Breadcrumb->addCrumb(__d('cms', 'Categories'));
         }
         else
         {
-            $this->Breadcrumb->addCrumb(__d('cms', 'Products'), '/bakery/products');
+            $this->Breadcrumb->addCrumb(__d('cms', 'Categories'), '/bakery/products/categories');
         }
 
         $cmsMenu = $this->BakeryMenu->getMenu();
         $this->set('cmsMenu', $cmsMenu);
 
-        $this->set('pageTitle', 'Products');
+        $this->set('pageTitle', 'Categories');
     }
 
 
@@ -80,44 +80,10 @@ class ProductsCmsController extends ProductsAppController
 
     public function index()
     {
-        $products = $this->paginate('ProductsProduct');
+        $categories = $this->paginate('ProductsCategory');
 
-        $this->set('products', $products);
-        $this->set('pageTitle', __d('cms', 'Products') );
-    }
-
-
-    public function search()
-    {
-        $this->BakeryLogin->checkAdminRestriction('index');
-
-        App::import('Core', 'Sanitize');
-
-        if(!empty($_POST['q']))
-        {
-            $this->set('keyword', $_POST['q']);
-            $keyword = Sanitize::escape($_POST['q']);
-
-            $products = $this->ProductsProduct->query(
-                "SELECT DISTINCT ProductsProduct.*
-                    FROM products_products AS ProductsProduct
-                    LEFT JOIN products_categories AS ProductsCategory
-                        ON ProductsProduct.category_id = ProductsCategory.id
-                    WHERE   ProductsProduct.name LIKE '%$keyword%' OR
-                            ProductsProduct.url LIKE '%$keyword%' OR
-                            ProductsProduct.description LIKE '%$keyword%' OR
-                            ProductsCategory.name LIKE '%$keyword%'"
-            );
-
-            $this->set('products', $products);
-            $this->set('pageTitle', __d('cms', 'Product search') );
-        }
-        else
-        {
-            return $this->redirect('/bakery/products');
-        }
-
-        $this->Breadcrumb->addCrumb(__d('cms', 'Search'));
+        $this->set('categories', $categories);
+        $this->set('pageTitle', __d('cms', 'Categories') );
     }
 
 
@@ -128,29 +94,28 @@ class ProductsCmsController extends ProductsAppController
         // Save
         if( !empty($this->request->data) )
         {
-            if( $this->ProductsProduct->save($this->request->data['ProductsProduct']) )
+            if( $this->ProductsCategory->save($this->request->data['ProductsCategory']) )
             {
-                $this->Session->setFlash(__d('cms', 'The product has been saved'), 'default', array('class' => 'information'));
-                return $this->redirect('/bakery/products');
+                $this->Session->setFlash(__d('cms', 'The category has been saved'), 'default', array('class' => 'information'));
+                return $this->redirect('/bakery/products/categories');
             }
         }
         else // Retrieve info
         {
-            $this->data = $this->ProductsProduct->findById($id);
-            $this->set('categories', $this->ProductsCategory->find('list'));
+            $this->data = $this->ProductsCategory->findById($id);
         }
 
 
         // Breadcrumb
         if( empty($id) )
         {
-            $this->Breadcrumb->addCrumb(__d('cms', 'New Product'));
-            $this->set('pageTitle', __d('cms', 'New Product'));
+            $this->Breadcrumb->addCrumb(__d('cms', 'New Category'));
+            $this->set('pageTitle', __d('cms', 'New Category'));
         }
         else
         {
-            $this->Breadcrumb->addCrumb(__d('cms', 'Edit ') . $this->data['ProductsProduct']['name']);
-            $this->set('pageTitle', __d('cms', 'Edit ') . $this->data['ProductsProduct']['name']);
+            $this->Breadcrumb->addCrumb(__d('cms', 'Edit ') . $this->data['ProductsCategory']['name']);
+            $this->set('pageTitle', __d('cms', 'Edit ') . $this->data['ProductsCategory']['name']);
         }
     }
 
@@ -159,10 +124,10 @@ class ProductsCmsController extends ProductsAppController
     {
         $id = (int) $id;
 
-        $this->ProductsProduct->id = $id;
-        $this->ProductsProduct->delete();
+        $this->ProductsCategory->id = $id;
+        $this->ProductsCategory->delete();
 
-        return $this->redirect('/bakery/products');
+        return $this->redirect('/bakery/products/categories');
     }
 
 }
