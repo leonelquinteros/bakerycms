@@ -42,4 +42,43 @@ class ProductsProduct extends ProductsAppModel
                             )
     );
 
+
+    public $validate = array(
+                        'name' => array(
+                                    'notEmptyRule' => array(
+                                            'rule' => 'notEmpty',
+                                            'required' => true,
+                                            'allowEmpty' => false,
+                                            'message' => 'Translate this',
+                                    )
+                        ),
+                        'url' => array(
+                                    'urlRule' => array(
+                                            'rule' => 'isUnique',
+                                            'required' => true,
+                                            'allowEmpty' => false,
+                                            'message' => 'Translate this',
+                                    )
+                        ),
+    );
+
+
+    /**
+     * beforeValidate()
+     * Converts URLs to Inflector::slug() before save.
+     */
+    public function beforeValidate($options = array())
+    {
+        if( !empty($this->data['ProductsProduct']['url']) )
+        {
+            $this->data['ProductsProduct']['url'] = Inflector::slug( strtolower($this->data['ProductsProduct']['url']), '-' );
+        }
+        else
+        {
+            $this->data['ProductsProduct']['url'] = Inflector::slug( strtolower($this->data['ProductsProduct']['name']), '-' );
+        }
+
+        return true;
+    }
+
 }

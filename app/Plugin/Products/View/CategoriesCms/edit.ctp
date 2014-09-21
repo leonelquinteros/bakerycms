@@ -23,7 +23,7 @@
 
 <div id="bakery-main">
     <h2 style="margin-top:0px;">
-        <?php echo __d('cms', 'Product information'); ?>
+        <?php echo __d('cms', 'Category information'); ?>
     </h2>
     <form id="frmCategory" action="<?php echo $this->Html->url('/bakery/products/categories/edit'); ?>" method="post" enctype="multipart/form-data">
         <div id="bakery-form">

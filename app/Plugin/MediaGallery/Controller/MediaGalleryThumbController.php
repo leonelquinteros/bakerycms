@@ -54,6 +54,20 @@ class MediaGalleryThumbController extends MediaGalleryAppController
                 $_SERVER['HTTP_IF_NONE_MATCH'] :
                 false;
 
+            // Content-Type header
+            if(substr($params['fileName'], -3) == 'png')
+            {
+                header('Content-Type: image/png');
+            }
+            elseif(substr($params['fileName'], -3) == 'gif')
+            {
+                header('Content-Type: image/gif');
+            }
+            else
+            {
+                header('Content-Type: image/jpeg');
+            }
+
             if( ($ifModifiedSince && $ifModifiedSince == $lastModified) || ($ifNoneMatch && $ifNoneMatch == $eTag) )
             {
                 header('Status: 304 Not Modified');
@@ -65,20 +79,6 @@ class MediaGalleryThumbController extends MediaGalleryAppController
             }
             else // Not cached by the browser
             {
-                // Content-Type header
-                if(substr($params['fileName'], -3) == 'png')
-                {
-                    header('Content-Type: image/png');
-                }
-                elseif(substr($params['fileName'], -3) == 'gif')
-                {
-                    header('Content-Type: image/gif');
-                }
-                else
-                {
-                    header('Content-Type: image/jpeg');
-                }
-
                 // HTTP cache headers
                 header('Cache-Control: max-age=15768000, public'); // 1 year
                 header('Pragma: cache');
@@ -215,6 +215,7 @@ class MediaGalleryThumbController extends MediaGalleryAppController
             {
                 header('HTTP/1.1 500 Internal Server Error');
                 echo "Image file missing";
+                flush();
                 exit;
             }
         }

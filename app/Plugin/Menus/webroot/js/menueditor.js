@@ -22,6 +22,7 @@ function openPagesDialog() {
 			{
 				width: 500,
 				height: 300,
+                modal: true,
 				title: '<?php __d('cms', 'Add page link'); ?>',
 				close: function() {
 					jQuery('#cmsAddMenuPageDialog').dialog("destroy");

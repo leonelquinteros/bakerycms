@@ -213,36 +213,6 @@ class PagesPage extends PagesAppModel
 
 
     /**
-     * getEmpoweredData()
-     * Fills the pageData array with Empowered information.
-     * Receives the array by reference.
-     * Doesn't returns anything.
-     *
-     * @param (array) & $pageData
-     *
-     */
-    public function getEmpoweredData( &$pageData )
-    {
-        // Get Empowered integration. Empowered lib will handle API caching.
-        if(!empty($pageData))
-        {
-            switch($pageData['PagesPage']['layout'])
-            {
-                case 'empowered_organization':
-                    $pageData['Empowered'] = Empowered::getOrganization($pageData['PagesPage']['emp_organization_id']);
-                    break;
-
-                case 'empowered_program':
-                    $pageData['Empowered'] = Empowered::getProgram($pageData['PagesPage']['emp_program_id']);
-                    break;
-
-            }
-
-        }
-    }
-
-
-    /**
      * getHomePage()
      * Gets a pages_page table record using the 'home' layout as key and checking if the page is published now.
      *
@@ -266,28 +236,6 @@ class PagesPage extends PagesAppModel
         }
 
         return $pageData;
-    }
-
-
-    public function getMapLink()
-    {
-        $link = Cache::read('plugins-pages-models-pages_page-get_map_link', 'permanent');
-
-        if($link === false)
-        {
-            $pageData = $this->find('first', array(
-                                                'conditions' =>  array('PagesPage.layout' => 'chapters_map')
-                                            )
-                    );
-
-            if(!empty($pageData))
-            {
-                $link = '/' . $pageData['PagesPage']['url'];
-                Cache::write('plugins-pages-models-pages_page-get_map_link', $link, 'permanent');
-            }
-        }
-
-        return $link;
     }
 
 

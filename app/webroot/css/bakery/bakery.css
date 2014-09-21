@@ -856,6 +856,7 @@
             #bakery-form .select select {
                 position: relative;
                 width: 100%;
+                height: 2.4em;
             }
 
             #bakery-form .datetime {
@@ -984,4 +985,19 @@
 
 .qq-upload-list {
     display: none;
+}
+
+.product-images {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.product-image {
+    display: inline-block;
+    width: 130px;
+    text-align: center;
+}
+
+.product-image a {
+    font-weight: bold;
 }

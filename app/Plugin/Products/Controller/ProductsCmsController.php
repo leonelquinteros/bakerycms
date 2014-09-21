@@ -137,9 +137,9 @@ class ProductsCmsController extends ProductsAppController
         else // Retrieve info
         {
             $this->data = $this->ProductsProduct->findById($id);
-            $this->set('categories', $this->ProductsCategory->find('list'));
         }
 
+        $this->set('categories', $this->ProductsCategory->find('list'));
 
         // Breadcrumb
         if( empty($id) )
@@ -155,6 +155,15 @@ class ProductsCmsController extends ProductsAppController
     }
 
 
+    public function add_image()
+    {
+        $this->layout = false;
+        $this->autoRender = false;
+
+        $this->ProductsImage->save($_POST);
+    }
+
+
     public function delete($id)
     {
         $id = (int) $id;
@@ -163,6 +172,17 @@ class ProductsCmsController extends ProductsAppController
         $this->ProductsProduct->delete();
 
         return $this->redirect('/bakery/products');
+    }
+
+
+    public function delete_image($id, $productId)
+    {
+        $id = (int) $id;
+
+        $this->ProductsImage->id = $id;
+        $this->ProductsImage->delete();
+
+        return $this->redirect('/bakery/products/edit/' . $productId);
     }
 
 }
