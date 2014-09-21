@@ -157,8 +157,6 @@ class PagesPage extends PagesAppModel
      */
     public function getPage($url)
     {
-        App::import('Lib', 'Empowered');
-
         $pageData = Cache::read('plugins-pages-models-pages_page-get_page-' . $url, 'permanent');
 
         if($pageData === false)
@@ -173,9 +171,6 @@ class PagesPage extends PagesAppModel
                 Cache::write('plugins-pages-models-pages_page-get_page-' . $url, $pageData, 'permanent');
             }
         }
-
-        // Get Empowered integration
-        $this->getEmpoweredData($pageData);
 
         return $pageData;
     }
@@ -204,9 +199,6 @@ class PagesPage extends PagesAppModel
                 Cache::write('plugins-pages-models-pages_page-get_published_page-' . $url, $pageData, 'permanent');
             }
         }
-
-        // Get Empowered integration
-        $this->getEmpoweredData($pageData);
 
         return $pageData;
     }

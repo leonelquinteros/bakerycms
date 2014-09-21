@@ -37,4 +37,58 @@ class ProductsCategory extends ProductsAppModel
                         )
     );
 
+
+    /**
+     * afterSave()
+     * Clear cache
+     */
+    public function afterSave($created, $options = array())
+    {
+        $this->clearCache($this->data['ProductsCategory']['url'], $this->id);
+
+        return true;
+    }
+
+    /**
+     * beforeDelete()
+     * Clear cache.
+     */
+    public function beforeDelete($cascade = true)
+    {
+        $data = $this->find('first', array('conditions' => array('ProductsCategory.id' => $this->id)));
+        $this->clearPageCache($data['ProductsCategory']['url'], $this->id);
+
+        return true;
+    }
+
+    /**
+     * clearCache()
+     * Deletes cached information.
+     */
+    public function clearCache($url, $id = 0)
+    {
+        Cache::delete('plugins-products-models-products_category-get_category-' . $url, 'permanent');
+    }
+
+
+    public function getCategory($url)
+    {
+        $data = Cache::read('plugins-products-models-products_category-get_category-' . $url, 'permanent');
+
+        if($data === false)
+        {
+            $data = $this->find('first', array(
+                                            'conditions' =>  array('ProductsCategory.url' => $url),
+                                            'recursive' => 2,
+                                        )
+                    );
+
+            if(!empty($data))
+            {
+                Cache::write('plugins-products-models-products_category-get_category-' . $url, $data, 'permanent');
+            }
+        }
+
+        return $data;
+    }
 }

@@ -28,13 +28,6 @@ class ProductsProduct extends ProductsAppModel
     public $name = 'ProductsProduct';
     public $recursive = 1;
 
-    public $belongsTo = array(
-                            'Category' => array(
-                                        'className' => 'Products.ProductsCategory',
-                                        'foreignKey' => 'category_id',
-                        )
-    );
-
     public $hasMany = array(
                             'Images' => array(
                                         'className' => 'Products.ProductsImage',
@@ -79,6 +72,60 @@ class ProductsProduct extends ProductsAppModel
         }
 
         return true;
+    }
+
+
+    /**
+     * afterSave()
+     * Clear cache
+     */
+    public function afterSave($created, $options = array())
+    {
+        $this->clearCache($this->data['ProductsProduct']['url'], $this->id);
+
+        return true;
+    }
+
+    /**
+     * beforeDelete()
+     * Clear cache.
+     */
+    public function beforeDelete($cascade = true)
+    {
+        $data = $this->find('first', array('conditions' => array('ProductsProduct.id' => $this->id)));
+        $this->clearPageCache($data['ProductsProduct']['url'], $this->id);
+
+        return true;
+    }
+
+    /**
+     * clearCache()
+     * Deletes cached information.
+     */
+    public function clearCache($url, $id = 0)
+    {
+        Cache::delete('plugins-products-models-products_product-get_product-' . $url, 'permanent');
+    }
+
+
+    public function getProduct($url)
+    {
+        $data = Cache::read('plugins-products-models-products_product-get_product-' . $url, 'permanent');
+
+        if($data === false)
+        {
+            $data = $this->find('first', array(
+                                            'conditions' =>  array('ProductsProduct.url' => $url)
+                                        )
+                    );
+
+            if(!empty($data))
+            {
+                Cache::write('plugins-products-models-products_product-get_product-' . $url, $data, 'permanent');
+            }
+        }
+
+        return $data;
     }
 
 }
