@@ -31,6 +31,16 @@ class PagesSchema extends CakeSchema
     }
 
     public function after($event = array()) {
+        if(!empty($event['create']) && $event['create'] == 'pages_page_contents')
+        {
+            // Sets correct LONGTEXT field
+            App::uses('AppModel', 'Model');
+            App::uses('PagesAppModel', 'Pages.Model');
+            App::uses('PagesPageContent', 'Pages.Model');
+
+            $model = new PagesPageContent();
+            $model->query('ALTER TABLE pages_page_contents CHANGE COLUMN content content LONGTEXT NULL');
+        }
     }
 
     public $pages_page_contents = array(
