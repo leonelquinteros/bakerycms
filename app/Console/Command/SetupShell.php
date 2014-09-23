@@ -251,6 +251,7 @@ class SetupShell extends AppShell
     {
         $this->out('Creating schemas ...');
 
+        CakePlugin::loadAll();
         $installedPlugins = CakePlugin::loaded();
 
         foreach($installedPlugins as $pluginName)
@@ -269,6 +270,8 @@ class SetupShell extends AppShell
         CakePlugin::loadAll();
 
         $this->out('Creating administrator user account');
+
+        App::uses('AppModel', 'Model');
 
         App::uses('AdminsAppModel', 'Admins.Model');
         App::uses('AdminsAdmin', 'Admins.Model');
