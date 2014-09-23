@@ -37,7 +37,7 @@ class PagesSchema extends CakeSchema
         'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
         'pages_pages_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'index'),
         'content_key' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 100),
-        'content' => array('type' => 'longtext', 'null' => true, 'default' => NULL),
+        'content' => array('type' => 'text', 'null' => true, 'default' => NULL),
         'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'PageId' => array('column' => 'pages_pages_id', 'unique' => 0)),
         'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'MyISAM')
     );
