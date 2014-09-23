@@ -51,7 +51,7 @@ class CmsController extends AppController
         $cmsMenu = $this->BakeryMenu->getMenu();
         $this->set('cmsMenu', $cmsMenu);
 
-        $this->set('pageTitle', __d('cms', 'Empowered CMS') );
+        $this->set('pageTitle', __d('cms', 'Bakery CMS') );
     }
 
 

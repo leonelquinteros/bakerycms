@@ -183,8 +183,6 @@ class PagesPage extends PagesAppModel
      */
     public function getPublishedPage($url)
     {
-        App::import('Lib', 'Empowered');
-
         $pageData = Cache::read('plugins-pages-models-pages_page-get_published_page-' . $url, 'permanent');
 
         if($pageData === false)
