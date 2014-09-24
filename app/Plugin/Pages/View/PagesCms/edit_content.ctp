@@ -171,13 +171,29 @@ echo $this->requestAction('/' . $page['PagesPage']['url'], array('return'));
                 body_class: $el.parent().attr('class'),
 
                 style_formats : [
-                    {title : 'Default Button', inline : 'a', classes: 'btn'},
-                    {title : 'Primary Button', inline : 'a', classes: 'btn btn-primary'},
-                    {title : 'Info Button', inline : 'a', classes: 'btn btn-info'},
-                    {title : 'Success Button', inline : 'a', classes: 'btn btn-success'},
-                    {title : 'Warning Button', inline : 'a', classes: 'btn btn-warning'},
-                    {title : 'Danger Button', inline : 'a', classes: 'btn btn-danger'},
-                    {title : 'Inverse Button', inline : 'a', classes: 'btn btn-inverse'},
+                    {title: "Headers", items: [
+                        {title: "Header 1", format: "h1"},
+                        {title: "Header 2", format: "h2"},
+                        {title: "Header 3", format: "h3"},
+                        {title: "Header 4", format: "h4"},
+                        {title: "Header 5", format: "h5"},
+                        {title: "Header 6", format: "h6"}
+                    ]},
+                    {title: "Blocks", items: [
+                        {title: "Paragraph", format: "p"},
+                        {title: "Blockquote", format: "blockquote"},
+                        {title: "Div", format: "div"},
+                        {title: "Pre", format: "pre"}
+                    ]},
+                    {title: "Buttons", items: [
+                        {title : 'Default Button', inline : 'a', classes: 'btn'},
+                        {title : 'Primary Button', inline : 'a', classes: 'btn btn-primary'},
+                        {title : 'Info Button', inline : 'a', classes: 'btn btn-info'},
+                        {title : 'Success Button', inline : 'a', classes: 'btn btn-success'},
+                        {title : 'Warning Button', inline : 'a', classes: 'btn btn-warning'},
+                        {title : 'Danger Button', inline : 'a', classes: 'btn btn-danger'},
+                        {title : 'Inverse Button', inline : 'a', classes: 'btn btn-inverse'},
+                    ]},
                 ],
 
                 width: $el.parent().css('width'),
