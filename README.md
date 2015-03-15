@@ -1,8 +1,30 @@
 Bakery CMS
 ==========
 
-Setup
------
+Setup Apache
+------------
+
+- Enable Apache mod_rewrite
+- Create a Virtual Host pointing to the repository root:
+
+```
+<VirtualHost *:80>
+	ServerName bakerycms.local
+
+	DocumentRoot "/path/to/bakerycms/"
+
+	<Directory /path/to/bakerycms/>
+	    Options FollowSymLinks
+	    AllowOverride All
+        Require all granted
+	</Directory>
+</VirtualHost>
+
+```
+
+
+Setup CMS
+---------
 
 - Clone or download into your web server's document root.
 - Inside app/Config, copy *.php.default to *.php
