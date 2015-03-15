@@ -7,15 +7,27 @@
 
         echo $this->fetch('meta');
         ?>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title><?php echo $pageTitle; ?> | Bakery CMS</title>
 
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
         <?php
         $this->Html->css('bakery/bakery', null, array('inline' => false));
+
+        echo $this->fetch('css');
+
+        /*
+         * TO DELETE
+         *
+
         $this->Html->css('flick/jquery-ui-1.10.3.custom.min', null, array('inline' => false));
         $this->Html->css('MediaGallery.jquery.Jcrop.min', null, array('inline' => false));
 
-        echo $this->fetch('css');
+
 
         $this->Html->script('jquery-1.9.1', array('inline' => false));
         $this->Html->script('jquery.tools.min', array('inline' => false));
@@ -29,11 +41,11 @@
             $this->Html->script('MediaGallery.bakery.media.gallery', array('inline' => false));
             $this->Html->script('MediaGallery.jquery.Jcrop.min', array('inline' => false));
         }
-
-        echo $this->fetch('script');
+        */
         ?>
 
         <script type="text/javascript">
+            /*
             jQuery( function() {
                 if(jQuery('#flashMessage')) {
                     jQuery('#flashMessage').html( '<div>' + jQuery('#flashMessage').html() + '</div>' );
@@ -71,24 +83,27 @@
                 });
 
             });
+            */
         </script>
 
     </head>
 
     <body>
-        <div id="bakery-top-back"></div>
+        <div id="wrapper" class="container-fluid">
+            <div id="top-bar" class="row">
+                <div class="col-md-12">
+                    <a href="<?php echo $this->Html->url('/bakery'); ?>">
+                        <h4>Bakery CMS</h4>
+                    </a>
+                </div>
+            </div>
 
-        <div id="bakery-wrapper">
-            <div id="bakery-top">
-                <a href="<?php echo $this->Html->url('/bakery'); ?>">
-                    <h1>Bakery CMS</h1>
-                </a>
+            <div class="row">
+                <div id="nav-bar" class="col-md-2">
+                    <div id="bakery-topFlags"><?php echo $this->Language->flags(); ?></div>
 
-                <div id="bakery-topFlags"><?php echo $this->Language->flags(); ?></div>
+                    <div id="bakery-topMessage"><?php echo $this->CmsWelcome->render(); ?></div>
 
-                <div id="bakery-topMessage"><?php echo $this->CmsWelcome->render(); ?></div>
-
-                <div class="bakery-nav">
                     <ul class="bakery-nav">
                         <?php
                         foreach($cmsMenu as $menu)
@@ -128,27 +143,45 @@
                         ?>
                     </ul>
                 </div>
+
+                <div id="main" class="col-md-10">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="page-header">
+                                <h1>
+                                    <?php echo $pageTitle; ?>
+                                </h1>
+                            </div>
+
+                            <?php
+                            echo $this->CmsBreadcrumb->render($breadcrumb);
+
+                            echo $this->fetch('content');
+                            ?>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            Powered by <a href="http://leonelquinteros.github.io/bakerycms">Bakery CMS</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div id="bakery-content">
-                <?php
-                echo $this->CmsBreadcrumb->render($breadcrumb);
-
-                echo "<h1>" . $pageTitle . "</h1>";
-
-                echo $this->fetch('content');
-                ?>
-
-                <div style="clear:both;"></div>
-
-                <?php echo $this->Session->flash(); ?>
-            </div>
-
         </div>
 
-        <div id="bakery-bottom">
-            Powered by <a href="http://leonelquinteros.github.io/bakerycms">Bakery CMS</a>
-        </div>
+
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+        <?php
+        echo $this->fetch('script');
+
+        echo $this->Session->flash();
+        ?>
 
         <?php
         /**
