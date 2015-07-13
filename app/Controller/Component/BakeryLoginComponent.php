@@ -230,7 +230,7 @@ class BakeryLoginComponent extends Component
                 $this->Session->write('CMSAdministratorLogin', $adminData);
                 $this->Cookie->write('CMSAdministratorLogin',  base64_encode(serialize($adminData)), true, 7200);
 
-                echo $goBack = $this->Session->read('BakeryLoginReturnAddress');
+                $goBack = $this->Session->read('BakeryLoginReturnAddress');
 
                 if(!empty($goBack))
                 {
