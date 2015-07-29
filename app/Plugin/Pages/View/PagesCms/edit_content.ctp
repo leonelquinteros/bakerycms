@@ -1,6 +1,6 @@
 <?php
 $this->Html->css('flick/jquery-ui-1.10.3.custom.min', null, array('inline' => false));
-$this->Html->css('MediaGallery.jquery.Jcrop.min', null, array('inline' => false));
+$this->Html->css('MediaGallery.jquery.Jcrop', null, array('inline' => false));
 
 $this->Html->script('jquery-1.9.1', array('inline' => false));
 $this->Html->script('jquery.tools.min', array('inline' => false));

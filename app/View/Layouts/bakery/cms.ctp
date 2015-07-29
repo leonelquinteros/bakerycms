@@ -13,7 +13,7 @@
         <?php
         $this->Html->css('bakery/bakery', null, array('inline' => false));
         $this->Html->css('flick/jquery-ui-1.10.3.custom.min', null, array('inline' => false));
-        $this->Html->css('MediaGallery.jquery.Jcrop.min', null, array('inline' => false));
+        $this->Html->css('MediaGallery.jquery.Jcrop', null, array('inline' => false));
 
         echo $this->fetch('css');
 
