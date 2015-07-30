@@ -17,3 +17,6 @@ app/Plugin/*
 !app/Plugin/Products/
 !app/Plugin/Sitemap/
 .DS_Store
+.settings
+.project
+.buildpath
