@@ -28,7 +28,7 @@ class AdminsCmsController extends AdminsAppController
 
     public $components = array('BakeryLogin', 'Breadcrumb', 'BakeryMenu');
 
-    public $helpers = array('CmsBreadcrumb', 'CmsWelcome', 'Form');
+    public $helpers = array('CmsBreadcrumb', 'Form');
 
 
     public function beforeFilter()
@@ -37,7 +37,7 @@ class AdminsCmsController extends AdminsAppController
         $this->disableCache();
 
         // Sets layout
-        $this->layout = "bakery/cms";
+        $this->layout = "bakery/sbadmin";
 
         // Checks login
         $this->BakeryLogin->checkAdminLogin();

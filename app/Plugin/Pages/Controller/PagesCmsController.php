@@ -26,7 +26,7 @@ class PagesCmsController extends PagesAppController
 {
     public $uses = array('Pages.PagesPage', 'Pages.PagesPageContent', 'Menus.MenusMenu');
     public $components = array('BakeryLogin', 'Breadcrumb', 'BakeryMenu');
-    public $helpers = array('CmsBreadcrumb', 'CmsWelcome', 'Form');
+    public $helpers = array('CmsBreadcrumb', 'Form');
 
     public $paginate = array(
                             'PagesPage' => array(
@@ -43,7 +43,7 @@ class PagesCmsController extends PagesAppController
         $this->disableCache();
 
         // Sets layout
-        $this->layout = "bakery/cms";
+        $this->layout = "bakery/sbadmin";
 
         // Checks login
         $this->BakeryLogin->checkAdminLogin();

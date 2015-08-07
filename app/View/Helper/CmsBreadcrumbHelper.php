@@ -37,20 +37,20 @@ class CmsBreadcrumbHelper extends AppHelper {
                 {
                     if(!empty($crumb['url']))
                     {
-                        $aCrumbs[] = "<a class='cmsBreadcrumbItem' href='" . $this->Html->url($crumb['url']) . "'>" . $crumb['name'] . "</a>";
+                        $aCrumbs[] = '<li><a href="' . $this->Html->url($crumb['url']) . '">' . $crumb['name'] . '</a></li>';
                     }
                     else
                     {
-                        $aCrumbs[] = "<span class='cmsBreadcrumbItem'>" . $crumb['name'] . "</span>";
+                        $aCrumbs[] = '<li class="active">' . $crumb['name'] . '</li>';
                     }
 
                 }
             }
 
-            $html = implode(' &raquo; ', $aCrumbs);
+            $html = implode(' ', $aCrumbs);
         }
 
-        $html = "<div class='bakery-breadcrumb-wrap'>$html</div>";
+        $html = '<ol class="breadcrumb">' . $html . '</ol>';
 
         return $this->output($html);
     }

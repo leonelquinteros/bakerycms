@@ -30,7 +30,7 @@ class CmsController extends AppController
     public $name = "Cms";
     public $uses = array('Admins.AdminsAdmin', 'Pages.PagesPage', 'Menus.MenusMenu', 'MediaGallery.MediaGalleryFile');
     public $components = array('BakeryLogin', 'Breadcrumb', 'BakeryMenu');
-    public $helpers = array('CmsBreadcrumb', 'CmsWelcome', 'Text');
+    public $helpers = array('CmsBreadcrumb', 'Text');
 
     public function beforeFilter()
     {
@@ -38,7 +38,7 @@ class CmsController extends AppController
         $this->disableCache();
 
         //Set layout
-        $this->layout = 'bakery/cms';
+        $this->layout = 'bakery/sbadmin';
 
         // Checks login
         if($this->request->params['action'] != 'login' && $this->request->params['action'] != 'logout' && $this->request->params['action'] != 'configure')
@@ -92,6 +92,8 @@ class CmsController extends AppController
 
     public function login()
     {
+    	$this->layout = 'bakery/login';
+    	
         if( !empty($_POST) )
         {
             if( !empty($_POST['user']) && !empty($_POST['pass']) )

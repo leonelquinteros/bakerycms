@@ -28,7 +28,7 @@ class CategoriesCmsController extends ProductsAppController
 
     public $components = array('BakeryLogin', 'Breadcrumb', 'BakeryMenu');
 
-    public $helpers = array('CmsBreadcrumb', 'CmsWelcome', 'Form');
+    public $helpers = array('CmsBreadcrumb', 'Form');
 
     public $paginate = array(
                             'ProductsCategory' => array(
@@ -46,7 +46,7 @@ class CategoriesCmsController extends ProductsAppController
         $this->disableCache();
 
         // Sets layout
-        $this->layout = "bakery/cms";
+        $this->layout = "bakery/sbadmin";
 
         // Checks login
         $this->BakeryLogin->checkAdminLogin();

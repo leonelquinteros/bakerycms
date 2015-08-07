@@ -28,7 +28,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
 
     public $components = array('BakeryLogin', 'Breadcrumb', 'BakeryMenu');
 
-    public $helpers = array('CmsBreadcrumb', 'CmsWelcome', 'Form');
+    public $helpers = array('CmsBreadcrumb', 'Form');
 
     public $paginate = array(
                             'MediaGalleryFile' => array(
@@ -45,7 +45,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
         $this->disableCache();
 
         // Sets layout
-        $this->layout = "bakery/cms";
+        $this->layout = "bakery/sbadmin";
 
         // Checks login
         $this->BakeryLogin->checkAdminLogin();

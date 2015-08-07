@@ -248,7 +248,7 @@ msgstr "Ingrese su usuario y contraseña para ingresar"
 msgid "Password"
 msgstr "Contraseña"
 
-msgid "Log out"
+msgid "Logout"
 msgstr "Cerrar sesión"
 
 msgid "There is not home page created"
