@@ -37,7 +37,7 @@ class AdminsAdminsRestriction extends AdminsAppModel
     public $validate = array(
                         'admins_admins_id' => array(
                                     'notEmptyRule' => array(
-                                            'rule' => 'notEmpty',
+                                            'rule' => 'notBlank',
                                             'required' => true,
                                             'allowEmpty' => false,
                                             'message' => 'Translate this',
@@ -45,7 +45,7 @@ class AdminsAdminsRestriction extends AdminsAppModel
                         ),
                         'plugin' => array(
                                     'notEmptyRule' => array(
-                                            'rule' => 'notEmpty',
+                                            'rule' => 'notBlank',
                                             'required' => true,
                                             'allowEmpty' => false,
                                             'message' => 'Translate this',
@@ -53,7 +53,7 @@ class AdminsAdminsRestriction extends AdminsAppModel
                         ),
                         'action' => array(
                                     'notEmptyRule' => array(
-                                            'rule' => 'notEmpty',
+                                            'rule' => 'notBlank',
                                             'required' => true,
                                             'allowEmpty' => false,
                                             'message' => 'Translate this',

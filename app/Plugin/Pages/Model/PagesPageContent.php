@@ -37,7 +37,7 @@ class PagesPageContent extends PagesAppModel
     public $validate = array(
                         'pages_pages_id' => array(
                                     'notEmptyRule' => array(
-                                            'rule' => 'notEmpty',
+                                            'rule' => 'notBlank',
                                             'required' => true,
                                             'allowEmpty' => false,
                                             'message' => 'Translate this',
