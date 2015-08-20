@@ -28,6 +28,15 @@
     <form id="frmCategory" action="<?php echo $this->Html->url('/bakery/products/categories/edit'); ?>" method="post" enctype="multipart/form-data">
         <div id="bakery-form">
             <?php
+            $this->Form->inputDefaults(
+            		array(
+            				'div'	=> array(
+            						'class' => 'form-group',
+            				),
+            				'class' => 'form-control',
+            		)
+            );
+            
             if( !empty($this->data['ProductsCategory']['id']) )
             {
                 echo $this->Form->input('ProductsCategory.id', array('type' => 'hidden'));

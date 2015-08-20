@@ -49,6 +49,19 @@ class Validation {
 	public static $errors = array();
 
 /**
+ * Backwards compatibility wrapper for Validation::notBlank().
+ *
+ * @param string|array $check Value to check.
+ * @return bool Success.
+ * @deprecated 2.7.0 Use Validation::notBlank() instead.
+ * @see Validation::notBlank()
+ */
+	public static function notEmpty($check) {
+		trigger_error('Validation::notEmpty() is deprecated. Use Validation::notBlank() instead.', E_USER_DEPRECATED);
+		return self::notBlank($check);
+	}
+
+/**
  * Checks that a string contains something other than whitespace
  *
  * Returns true if string contains something other than whitespace
@@ -59,12 +72,12 @@ class Validation {
  * @param string|array $check Value to check
  * @return bool Success
  */
-	public static function notEmpty($check) {
+	public static function notBlank($check) {
 		if (is_array($check)) {
 			extract(self::_defaults($check));
 		}
 
-		if (empty($check) && $check != '0') {
+		if (empty($check) && (string)$check !== '0') {
 			return false;
 		}
 		return self::_check($check, '/[^\s]+/m');
@@ -102,9 +115,23 @@ class Validation {
  * @param int $max Maximum value in range (inclusive)
  * @return bool Success
  */
-	public static function between($check, $min, $max) {
+	public static function lengthBetween($check, $min, $max) {
 		$length = mb_strlen($check);
 		return ($length >= $min && $length <= $max);
+	}
+
+/**
+ * Alias of Validator::lengthBetween() for backwards compatibility.
+ *
+ * @param string $check Value to check for length
+ * @param int $min Minimum value in range (inclusive)
+ * @param int $max Maximum value in range (inclusive)
+ * @return bool Success
+ * @see Validator::lengthBetween()
+ * @deprecated Deprecated 2.6. Use Validator::lengthBetween() instead.
+ */
+	public static function between($check, $min, $max) {
+		return self::lengthBetween($check, $min, $max);
 	}
 
 /**
@@ -129,7 +156,8 @@ class Validation {
  * Returns true if $check is in the proper credit card format.
  *
  * @param string|array $check credit card number to validate
- * @param string|array $type 'all' may be passed as a sting, defaults to fast which checks format of most major credit cards
+ * @param string|array $type 'all' may be passed as a sting, defaults to fast which checks format of most major credit
+ * cards
  *    if an array is used only the values of the array are checked.
  *    Example: array('amex', 'bankcard', 'maestro')
  * @param bool $deep set to true this will check the Luhn algorithm of the credit card.
@@ -164,11 +192,13 @@ class Validation {
 				'maestro'	=> '/^(?:5020|6\\d{3})\\d{12}$/',
 				'mc'		=> '/^5[1-5]\\d{14}$/',
 				'solo'		=> '/^(6334[5-9][0-9]|6767[0-9]{2})\\d{10}(\\d{2,3})?$/',
-				'switch'	=> '/^(?:49(03(0[2-9]|3[5-9])|11(0[1-2]|7[4-9]|8[1-2])|36[0-9]{2})\\d{10}(\\d{2,3})?)|(?:564182\\d{10}(\\d{2,3})?)|(6(3(33[0-4][0-9])|759[0-9]{2})\\d{10}(\\d{2,3})?)$/',
+				'switch'	=>
+				'/^(?:49(03(0[2-9]|3[5-9])|11(0[1-2]|7[4-9]|8[1-2])|36[0-9]{2})\\d{10}(\\d{2,3})?)|(?:564182\\d{10}(\\d{2,3})?)|(6(3(33[0-4][0-9])|759[0-9]{2})\\d{10}(\\d{2,3})?)$/',
 				'visa'		=> '/^4\\d{12}(\\d{3})?$/',
 				'voyager'	=> '/^8699[0-9]{11}$/'
 			),
-			'fast' => '/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6011[0-9]{12}|3(?:0[0-5]|[68][0-9])[0-9]{11}|3[47][0-9]{13})$/'
+			'fast' =>
+			'/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6011[0-9]{12}|3(?:0[0-5]|[68][0-9])[0-9]{11}|3[47][0-9]{13})$/'
 		);
 
 		if (is_array($type)) {
@@ -278,7 +308,9 @@ class Validation {
 
 /**
  * Date validation, determines if the string passed is a valid date.
- * keys that expect full month, day and year will validate leap years
+ * keys that expect full month, day and year will validate leap years.
+ *
+ * Years are valid from 1800 to 2999.
  *
  * ### Formats:
  *
@@ -304,7 +336,7 @@ class Validation {
 		}
 		$month = '(0[123456789]|10|11|12)';
 		$separator = '([- /.])';
-		$fourDigitYear = '(([1][9][0-9][0-9])|([2][0-9][0-9][0-9]))';
+		$fourDigitYear = '(([1][8-9][0-9][0-9])|([2][0-9][0-9][0-9]))';
 		$twoDigitYear = '([0-9]{2})';
 		$year = '(?:' . $fourDigitYear . '|' . $twoDigitYear . ')';
 
@@ -436,7 +468,7 @@ class Validation {
  * Validates for an email address.
  *
  * Only uses getmxrr() checking for deep validation if PHP 5.3.0+ is used, or
- * any PHP version on a non-windows distribution
+ * any PHP version on a non-Windows distribution
  *
  * @param string $check Value to check
  * @param bool $deep Perform a deeper validation (if true), by also checking availability of host
@@ -575,7 +607,7 @@ class Validation {
 		$defaults = array('in' => null, 'max' => null, 'min' => null);
 		$options += $defaults;
 
-		$check = array_filter((array)$check);
+		$check = array_filter((array)$check, 'strlen');
 		if (empty($check)) {
 			return false;
 		}
@@ -738,6 +770,7 @@ class Validation {
  * @param string $regex Regular expression to use
  * @param string $country Country
  * @return bool Success
+ * @deprecated Deprecated 2.6. Will be removed in 3.0.
  */
 	public static function ssn($check, $regex = null, $country = null) {
 		if (is_array($check)) {

@@ -56,6 +56,15 @@
                 </a>
             </h2>
             <?php
+            $this->Form->inputDefaults(
+            		array(
+            				'div'	=> array(
+            						'class' => 'form-group',
+            				),
+            				'class' => 'form-control',
+            		)
+            );
+            
             echo $this->Form->input('MediaGalleryFile.id', array('type' => 'hidden'));
 
             echo $this->Form->input('MediaGalleryFile.title',

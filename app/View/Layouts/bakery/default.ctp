@@ -101,11 +101,11 @@
                                     ?>
                                     <ul class="nav nav-second-level">
                                         <?php
-                                    	foreach($menu['submenu'] as $subMenu)
+                                    	foreach($menu['submenu'] as $title => $link)
                                         {
                                             ?>
                                             <li>
-                                                <a href="<?php echo $this->Html->url($subMenu['link']); ?>"><?php echo $subMenu['name']; ?></a>
+                                                <a href="<?php echo $this->Html->url($link); ?>"><?php echo $title; ?></a>
                                             </li>
                                             <?php
                                         }
@@ -133,6 +133,8 @@
                     	<?php
                         echo $this->CmsBreadcrumb->render($breadcrumb);
                         ?>
+                        
+                        <?php echo $this->Flash->render(); ?>
                         
                         <h1 class="page-header"><?php echo $pageTitle; ?></h1>
                         

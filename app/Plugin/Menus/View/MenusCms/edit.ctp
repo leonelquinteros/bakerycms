@@ -71,6 +71,15 @@
     <form id="frmMenus" action="<?php echo $this->Html->url('/bakery/menus/edit/' . $lang .'/' . $menuName); ?>" method="post" enctype="multipart/form-data">
         <div id="bakery-form">
             <?php
+            $this->Form->inputDefaults(
+            		array(
+            				'div'	=> array(
+            						'class' => 'form-group',
+            				),
+            				'class' => 'form-control',
+            		)
+            );
+            
             if( !empty($this->data['MenusMenu']['id']) )
             {
                 echo $this->Form->input('MenusMenu.id', array('type' => 'hidden'));

@@ -31,7 +31,8 @@
  *      - Every Plugin's CMS module will have a method called "getCmsModuleName" and will map the standard route:
  *          /bakery/[PluginName]/
  *          Where the "index" Action will be the one that shows the "Module's Home" in the CMS.
- *      - Every Plugin's CMS module will use the "cms" layout.
+ *      - Plugins can define sub-menu items using the $_subMenu protected property.
+ *      - Every Plugin's CMS module will use the "bakery" layout.
  *      - Every Plugin's CMS module MUST implement the route:
  *          /bakery/[PluginName]/
  *

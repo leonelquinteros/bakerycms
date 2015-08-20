@@ -45,7 +45,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
         $this->disableCache();
 
         // Sets layout
-        $this->layout = "bakery/sbadmin";
+        $this->layout = "bakery/default";
 
         // Checks login
         $this->BakeryLogin->checkAdminLogin();

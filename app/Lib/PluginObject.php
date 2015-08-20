@@ -39,14 +39,9 @@ abstract class PluginObject {
     protected $_showInBakeryMenu = true;
 
     /**
-     * @var (boolean) Is a submenu.
+     * @var (boolean) Plugin-s sub-menu.
      */
-    protected $_isCmsSubMenu = false;
-
-    /**
-     * @var (string) Plugin name of the father menu.
-     */
-    protected $_cmsMenuFather = '';
+    protected $_subMenu = array();
 
     /**
      * @var (boolean) Only Super Admins have access.
@@ -76,13 +71,9 @@ abstract class PluginObject {
         return ($this->_hasCmsModule && $this->_showInBakeryMenu);
     }
 
-    public function isCmsSubMenu() {
-        return ($this->_hasCmsModule && $this->_isCmsSubMenu);
-    }
-
-    public function getBakeryMenuFather()
+    public function getSubMenu()
     {
-        return $this->_cmsMenuFather;
+        return $this->_subMenu;
     }
 
     public function isRestricted()

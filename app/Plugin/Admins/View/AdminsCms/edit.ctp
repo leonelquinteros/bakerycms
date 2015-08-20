@@ -1,64 +1,28 @@
 <?php
-$this->Html->script('passwordStrengthMeter', array('inline' => false));
-
 echo $this->element('help/' . $this->Language->getLanguage() . '/edit');
 ?>
-
-<div id="bakery-actions">
-    <div class="bakery-action-box">
-        <div class="bakery-action-box-top">
-            <h3>
-                <?php echo __d('cms', 'Actions');?>
-                <a href="#" class="help" rel="#AdministratorActionsHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                    <img src="<?php echo $this->Html->url('/img/bakery/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
-                </a>
-            </h3>
-        </div>
-        <div class="bakery-action-box-content">
-            <p class="bakery-action-boxButtons">
-                <a href="#" class="action-button-large" onclick="this.onclick = function(){ return false; }; jQuery('#frmAdmins').submit(); return false;"><?php echo __d('cms', 'Save');?></a>
-                <br />
-                <a href="<?php echo $this->Html->url('/bakery/admins'); ?>" class="button-large"><?php echo __d('cms', 'Back to administrators');?></a>
-            </p>
-        </div>
-        <div class="bakery-action-box-bottom"></div>
-    </div>
-
-    <?php
-    if( !empty($this->data['AdminsAdmin']['id']) )
-    {
-        ?>
-        <div class="bakery-action-box">
-            <div class="bakery-action-box-top">
-                <h3>
-                    <?php echo __d('cms', 'Permissions');?>
-                    <a href="#" class="help" rel="#AdministratorPermissionsHelp" title="<?php echo __d('cms', 'Help'); ?>">
-                        <img src="<?php echo $this->Html->url('/img/bakery/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
-                    </a>
-                </h3>
-            </div>
-            <div class="bakery-action-box-content">
-                <p class="bakery-action-boxButtons">
-                    <a href="<?php echo $this->Html->url('/bakery/admins/rights/' . $this->data['AdminsAdmin']['id']); ?>" class="action-button-large"><?php echo __d('cms', 'Administrator rights');?></a>
-                </p>
-            </div>
-            <div class="bakery-action-box-bottom"></div>
-        </div>
-        <?php
-    }
-    ?>
-</div>
-
-<div id="bakery-main">
-    <h2 style="margin-top:0px;">
-        <?php echo __d('cms', 'Login information'); ?>
-        <a href="#" class="help" rel="#AdministratorInformationHelp" title="<?php echo __d('cms', 'Help'); ?>">
-            <img src="<?php echo $this->Html->url('/img/bakery/icons/help_icon.png'); ?>" alt="<?php echo __d('cms', 'Help'); ?>" />
-        </a>
-    </h2>
-    <form id="frmAdmins" action="<?php echo $this->Html->url('/bakery/admins/edit'); ?>" method="post" enctype="multipart/form-data">
-        <div id="bakery-form">
+<div class="row">
+	<div class="col-md-8">
+	    <h4>
+	        <?php echo __d('cms', 'Login information'); ?>
+	        
+	        <a href="#" class="pull-right" data-toggle="modal" data-target="#AdministratorInformationHelp">
+	        	<i class="fa fa-question-circle"></i>
+	        </a>
+	    </h4>
+	    <hr />
+	    
+	    <form id="frmAdmins" action="<?php echo $this->Html->url('/bakery/admins/edit'); ?>" method="post" enctype="multipart/form-data">
             <?php
+            $this->Form->inputDefaults(
+            				array(
+			            		'div'	=> array(
+			            				'class' => 'form-group',
+			            		),
+			            		'class' => 'form-control',
+            				)
+            );
+            
             if( !empty($this->data['AdminsAdmin']['id']) )
             {
                 echo $this->Form->input('AdminsAdmin.id', array('type' => 'hidden'));
@@ -79,10 +43,11 @@ echo $this->element('help/' . $this->Language->getLanguage() . '/edit');
                                 )
             );
             ?>
-
-            <div id="passwordStrength" style="margin-top:-20px;margin-bottom:20px;padding:5px;font-weight:bold;color:#000000;">&nbsp;</div>
-
-            <h2>Personal information</h2>
+            
+            <hr />
+            <h4>Personal information</h4>
+            <hr />
+            
             <?php
             echo $this->Form->input('AdminsAdmin.name',
                                 array(
@@ -105,46 +70,55 @@ echo $this->element('help/' . $this->Language->getLanguage() . '/edit');
                                 )
             );
             ?>
+	    </form>
+	    
+	    <hr />
+	    <div>
+            <a href="#" class="btn btn-lg btn-success" onclick="this.onclick = function(){ return false; }; jQuery('#frmAdmins').submit(); return false;"><?php echo __d('cms', 'Save');?></a>
         </div>
-
-        <div class="bakery-form-footer">
-            <a href="#" class="action-button-medium" onclick="this.onclick = function(){ return false; }; jQuery('#frmAdmins').submit(); return false;"><?php echo __d('cms', 'Save');?></a>
-        </div>
-    </form>
+	</div>
+	
+	<div class="col-md-4">
+	    <div class="panel panel-default">
+	        <div class="panel-heading">
+                <?php echo __d('cms', 'Actions');?>
+                
+                <a href="#" class="pull-right" data-toggle="modal" data-target="#AdministratorActionsHelp">
+		        	<i class="fa fa-question-circle"></i>
+		        </a>
+	        </div>
+	        
+	        <div class="panel-body">
+	            <p>
+	                <a href="#" class="btn btn-success btn-lg btn-block" onclick="this.onclick = function(){ return false; }; jQuery('#frmAdmins').submit(); return false;"><?php echo __d('cms', 'Save');?></a>
+	                <br />
+	                <a href="<?php echo $this->Html->url('/bakery/admins'); ?>" class="btn btn-danger btn-lg btn-block"><?php echo __d('cms', 'Back to administrators');?></a>
+	            </p>
+	        </div>
+	    </div>
+	
+	    <?php
+	    if( !empty($this->data['AdminsAdmin']['id']) )
+	    {
+	        ?>
+	        <div class="panel panel-default">
+	            <div class="panel-heading">
+                    <?php echo __d('cms', 'Permissions');?>
+                    
+                    <a href="#" class="pull-right" data-toggle="modal" data-target="#AdministratorPermissionsHelp">
+			        	<i class="fa fa-question-circle"></i>
+			        </a>
+	            </div>
+	            <div class="panel-body">
+	                <p>
+	                    <a href="<?php echo $this->Html->url('/bakery/admins/rights/' . $this->data['AdminsAdmin']['id']); ?>" class="btn btn-info btn-lg btn-block">
+	                    	<?php echo __d('cms', 'Administrator rights');?>
+	                    </a>
+	                </p>
+	            </div>
+	        </div>
+	        <?php
+	    }
+	    ?>
+	</div>
 </div>
-
-<script type="text/javascript">
-    jQuery(document).ready(function() {
-        jQuery('#AdminsAdminPass').keyup( function() {
-                                if(jQuery('#AdminsAdminPass').val() == '') {
-                                    jQuery('#passwordStrength').css('background-color', 'transparent');
-                                    jQuery('#passwordStrength').html('&nbsp;');
-                                } else {
-                                    var result = passwordStrength( jQuery('#AdminsAdminPass').val(), jQuery('#AdminsAdminLogin').val() );
-                                    switch(result) {
-                                        case 'Too short':
-                                            jQuery('#passwordStrength').css('background-color', '#FA5A6D');
-                                            jQuery('#passwordStrength').html('Too short');
-                                            break;
-
-                                        case 'Bad':
-                                            jQuery('#passwordStrength').css('background-color', '#FA5A6D');
-                                            jQuery('#passwordStrength').html('Weak');
-                                            break;
-
-                                        case 'Good':
-                                            jQuery('#passwordStrength').css('background-color', '#F2FA98');
-                                            jQuery('#passwordStrength').html('Good');
-                                            break;
-
-                                        case 'Strong':
-                                            jQuery('#passwordStrength').css('background-color', '#77F78A');
-                                            jQuery('#passwordStrength').html('Strong');
-                                            break;
-
-                                    }
-                                }
-        });
-    });
-
-</script>

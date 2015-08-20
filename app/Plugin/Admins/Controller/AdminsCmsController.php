@@ -37,7 +37,7 @@ class AdminsCmsController extends AdminsAppController
         $this->disableCache();
 
         // Sets layout
-        $this->layout = "bakery/sbadmin";
+        $this->layout = "bakery/default";
 
         // Checks login
         $this->BakeryLogin->checkAdminLogin();
@@ -86,7 +86,8 @@ class AdminsCmsController extends AdminsAppController
         {
             if( $this->AdminsAdmin->save($this->request->data['AdminsAdmin']) )
             {
-                $this->Session->setFlash(__d('cms', 'The administrator has been saved'), 'default', array('class' => 'information'));
+                $this->Flash->success(__d('cms', 'The administrator has been saved'));
+                
                 return $this->redirect('/bakery/admins');
             }
         }

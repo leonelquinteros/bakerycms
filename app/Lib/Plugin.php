@@ -97,7 +97,7 @@ class Plugin
     /**
      * getCmsModulesMenu()
      * Creates an array with all the CMS menu items retrieved from the installed plugins.
-     * 
+     *
      * @param (bool) $superAdmin. Indicates if a Super Admin is logged in.
      *
      * @return (array) The CMS menu array.
@@ -112,39 +112,15 @@ class Plugin
         {
             $pluginObject = self::loadPluginObject($pluginName);
 
-            if($pluginObject && $pluginObject->showInBakeryMenu() && !$pluginObject->isCmsSubMenu())
+            if($pluginObject && $pluginObject->showInBakeryMenu())
             {
                 if( $superAdmin || !$pluginObject->isRestricted() )
                 {
                     $modulesMenu[] = array( 'plugin' => $pluginName,
                                             'name' => $pluginObject->getCmsModuleName(),
                                             'link' => '/bakery/' . Inflector::underscore($pluginName),
-                                            'submenu' => array()
+                                            'submenu' => $pluginObject->getSubMenu(),
                     );
-                }
-            }
-        }
-
-        // Then searches for submenu
-        foreach($installedPlugins as $pluginName)
-        {
-            $pluginObject = self::loadPluginObject($pluginName);
-
-            if($pluginObject && $pluginObject->showInBakeryMenu() && $pluginObject->isCmsSubMenu())
-            {
-                if( $superAdmin || !$pluginObject->isRestricted() )
-                {
-                    for($i = 0; $i < count($modulesMenu); $i++)
-                    {
-                        if($modulesMenu[$i]['plugin'] == $pluginObject->getBakeryMenuFather())
-                        {
-                            $modulesMenu[$i]['submenu'][] = array(
-                                                                'plugin' => $pluginName,
-                                                                'name' => $pluginObject->getCmsModuleName(),
-                                                                'link' => '/bakery/' . Inflector::underscore($pluginName),
-                            );
-                        }
-                    }
                 }
             }
         }

@@ -122,6 +122,15 @@
             </h2>
 
             <?php
+            $this->Form->inputDefaults(
+            		array(
+            				'div'	=> array(
+            						'class' => 'form-group',
+            				),
+            				'class' => 'form-control',
+            		)
+            );
+            
             if( !empty($this->data['PagesPage']['id']) )
             {
                 echo $this->Form->input('PagesPage.id', array('type' => 'hidden'));

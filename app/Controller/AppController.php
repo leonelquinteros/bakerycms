@@ -32,7 +32,7 @@
  */
 class AppController extends Controller
 {
-    public $components = array('Session', 'I18n', 'Cookie');
+    public $components = array('Session', 'I18n', 'Cookie', 'Flash');
     public $helpers = array('Session', 'Language', 'Html');
 
     public function robots_txt()
