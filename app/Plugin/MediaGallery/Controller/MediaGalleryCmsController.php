@@ -121,6 +121,8 @@ class MediaGalleryCmsController extends MediaGalleryAppController
         {
             return $this->redirect('/bakery/media_gallery');
         }
+        
+        $this->render('index');
     }
 
 
