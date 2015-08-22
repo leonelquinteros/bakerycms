@@ -39,7 +39,7 @@ class PagesPage extends PagesAppModel
     public $validate = array(
                         'title' => array(
                                     'notEmptyRule' => array(
-                                            'rule' => 'notEmpty',
+                                            'rule' => 'notBlank',
                                             'required' => true,
                                             'allowEmpty' => false,
                                             'message' => 'Translate this',
@@ -47,7 +47,7 @@ class PagesPage extends PagesAppModel
                         ),
                         'layout' => array(
                                     'notEmptyRule' => array(
-                                            'rule' => 'notEmpty',
+                                            'rule' => 'notBlank',
                                             'required' => true,
                                             'allowEmpty' => false,
                                             'message' => 'Translate this',

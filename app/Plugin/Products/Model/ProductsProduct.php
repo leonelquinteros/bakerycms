@@ -39,7 +39,7 @@ class ProductsProduct extends ProductsAppModel
     public $validate = array(
                         'name' => array(
                                     'notEmptyRule' => array(
-                                            'rule' => 'notEmpty',
+                                            'rule' => 'notBlank',
                                             'required' => true,
                                             'allowEmpty' => false,
                                             'message' => 'Translate this',

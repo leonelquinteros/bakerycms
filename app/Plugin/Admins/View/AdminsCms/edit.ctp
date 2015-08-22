@@ -90,9 +90,13 @@ echo $this->element('help/' . $this->Language->getLanguage() . '/edit');
 	        
 	        <div class="panel-body">
 	            <p>
-	                <a href="#" class="btn btn-success btn-lg btn-block" onclick="this.onclick = function(){ return false; }; jQuery('#frmAdmins').submit(); return false;"><?php echo __d('cms', 'Save');?></a>
+	                <a href="#" class="btn btn-success btn-lg btn-block" onclick="this.onclick = function(){ return false; }; jQuery('#frmAdmins').submit(); return false;">
+	                	<?php echo __d('cms', 'Save');?>
+	                </a>
 	                <br />
-	                <a href="<?php echo $this->Html->url('/bakery/admins'); ?>" class="btn btn-danger btn-lg btn-block"><?php echo __d('cms', 'Back to administrators');?></a>
+	                <a href="<?php echo $this->Html->url('/bakery/admins'); ?>" class="btn btn-warning btn-lg btn-block">
+	                	<?php echo __d('cms', 'Back to administrators');?>
+	                </a>
 	            </p>
 	        </div>
 	    </div>
