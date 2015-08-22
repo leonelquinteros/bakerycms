@@ -1,30 +1,45 @@
 @CHARSET "UTF-8";
 
 @media all {
-    #wrapper {
-        background-color: #333333;
-    }
-
-    #top-bar {
-        color: #eeeeee;
-        padding-bottom: 5px;
-    }
-
-    #top-bar a {
-        text-decoration: none;
-        color: #eeeeee;
-    }
-
-    #top-bar a:hover {
-        color: #ffffff;
-    }
-
-    #nav-bar {
-        color: #eeeeee;
-    }
-
-    #main {
-        background-color: #ffffff;
-        min-height: 1400px;
+    .error .help-block,
+	.error .control-label,
+	.error .radio,
+	.error .checkbox,
+	.error .radio-inline,
+	.error .checkbox-inline,
+	.error.radio label,
+	.error.checkbox label,
+	.error.radio-inline label,
+	.error.checkbox-inline label {
+	  color: #a94442;
+	}
+	.error .form-control {
+	  border-color: #a94442;
+	  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	}
+	.error .form-control:focus {
+	  border-color: #843534;
+	  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+	          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+	}
+	.error .input-group-addon {
+	  color: #a94442;
+	  background-color: #f2dede;
+	  border-color: #a94442;
+	}
+	.error .form-control-feedback {
+	  color: #a94442;
+	}
+	
+	.error-message {
+      padding: 15px;
+      margin-bottom: 20px;
+      margin-top: 4px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      color: #a94442;
+	  background-color: #f2dede;
+	  border-color: #ebccd1;
     }
 }

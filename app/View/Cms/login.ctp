@@ -1,4 +1,5 @@
-<div class="col-md-4 col-md-offset-4">
+<div class="col-md-6 col-md-offset-3">
+	<h1>Bakery CMS</h1>
 	<div class="login-panel panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title"><?php echo __d('cms', 'Please enter your username and password to login'); ?></h3>

@@ -38,7 +38,7 @@ class CmsController extends AppController
         $this->disableCache();
 
         //Set layout
-        $this->layout = 'bakery/sbadmin';
+        $this->layout = 'bakery/default';
 
         // Checks login
         if($this->request->params['action'] != 'login' && $this->request->params['action'] != 'logout' && $this->request->params['action'] != 'configure')
