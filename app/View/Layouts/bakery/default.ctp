@@ -5,7 +5,7 @@
 	<?php
 	echo $this->fetch('meta');
     ?>
-    
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +33,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	
+
 	<?php
 	// Custom CSS
 	echo $this->fetch('css');
@@ -134,11 +134,11 @@
                     	<?php
                         echo $this->CmsBreadcrumb->render($breadcrumb);
                         ?>
-                        
+
                         <?php echo $this->Flash->render(); ?>
-                        
+
                         <h1 class="page-header"><?php echo $pageTitle; ?></h1>
-                        
+
                         <?php
                         echo $this->fetch('content');
                         ?>
@@ -146,7 +146,7 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-                
+
                 <div class="row">
                     <div class="col-xs-12">
                      	<p>
@@ -179,7 +179,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="/sbadmin/dist/js/sb-admin-2.js"></script>
-    
+
     <?php
     // View scripts
     echo $this->fetch('script');
