@@ -87,7 +87,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
 
         $this->set('type', $type);
         $this->set('files', $files);
-        $this->set('pageTitle', __d('cms', 'Media') );
+        $this->set('pageTitle', __d('cms', 'Media'));
     }
 
 
@@ -121,7 +121,7 @@ class MediaGalleryCmsController extends MediaGalleryAppController
         {
             return $this->redirect('/bakery/media_gallery');
         }
-        
+
         $this->render('index');
     }
 

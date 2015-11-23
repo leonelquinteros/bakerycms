@@ -80,6 +80,7 @@ class CmsController extends AppController
     {
         $this->set('pageTitle', __d('cms', 'Home') );
 
+        /*
         $pages = $this->PagesPage->find('all', array('order' => 'id DESC', 'limit' => '5'));
         $this->set('pages', $pages);
 
@@ -88,12 +89,13 @@ class CmsController extends AppController
 
         $media = $this->MediaGalleryFile->find('all', array('order' => 'id DESC', 'limit' => '5'));
         $this->set('media', $media);
+        */
     }
 
     public function login()
     {
     	$this->layout = 'bakery/login';
-    	
+
         if( !empty($_POST) )
         {
             if( !empty($_POST['user']) && !empty($_POST['pass']) )
